@@ -11,6 +11,10 @@
           <!-- Placeholder: uses Devise helper functions -->
 
           <% if active_signed_in? %>
+
+            <!-- Link to current rushees only available when active signed in -->
+            <li><%= link_to "Rushees", rushees_path %></li>
+
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>

@@ -1,0 +1,10 @@
+<% provide(:title, 'Rushees') %>
+<h1>Rushees</h1>
+
+<ul class="rushees">
+  <% @rushees.each do |rushee| %>
+    <li>
+      <%= link_to rushee.name, rushee %>
+    </li>
+  <% end %>
+</ul>

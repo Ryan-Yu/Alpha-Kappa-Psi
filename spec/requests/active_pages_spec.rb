@@ -16,6 +16,15 @@ describe "Active pages" do
     it { should have_content('Sign up') }
   end
 
+  describe "authorization" do
+    describe "for non-signed-in-actives" do
+      describe "visiting the rushee index" do
+        before { visit rushees_path }
+        it { should have_title('Sign in') }
+      end
+    end
+  end
+
 
 
 end
