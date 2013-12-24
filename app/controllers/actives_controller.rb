@@ -7,4 +7,8 @@ class ActivesController < ApplicationController
 		@active = Active.find(params[:id])
 	end
 
+	def index
+		@actives = Active.all
+	end
+
 end

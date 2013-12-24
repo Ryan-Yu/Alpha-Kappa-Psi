@@ -1,0 +1,8 @@
+<% provide(:title, 'Active Brothers') %>
+<h1>Active Brothers</h1>
+
+<ul class="actives">
+  <% @actives.each do |active| %>
+    <%= render active %>
+  <% end %>
+</ul>
