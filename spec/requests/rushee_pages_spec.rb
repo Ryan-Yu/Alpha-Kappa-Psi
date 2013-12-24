@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe AdminUser do
+describe "RusheePages" do
   
 end

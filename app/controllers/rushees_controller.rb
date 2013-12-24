@@ -1,0 +1,2 @@
+class RusheesController < ApplicationController
+end
