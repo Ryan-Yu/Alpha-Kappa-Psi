@@ -1,7 +1,10 @@
 AlphaKappaPsi::Application.routes.draw do
   
-  devise_for :actives
-  resources :actives
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
+  devise_for :actives, :path_prefix => 'my'
+  resources :actives, only: [:index, :show]
 
   root     'static_pages#home'
   match    '/about',   to: 'static_pages#about',   via: 'get'
