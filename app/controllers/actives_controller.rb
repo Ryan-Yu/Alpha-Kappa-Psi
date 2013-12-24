@@ -1,0 +1,2 @@
+class ActivesController < ApplicationController
+end
