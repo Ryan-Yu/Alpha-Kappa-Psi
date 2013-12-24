@@ -10,8 +10,12 @@ describe "StaticPages" do
   	end
   	it "should have the title 'Home'" do
   		visit '/static_pages/home'
-  		expect(page).to have_title("UC Berkeley Alpha Kappa Psi | Home")
+  		expect(page).to have_title("UC Berkeley Alpha Kappa Psi")
   	end
+  	it "should not have a custom page title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Home')
+    end
   end
 
 
