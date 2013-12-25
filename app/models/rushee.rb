@@ -1,5 +1,7 @@
 class Rushee < ActiveRecord::Base
 
+	has_many :rusheeposts, dependent: :destroy
+
 	before_save { self.email = email.downcase }
 	before_save { self.grade = grade.capitalize }
 

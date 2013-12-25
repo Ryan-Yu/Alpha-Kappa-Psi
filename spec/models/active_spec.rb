@@ -35,6 +35,30 @@ describe Active do
     it { should_not be_valid }
   end
 
+  describe "rusheepost associations" do
+
+    before { @active.save }
+    before { @rushee = Rushee.new(name: "Jane Doe", email: "janedoe@gmail.com", major: "Business", grade: "Sophomore") }
+    before { @rushee.save }
+    let!(:older_rusheepost) do
+      FactoryGirl.create(:rusheepost, active: @active, rushee: @rushee, created_at: 1.day.ago)
+    end
+    let!(:newer_rusheepost) do
+      FactoryGirl.create(:rusheepost, active: @active, rushee: @rushee, created_at: 1.hour.ago)
+    end
+    it "should have the right rusheeposts in the right order" do
+      expect(@rushee.rusheeposts.to_a).to eq [newer_rusheepost, older_rusheepost]
+    end
+    it "should destroy associated microposts" do
+      rusheeposts = @rushee.rusheeposts.to_a
+      @rushee.destroy
+      expect(rusheeposts).not_to be_empty
+      rusheeposts.each do |rusheepost|
+        expect(Rusheepost.where(id: rusheepost.id)).to be_empty
+      end
+    end
+  end
+
 
 
 

@@ -33,5 +33,13 @@ namespace :db do
                    grade: rusheeGrade)
 
     end
+
+    active = Active.first
+    rushees = Rushee.all(limit: 6)
+    50.times do
+      content = Faker::Lorem.sentence(5)
+      rushees.each { |rushee| rushee.rusheeposts.create!(content: content, active: active) }
+    end
+
   end
 end

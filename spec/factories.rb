@@ -14,4 +14,10 @@ FactoryGirl.define do
   	grade    "Sophomore"
   end
 
+  factory :rusheepost do
+    content "Lorem ipsum"
+    active
+    rushee
+  end
+
 end

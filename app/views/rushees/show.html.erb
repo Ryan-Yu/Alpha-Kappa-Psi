@@ -8,6 +8,11 @@
     		<%= @rushee.grade %>
     		<%= @rushee.major %>
       </h1>
+
+      <section>
+        <%= render 'shared/rusheepost_form' %>
+      </section>
+
     </section>
   </aside>
 
@@ -16,7 +21,7 @@
     <% if @rushee.rusheeposts.any? %>
       <h3>Comments (<%= @rushee.rusheeposts.count %>)</h3>
       <ol class="rusheeposts">
-        <%= render @rusheeposts %>
+         <%= render @rusheeposts %>
       </ol>
     <% end %>
   </div>

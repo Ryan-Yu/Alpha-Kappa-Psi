@@ -4,7 +4,10 @@ class RusheesController < ApplicationController
 
 	def show
 		@rushee = Rushee.find(params[:id])
+		@rusheeposts = @rushee.rusheeposts
+		@rusheepost = @rushee.rusheeposts.build if active_signed_in?
 	end
+
 
 	def index
 		@rushees = Rushee.all

@@ -6,7 +6,9 @@ AlphaKappaPsi::Application.routes.draw do
   devise_for :actives, :path_prefix => 'my'
   resources :actives, only: [:index, :show]
 
-  resources :rushees, only: [:index, :show]
+  resources :rushees, only: [:index, :show] do
+    resources :rusheeposts, only: [:create, :destroy]
+  end
 
   root     'static_pages#home'
   match    '/about',   to: 'static_pages#about',   via: 'get'
