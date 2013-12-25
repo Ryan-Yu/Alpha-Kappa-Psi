@@ -35,14 +35,27 @@ ActiveAdmin.register_page "Dashboard" do
                     column :pledge_class
                     column :major
                 end
+
+                # Add link to view all actives
+                strong { link_to "View All Actives", admin_actives_path }
             end
 
-            # Add link to view all actives
-            strong { link_to "View All Actives", admin_actives_path }
+            panel "Recently modified Rushees" do
+                table_for Rushee.order("updated_at desc").limit(8) do
+                    column :name do |rushee|
+                        link_to rushee.name, [:admin, rushee]
+                    end
+                    column :email
+                    column :grade
+                    column :major
+                end
+
+                # Add link to view all actives
+                strong { link_to "View All Rushees", admin_rushees_path }
+            end
+
         end
-    end
 
-
-
-  end # content
+    end # content
+  end
 end
