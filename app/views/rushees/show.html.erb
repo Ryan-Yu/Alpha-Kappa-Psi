@@ -5,9 +5,20 @@
       <h1>
       	<%= @rushee.name %>
         <%= @rushee.email %>
-		<%= @rushee.grade %>
-		<%= @rushee.major %>
+    		<%= @rushee.grade %>
+    		<%= @rushee.major %>
       </h1>
     </section>
   </aside>
+
+  <!-- Displays the rusheeposts that are associated with the current rushee -->
+  <div class="span8">
+    <% if @rushee.rusheeposts.any? %>
+      <h3>Comments (<%= @rushee.rusheeposts.count %>)</h3>
+      <ol class="rusheeposts">
+        <%= render @rusheeposts %>
+      </ol>
+    <% end %>
+  </div>
+
 </div>
