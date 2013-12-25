@@ -1,7 +1,7 @@
 class Rushee < ActiveRecord::Base
 
 	before_save { self.email = email.downcase }
-	before_save { self.name = name.capitalize }
+	before_save { self.grade = grade.capitalize }
 
 	# Validation for name attribute
 	validates(:name, presence: true, length: { maximum: 50 } )
