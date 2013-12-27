@@ -3,9 +3,13 @@ ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'rails', '4.0.2'
-gem 'bootstrap-sass', '2.3.2.0'
+#gem 'bootstrap-sass', '2.3.2.0'
 gem 'devise'
 gem 'faker', '1.1.2'
+
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 

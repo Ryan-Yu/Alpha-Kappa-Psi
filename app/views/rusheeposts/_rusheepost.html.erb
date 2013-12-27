@@ -1,8 +1,6 @@
 <li>
   <span class="content"><%= rusheepost.content %></span>
   <span class="timestamp">
-  	Posted by <%= Active.find_by(rusheepost.active_id).name %> 
+    Posted <%= time_ago_in_words(rusheepost.created_at) %> ago.
   </span>
-
-  <%= rusheepost.created_at %>
 </li>

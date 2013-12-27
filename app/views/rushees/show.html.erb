@@ -18,8 +18,8 @@
 
   <!-- Displays the rusheeposts that are associated with the current rushee -->
   <div class="span8">
-    <% if @rushee.rusheeposts.any? %>
-      <h3>Comments (<%= @rushee.rusheeposts.count %>)</h3>
+    <% if @rusheeposts.count > 0 %>
+      <h3>Comments (<%= @rusheeposts.count %>)</h3>
       <ol class="rusheeposts">
          <%= render @rusheeposts %>
       </ol>

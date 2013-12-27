@@ -11,7 +11,11 @@ AlphaKappaPsi::Application.routes.draw do
   end
 
   root     'static_pages#home'
-  match    '/about',   to: 'static_pages#about',   via: 'get'
+  match    '/about',        to: 'static_pages#about',      via: 'get'
+  match    '/careers',      to: 'static_pages#careers',    via: 'get'
+  match    '/contact',      to: 'static_pages#contact',    via: 'get'
+  match    '/consulting',   to: 'static_pages#consulting', via: 'get'
+  match    '/corporate',    to: 'static_pages#corporate',  via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
