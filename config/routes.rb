@@ -3,7 +3,7 @@ AlphaKappaPsi::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  devise_for :actives, :path_prefix => 'my'
+  devise_for :actives, :path_prefix => 'guest'
   resources :actives, only: [:index, :show]
 
   resources :rushees, only: [:index, :show] do

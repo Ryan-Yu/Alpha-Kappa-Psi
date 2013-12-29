@@ -6,6 +6,7 @@ ActiveAdmin.register Active do
     column :email
     column :pledge_class
     column :major
+    column :biography
 
     # Adds view/edit/delete actions
     default_actions
