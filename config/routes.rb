@@ -16,6 +16,7 @@ AlphaKappaPsi::Application.routes.draw do
   match    '/contact',      to: 'static_pages#contact',    via: 'get'
   match    '/consulting',   to: 'static_pages#consulting', via: 'get'
   match    '/corporate',    to: 'static_pages#corporate',  via: 'get'
+  match    '/rush',         to: 'static_pages#rush',       via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

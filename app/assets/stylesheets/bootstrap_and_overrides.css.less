@@ -4,16 +4,18 @@
 body {
   margin: 0px;
   padding-top: 75px;
+
   font-family: 'Lato', Calibri, Arial, sans-serif;
   background: #f9f9f9;
   font-weight: 300;
-  font-size: 13px;
+  font-size: 12px;
   color: #333;
 }
 
 
 @import "twitter/bootstrap/responsive";
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
 
 // Set the correct sprite paths
 @iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
@@ -48,6 +50,7 @@ body {
 
 
 /* CUSTOMIZE THE NAVBAR */
+
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
@@ -116,53 +119,6 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Header Dropdown menu overrides */
-
-.open > .dropdown-menu {
-  -webkit-transform: scale(1, 1);
-  transform: scale(1, 1);  
-  
-}
-
-.dropdown-menu {
-  font-size: 12.5px;
-  -webkit-transform-origin: top;
-  transform-origin: top;
-  -webkit-animation-fill-mode: forwards;  
-  animation-fill-mode: forwards; 
-  -webkit-transform: scale(1, 0);
-  display: block;
-  
-  transition: all 0.2s ease-out;
-  -webkit-transition: all 0.2s ease-out;
-}
-.dropup .dropdown-menu {
-  -webkit-transform-origin: bottom;
-  transform-origin: bottom;  
-}
- 
-.navbar .nav > li > .dropdown-menu:after {
- 
-}
-.dropup > .dropdown-menu:after {
-  border-bottom: 0;
-  border-top: 6px solid rgba(39, 45, 51, 0.9);
-  top: auto;
-  display: inline-block;
-  bottom: -6px;
-  content: '';
-  position: absolute;
-  left: 50%;
-  border-right: 6px solid transparent;
-  border-left: 6px solid transparent;
-}
-
-.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a
-{
-  color: black;
-  background-image: none;
-  background-color: #F0F0F0;
-}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -211,6 +167,8 @@ body {
     padding-right: 20px;
   }
 
+  
+
 }
 
 @media (min-width: 992px) {
@@ -218,3 +176,4 @@ body {
     margin-top: 120px;
   }
 }
+

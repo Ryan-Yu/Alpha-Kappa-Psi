@@ -19,7 +19,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    
+
 }
 
 .form-edit-active
@@ -108,5 +108,82 @@
 .bio-field {
     resize: none;
     width: 80%;
-    height: 2%;
+    height: 80px;
+}
+
+/* Styles for logo within the navbar */
+
+.brand {
+  height:40px;
+  width:200px;
+}
+
+.navbar-inner li a {
+ line-height: 40px;
+}
+
+@media (max-width:979px) {
+    .navbar-inner li a {
+    line-height:10px;
+    }
+
+    .btn.btn-navbar {
+    margin-top:15px;
+  }
+}
+
+
+/* Header Dropdown menu overrides */
+
+.open > .dropdown-menu {
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);  
+  
+}
+
+.dropdown-menu {
+  font-size: 12.5px;
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation-fill-mode: forwards;  
+  animation-fill-mode: forwards; 
+  -webkit-transform: scale(1, 0);
+  display: block;
+  
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+}
+.dropup .dropdown-menu {
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;  
+}
+
+
+.navbar .nav > li > .dropdown-menu:after {
+ 
+}
+.dropup > .dropdown-menu:after {
+  border-bottom: 0;
+  border-top: 6px solid rgba(39, 45, 51, 0.9);
+  top: auto;
+  display: inline-block;
+  bottom: -6px;
+  content: '';
+  position: absolute;
+  left: 50%;
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+}
+
+.dropdown-menu li > a
+{
+  font-size: 12px;
+  line-height:16px;
+}
+.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a
+{
+  color: black;
+  background-image: none;
+  background-color: #F0F0F0;
+  font-size: 12px;
 }
