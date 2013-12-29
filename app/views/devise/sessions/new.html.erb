@@ -1,14 +1,22 @@
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-signin"} ) do |f| %>
+<!-- Active "Sign In" form -->
+
+<style>
+input {
+  font-family: FontAwesome;
+}
+</style>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-sign-in-up"} ) do |f| %>
 
   <div class="account-wall">	
-  	  <img class="profile-img" src="../../assets/akpsi_bw_200.png" alt="akpsi_color_200">
+  	  <img class="profile-img" src=<%= asset_path("akpsi_bw_200.png")%> alt="akpsi_bw_200">
 
   	  <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
       <span class="profile-email">Active Login</span><br />
 
-	  <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Email' %><br />
+	  <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: "&#xf003;  Email".html_safe %><br />
 
-	  <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: 'Password' %>
+	  <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: "&#xf084;  Password".html_safe %>
 	  <br />
 	  <br />
 

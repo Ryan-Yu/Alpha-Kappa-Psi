@@ -1,34 +1,6 @@
-/* User sign in and sign forms. */
-.border-form-div {
-  max-width: 300px;
-  padding: 19px 29px 29px;
-  margin: 0 auto 20px;
-  background-color: #fff;
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-          border-radius: 5px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-          box-shadow: 0 1px 2px rgba(0,0,0,.05);
-}
-.border-form-div .form-signin-heading,
-.border-form-div .checkbox {
-  margin-bottom: 10px;
-}
-.border-form-div input[type="text"],
-.border-form-div input[type="email"],
-.border-form-div input[type="password"] {
-  font-size: 16px;
-  height: auto;
-  margin-bottom: 15px;
-  padding: 7px 9px;
-}
+/***** Active sign in, sign up, edit profile forms *****/
 
-
-/* Active sign in and sign up forms */
-
-.form-signin
+.form-sign-in-up
 {
     max-width: 330px;
     padding: 15px;
@@ -37,12 +9,29 @@
     text-align: center; 
 }
 
-.form-signin .checkbox
+.form-sign-in-up .form-control
 {
-    font-weight: normal;
+    position: relative;
+    font-size: 12px;
+    height: auto;
+    padding: 6px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    
 }
 
-.form-signin .form-control
+.form-edit-active
+{
+    max-width: 640px;
+    padding: 15px;
+    margin: 0 auto;
+    padding-top: 5px;
+    text-align: center; 
+}
+
+.form-edit-active .form-control
 {
     position: relative;
     font-size: 12px;
@@ -59,6 +48,16 @@
 {
     margin-top: 20px;
     padding: 20px 0px 30px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.account-wall-edit
+{
+    margin-top: 20px;
+    padding: 20px 0px 50px 0px;
     background-color: #f7f7f7;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -104,4 +103,10 @@
     text-align: left;
     font-family: 'Lato', Calibri, Arial, sans-serif;
     font-size: 13px;
+}
+
+.bio-field {
+    resize: none;
+    width: 80%;
+    height: 2%;
 }
