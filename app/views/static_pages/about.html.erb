@@ -1,5 +1,136 @@
+<style>
+/* MARKETING CONTENT
+    -------------------------------------------------- */
+
+    /* Center align the text within the three columns below the carousel */
+    .marketing .span4 {
+      text-align: center;
+    }
+    .marketing h2 {
+      font-weight: normal;
+    }
+    .marketing .span4 p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+
+    /* Featurettes
+    ------------------------- */
+
+    .featurette {
+      padding-top: 10px; /* Vertically center images part 1: add padding above and below text. */
+      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+    }
+    .featurette-image {
+      margin-top: -10px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+      width: 18%;
+      height: auto;
+    }
+
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+      margin-right: 60px;
+    }
+    .featurette-image.pull-right {
+      margin-left: 60px;
+      margin-right: 100px;
+    }
+
+    /* Thin out the marketing headings */
+    .featurette-heading {
+      font-size: 40px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -1px;
+      margin-right: 40px;
+    }
+
+   
+    .featurette .lead {
+    	margin-right: 80px;
+    	font-size: 16px;
+    	line-height: 24px;
+    	text-indent: 48px;
+    }
+
+     .featurette-heading .muted {
+      	font-size: 30px;
+      }
+
+    /* RESPONSIVE CSS
+    -------------------------------------------------- */
+
+    @media (max-width: 979px) {
+
+      .featurette {
+        height: auto;
+        padding: 0;
+
+      }
+      .featurette-image.pull-left,
+      .featurette-image.pull-right {
+        display: block;
+        float: none;
+        max-width: 40%;
+        margin: 0 auto 0px;
+      }
+
+      .featurette-heading {
+      	margin-right: 0px;
+      	margin-left: 0px;
+      }
+
+    }
+
+
+    @media (max-width: 767px) {
+
+      .marketing .span4 + .span4 {
+        margin-top: 40px;
+      }
+
+      .featurette-heading {
+        font-size: 22px;
+        text-align: center;
+      }
+
+      .featurette .lead {
+        font-size: 13px;
+        line-height: 1.5;
+        margin-right: 0px;
+      }
+
+    }
+</style>
+
 <% provide(:title, 'About Us') %>
-<h1>About Us</h1>
-<p>
-  This is the about page for the UCB Alpha Kappa Psi website.
-</p>
+
+<div class="account-wall-static">  
+	  <div class="container marketing">
+
+	      <div class="featurette">
+
+	        <img class="featurette-image pull-left" src=<%= asset_path("akpsi_seal.png")%>>
+
+
+	        <h2 class="featurette-heading">Alpha Kappa Psi:&nbsp;&nbsp;<span class="muted">   Established in 1904</span></h2>
+	        <br />
+	        <p class="lead">Alpha Kappa Psi Fraternity is the world's oldest and largest professional fraternity, with an international network spanning across all geographies, careers, and backgrounds. We provide our brothers with professional guidance throughout their college years to ensure that upon graduation, we are each equipped with a skill set necessary to survive in any work environment. Through interview training, resume building, public speaking workshops and a one-on-one mentorship program, Alpha Kappa Psi develops the business leaders of the future. As alumni, we join the work force as bankers and accountants, advertisers and consultants, doctors and lawyers, engineers and entrepreneurs. We live in foreign countries, we give back to our communities, and we explore the world. We invite you to join our brotherhood and become a part of the lifelong experience that is Alpha Kappa Psi.</p>
+	
+	      </div>
+
+	      <br />
+
+	      <div class="featurette">
+
+	        <img class="featurette-image pull-right" src=<%= asset_path("aklogo.png")%>>
+
+	        <h2 class="featurette-heading">Alpha Beta Chapter:&nbsp;&nbsp;<span class="muted">   Established in 1921</span></h2>
+	        <br />
+	        <p class="lead">The Alpha Beta Chapter at the University of California Berkeley is your glimpse into Alpha Kappa Psi's international brotherhood. It is an open door to your future success and the lifelong friends who will be there when you find it. Our brothers hail from all majors and backgrounds, producing a uniqueness that extends into our vast alumni network. You can find us up on the hill at Haas, in the basement of Soda, in the sun on Sproul, and in the crowd at Memorial Stadium. You can find us in downtown Manhattan, in high rises in Hong Kong, in the suburbs of Ukraine, and on the sunny islands of Hawaii. While we have widely different personal goals, what we share is the common passion to reach them. Alpha Kappa Psi is where professionalism and brotherhood meet. We invite you to join us at the intersection.</p>
+	
+	      </div>
+
+    </div>
+</div>

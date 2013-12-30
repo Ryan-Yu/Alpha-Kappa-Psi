@@ -158,10 +158,6 @@
   transform-origin: bottom;  
 }
 
-
-.navbar .nav > li > .dropdown-menu:after {
- 
-}
 .dropup > .dropdown-menu:after {
   border-bottom: 0;
   border-top: 6px solid rgba(39, 45, 51, 0.9);
@@ -178,12 +174,27 @@
 .dropdown-menu li > a
 {
   font-size: 12px;
-  line-height:16px;
+  line-height: 18px;
 }
+
 .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a
 {
   color: black;
   background-image: none;
   background-color: #F0F0F0;
   font-size: 12px;
+}
+
+
+/* Styles for all static pages */
+
+.account-wall-static
+{
+    margin-top: 20px;
+    padding: 40px 40px 40px 40px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: -5px 0 2px -5px rgba(0, 0, 0, 0.3), 5px 0 2px -5px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: -5px 0 2px -5px rgba(0, 0, 0, 0.3), 5px 0 2px -5px rgba(0, 0, 0, 0.3);
+    box-shadow: -5px 0 2px -5px rgba(0, 0, 0, 0.3), 5px 0 2px -5px rgba(0, 0, 0, 0.3);
+
 }
