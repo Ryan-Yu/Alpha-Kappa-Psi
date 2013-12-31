@@ -1,7 +1,133 @@
+<!-- Set up positioning of navbar -->
+
+<style type="text/css">
+  
+  /* Centers the buttons within the navbar */
+  .navbar-inner li a {
+    line-height: 40px;
+  }
+
+  @media (max-width:979px) {
+    /* Changes line spacing of the "account" dropdown */
+    .navbar-inner li a {
+      line-height:10px;
+    }
+
+    /* Centers the dropdown button within the navbar on small screens */
+    .btn.btn-navbar {
+      margin-top:15px;
+    }
+  }
+
+  /* Header Dropdown menu animation setup */
+  .open > .dropdown-menu {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);  
+    
+  }
+
+  /* All for animation */
+  .dropdown-menu {
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    -webkit-animation-fill-mode: forwards;  
+    animation-fill-mode: forwards; 
+    -webkit-transform: scale(1, 0);
+    display: block;
+    
+    transition: all 0.2s ease-out;
+    -webkit-transition: all 0.2s ease-out;
+  }
+  .dropup .dropdown-menu {
+    -webkit-transform-origin: bottom;
+    transform-origin: bottom;  
+  }
+
+  .dropup > .dropdown-menu:after {
+    border-bottom: 0;
+    border-top: 6px solid rgba(39, 45, 51, 0.9);
+    top: auto;
+    display: inline-block;
+    bottom: -6px;
+    content: '';
+    position: absolute;
+    left: 50%;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+  }
+
+  /* Sets font size and line spacing of the "account" dropdown menu (regular size screen) */
+  .dropdown-menu li > a
+  {
+    font-size: 12px;
+    line-height: 20px;
+  }
+
+  /* Sets attributes of the "account" dropdown menu when mouse hovered over attributes */
+  .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a
+  {
+    color: black;
+    background-image: none;
+    background-color: #F0F0F0;
+    font-size: 12px;
+  }
+
+  .navbar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+  }
+
+  /* Flip around the padding for proper display in narrow viewports */
+  .navbar-wrapper .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-wrapper .navbar {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Styles the AKPsi logo inside of navbar */
+  .brand {
+    height: 40px;
+    width: 200px;
+  }
+
+  @media (min-width: 768px) {
+
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+      margin-top: 20px;
+    }
+    .navbar-wrapper .container {
+      padding-left:  15px;
+      padding-right: 15px;
+    }
+    .navbar-wrapper .navbar {
+      padding-left:  0;
+      padding-right: 0;
+    }
+
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+      border-radius: 4px;
+    }
+
+  }
+
+</style>
+
+
+
+<!-- Content -->
+
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href= <%= root_path %>> <img src=<%= asset_path("akpsi_color_header_logo.png")%> alt="" />   </a>
+      <a class="brand" href= <%= root_path %>> <img src=<%= asset_path("akpsi_color_header_logo.png")%> alt="" />  </a>
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -27,7 +153,7 @@
 
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                My Account
+                Account
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "My Profile", current_active %></li>
@@ -50,3 +176,4 @@
     </div>
   </div>
 </div>
+

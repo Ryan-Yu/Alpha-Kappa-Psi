@@ -1,10 +1,24 @@
-<!-- Active "Sign Up" form -->
+<!-- Styling for form -->
 
-<style>
-input {
-  font-family: FontAwesome;
-}
+<style type="text/css">
+
+    input {
+        font-family: FontAwesome;
+    }
+
+    .btn.btn-sm {
+        border-style:solid;
+        border-color:#fff;
+        text-align: left;
+        font-family: 'Lato', Calibri, Arial, sans-serif;
+        font-size: 13px;
+    }
+
 </style>
+
+
+
+<!-- Active "Sign Up" form -->
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-sign-in-up"} ) do |f| %>
 

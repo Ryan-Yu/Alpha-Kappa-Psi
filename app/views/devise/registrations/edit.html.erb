@@ -1,3 +1,23 @@
+<!-- Styling for form -->
+
+<style type="text/css">
+
+    .btn.btn-sm{
+        border-style:solid;
+        border-color:#fff;
+        text-align: left;
+        font-family: 'Lato', Calibri, Arial, sans-serif;
+        font-size: 13px;
+    }
+
+    .bio-field {
+        resize: none;
+        width: 80%;
+        height: 80px;
+    }
+    
+</style>
+
 <!-- Active "Edit Information" form -->
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-edit-active" }) do |f| %>
