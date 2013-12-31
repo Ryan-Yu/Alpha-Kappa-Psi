@@ -12,5 +12,5 @@
  *= require bootstrap_and_overrides
  *= require custom_nonoverrides
  *= require carousel_style
- *= require carousel_home
+ *= require carousel_base
  */
