@@ -7,6 +7,7 @@ ActiveAdmin.register Active do
     column :pledge_class
     column :major
     column :biography
+    column :linkedin
 
     # Adds view/edit/delete actions
     default_actions

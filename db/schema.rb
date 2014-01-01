@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131225091138) do
+ActiveRecord::Schema.define(version: 20140101080332) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20131225091138) do
     t.string   "major"
     t.string   "pledge_class"
     t.string   "biography"
+    t.string   "linkedin"
   end
 
   add_index "actives", ["email"], name: "index_actives_on_email", unique: true
