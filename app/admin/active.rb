@@ -12,7 +12,22 @@ ActiveAdmin.register Active do
     # Adds view/edit/delete actions
     default_actions
   end
+
+  # Specify which attributes we want the admin to be able to edit
+  form do |f|
+    f.inputs "Profile Attributes" do
+      f.input :name
+      f.input :email
+      f.input :major
+      f.input :pledge_class
+      f.input :biography
+      f.input :linkedin
+    end
   
+    f.actions
+  end
+
+
   controller do
     def permitted_params
       params.permit!
