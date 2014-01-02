@@ -6,6 +6,9 @@ gem 'rails', '4.0.2'
 gem 'devise'
 gem 'faker', '1.1.2'
 
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk', '~> 1.5.7'
+
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"

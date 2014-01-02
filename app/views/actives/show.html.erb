@@ -1,2 +1,4 @@
 <% provide(:title, @active.name) %>
 <%= @active.name %>, <%= @active.email %>, <%= @active.major %>, <%= @active.pledge_class %>, <%= @active.biography %>
+
+<%= image_tag @active.photograph.url %>
