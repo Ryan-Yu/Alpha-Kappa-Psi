@@ -9,16 +9,7 @@ class Active < ActiveRecord::Base
   :default_url => '/images/:attachment/missing_:style.png',
   :url =>':s3_domain_url',
   :path => '/:class/:attachment/:id_partition/:style/:filename',
-  :s3_credentials => Rails.root.join("config/s3.yml")
-
-
-  # :s3_credentials => S3_CREDENTIALS
-
-  # :path => "users/:id/photograph/:style.:extension",
-  # :s3_credentials => {
-  #   :access_key_id => "AKIAJY77DNX23QNI5QCQ",
-  #   :secret_access_key => "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"
-  # }
+  :s3_credentials => S3_CREDENTIALS
 
   validates :name, presence: true, length: { maximum: 50 }
 
