@@ -2,6 +2,7 @@ ActiveAdmin.register Active do
 
   # Specify which columns we want to appear in our ActiveAdmin index page
   index do
+    selectable_column
     column :name
     column :email
     column :pledge_class
