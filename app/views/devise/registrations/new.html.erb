@@ -20,7 +20,7 @@
 
 <!-- Active "Sign Up" form -->
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-sign-in-up"} ) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-sign-in-up"} ) do |f| %>
 
   <div class="account-wall">  
       <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
