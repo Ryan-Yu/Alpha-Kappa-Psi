@@ -8,7 +8,6 @@ ActiveAdmin.register Active do
     column :major
     column :biography
     column :linkedin
-    column :photograph
 
     # Adds view/edit/delete actions
     default_actions

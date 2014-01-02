@@ -52,12 +52,6 @@
 
     <hr style="height:1pt; visibility:hidden; margin-bottom:-1px;" />
 
-
-    <b>Profile picture upload</b>
-    <%= f.file_field :photograph %>
-    <br />
-
-
     <b>Change current password</b><br /> (if fields are left blank, password stays as-is)
     <hr style="height:1pt; visibility:hidden; margin-bottom:-1px;" />
     <%= f.password_field :password, :autocomplete => "off", class: 'form-control', autofocus: true, placeholder: 'New password'  %>
