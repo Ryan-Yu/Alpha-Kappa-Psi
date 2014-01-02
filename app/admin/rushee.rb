@@ -6,9 +6,6 @@ ActiveAdmin.register Rushee do
     column :email
     column :major
     column :grade
-    # column :grade, :sortable => :grade do |rushee|
-    #   rushee.grade.capitalize
-    # end
 
     # Adds view/edit/delete actions
     default_actions

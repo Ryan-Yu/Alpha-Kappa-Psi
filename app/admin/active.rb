@@ -8,6 +8,7 @@ ActiveAdmin.register Active do
     column :major
     column :biography
     column :linkedin
+    column :photograph
 
     # Adds view/edit/delete actions
     default_actions
@@ -15,13 +16,14 @@ ActiveAdmin.register Active do
 
   # Specify which attributes we want the admin to be able to edit
   form do |f|
-    f.inputs "Profile Attributes" do
+    f.inputs "Personal information" do
       f.input :name
       f.input :email
       f.input :major
       f.input :pledge_class
       f.input :biography
       f.input :linkedin
+      f.input :photograph
     end
   
     f.actions
