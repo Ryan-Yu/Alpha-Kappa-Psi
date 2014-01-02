@@ -9,6 +9,8 @@
     		<%= @rushee.major %>
       </h1>
 
+      <%= image_tag @rushee.photograph.url(:medium) %>
+
       <section>
         <%= render 'shared/rusheepost_form' %>
       </section>

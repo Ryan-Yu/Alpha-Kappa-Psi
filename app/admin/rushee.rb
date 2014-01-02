@@ -11,6 +11,18 @@ ActiveAdmin.register Rushee do
     default_actions
   end
 
+  form do |f|
+    f.inputs "Rushee information" do
+      f.input :name
+      f.input :email
+      f.input :major
+      f.input :grade
+      f.input :photograph
+    end
+  
+    f.actions
+  end
+
   # Permit all attributes of Rushees to be edited
   controller do
     def permitted_params

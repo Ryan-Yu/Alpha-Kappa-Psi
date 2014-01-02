@@ -15,7 +15,7 @@ ActiveAdmin.register Active do
 
   # Specify which attributes we want the admin to be able to edit
   form do |f|
-    f.inputs "Personal information" do
+    f.inputs "Active information" do
       f.input :name
       f.input :email
       f.input :major
