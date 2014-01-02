@@ -7,7 +7,11 @@ class Active < ActiveRecord::Base
   :storage => :s3,
   :bucket => "uc-berkeley-akpsi-website",
   :default_url => '/images/:attachment/missing_:style.png',
+  :url =>':s3_domain_url',
+  :path => '/:class/:attachment/:id_partition/:style/:filename',
   :s3_credentials => Rails.root.join("config/s3.yml")
+
+
   # :s3_credentials => S3_CREDENTIALS
 
   # :path => "users/:id/photograph/:style.:extension",
