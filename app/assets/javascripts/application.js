@@ -14,4 +14,10 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
-//= require_tree .
+
+//= require active_admin
+//= require jquery.slitslider
+//= require modernizr.custom.79639
+//= require bootstrap
+//= require bootstrap.min
+

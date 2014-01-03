@@ -1,5 +1,111 @@
+<!-- Styles for modals -->
+
+<style>
+
+	a {
+		color: #c0392b;
+		text-decoration: none;
+	}
+
+	a:hover,
+	a:active {
+		color: #333;
+	}
+
+	.modal-list {
+	  list-style: none;
+	}
+	 
+	.modal-list li:before {
+	  content: '»  ';
+	  font-size: 1.2em;
+	}
+
+
+
+	/* Styles for modal 'close' button */
+	.md-close {
+		border: none;
+		padding: 0.6em 1.2em;
+
+		/* Background color of "close" button */
+		background: rgba(210,212,215,0.8);
+
+		/* Text color of "close" button */
+		color: #565b60;
+
+		font-family: 'Lato', Calibri, Arial, sans-serif;
+		font-size: 1em;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		cursor: pointer;
+		display: inline-block;
+		margin: 3px 2px;
+		border-radius: 2px;
+	}
+
+	.md-close:hover {
+		background: #bec0c2;
+	}
+
+	/* Styles for outer active button (that activates modal) */
+	.md-trigger {
+		border: none;
+		background: none;
+		outline: 0;
+	}
+
+	.md-trigger:hover {
+
+	}
+
+
+</style>
+
+
+
+
+<!-- Content -->
+
 <li>
-  <%= link_to active.name, active %>
-  
-  <%= image_tag active.photograph.url(:small) %>
+	<!-- Need to customize ID names for modals to keep each active's modal unique -->
+	<div class="md-modal md-effect-1" id=<%= "modal-" + active.id.to_s %> >
+		<div class="md-content">
+			<h3><%= active.name %></h3>
+			<div>
+				<div style="text-align:center;"><%= image_tag active.photograph.url(:medium) %></div>
+				<br />
+				<ul class="modal-list">
+
+					<li><strong>MAJOR:</strong> 
+						<%= active.major %>
+					</li>
+
+					<li><strong>PLEDGE CLASS:</strong> 
+						<%= active.pledge_class %>
+					</li>
+
+					<li><strong>BIOGRAPHY:</strong> 
+						<%= active.biography %>
+					</li>
+
+				</ul>
+				<button class="md-close">Close</button>
+			</div>
+		</div>
+	</div>
+
+		
+    <button class="md-trigger" data-modal=<%= "modal-" + active.id.to_s %> >
+		<a class="thumbnail">
+		  <%= image_tag active.photograph.url(:medium) %>
+		</a>
+	</button>
+
+	<p style="text-align:center;"><%= active.name %></p>
+
+
+	<div class="md-overlay"></div><!-- the overlay element -->
 </li>
+
+

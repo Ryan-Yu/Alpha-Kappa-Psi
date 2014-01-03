@@ -1,8 +1,36 @@
-<% provide(:title, 'Active Brothers') %>
-<h1>Active Brothers</h1>
+<!-- Styling for thumbnails class and thumbnail 'li' elements -->
 
-<ul class="actives">
-  <% @actives.each do |active| %>
-    <%= render active %>
-  <% end %>
-</ul>
+<style>
+
+	.thumbnails {
+	    text-align:center;
+	}
+
+	.thumbnails > li {
+	    display: inline-block;
+	    float: none; /* this is the part that makes it work */
+	    text-align: left;
+	}
+
+</style>
+
+
+
+<!-- Content -->
+
+<% provide(:title, 'Active Brothers') %>
+
+<div class="account-wall-static">
+	<ul class="thumbnails">
+	  <% @actives.each do |active| %>
+
+	    <%= render active %>
+
+	  <% end %>
+	</ul>
+</div>
+
+
+<script src="assets/modals/classie.js"></script>
+<script src="assets/modals/modalEffects.js"></script>
+
