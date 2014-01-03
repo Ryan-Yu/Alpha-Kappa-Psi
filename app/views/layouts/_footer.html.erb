@@ -1,7 +1,46 @@
+<style>
+
+	/* Wrapper for page content to push down footer */
+
+
+	/* Set the fixed height of the footer here */
+	#footer {
+		height: 120px;
+		box-shadow: 0px -7px 7px -7px rgba(0, 0, 0, 0.1);
+		background-color: #fff;
+	}
+	.footer-image {
+		height: 80px;
+		width: auto;
+		padding-top: 8px;
+	}
+
+	/* Lastly, apply responsive CSS fixes as necessary */
+	@media (max-width: 767px) {
+		#footer {
+		  margin-left: -20px;
+		  margin-right: -20px;
+		  padding-left: 20px;
+		  padding-right: 20px;
+		}
+	}
+
+
+</style>
+
+
+<!-- Part 1: Wrap all page content here -->
+
 
 <div id="footer">
-	<ul>
-      <li><%= link_to "About Us",   about_path %></li>
-      <li><%= link_to "Contact",   contact_path %></li>
-    </ul>
+  <div style="text-align:center; padding-left:20px;">
+  
+    <img class="footer-image" src=<%= asset_path("akpsi_bw_200.png")%> alt="akpsi_color_200">
+
+  </div>
+  <div style="text-align:center; padding-left:20px;">
+  
+    Copyright 2013 - All Rights Reserved.
+
+  </div>
 </div>
