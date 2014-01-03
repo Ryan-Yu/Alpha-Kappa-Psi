@@ -24,7 +24,7 @@
 	<ul class="thumbnails">
 	  <% @actives.each do |active| %>
 
-	    <%= render active %>
+	    <%= render active if active.display_on_index? %>
 
 	  <% end %>
 	</ul>

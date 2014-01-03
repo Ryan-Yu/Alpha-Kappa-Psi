@@ -1,5 +1,7 @@
 class Active < ActiveRecord::Base
 
+  before_save :default_values
+
   has_many :rusheeposts, dependent: :destroy
 
   has_attached_file :photograph,
@@ -17,5 +19,11 @@ class Active < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # Make all actives visible or not visible by default on creation
+  # (should be false on production verison of site)
+  def default_values
+    self.display_on_index = true if self.display_on_index.nil?
+  end
 
 end

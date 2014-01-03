@@ -7,8 +7,11 @@ ActiveAdmin.register Active do
     column :email
     column :pledge_class
     column :major
+    column :hometown
     column :biography
     column :linkedin
+    column :positions_held
+    column :display_on_index
 
     # Adds view/edit/delete actions
     default_actions
@@ -21,8 +24,14 @@ ActiveAdmin.register Active do
       f.input :email
       f.input :major
       f.input :pledge_class
+      f.input :positions_held
+      f.input :hometown
       f.input :biography
       f.input :linkedin
+    end
+
+    f.inputs "Appearance settings" do
+      f.input :display_on_index
       f.input :photograph
     end
   

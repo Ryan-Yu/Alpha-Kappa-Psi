@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102033300) do
+ActiveRecord::Schema.define(version: 20140103065356) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140102033300) do
     t.string   "photograph_content_type"
     t.integer  "photograph_file_size"
     t.datetime "photograph_updated_at"
+    t.boolean  "display_on_index"
+    t.string   "positions_held"
+    t.string   "hometown"
   end
 
   add_index "actives", ["email"], name: "index_actives_on_email", unique: true

@@ -77,17 +77,35 @@
 				<br />
 				<ul class="modal-list">
 
-					<li><strong>MAJOR:</strong> 
-						<%= active.major %>
-					</li>
+					<% unless active.major.blank? %>
+						<li><strong>MAJOR:</strong> 
+							<%= active.major %>
+						</li>
+					<% end %>
 
-					<li><strong>PLEDGE CLASS:</strong> 
-						<%= active.pledge_class %>
-					</li>
+					<% unless active.pledge_class.blank? %>
+						<li><strong>PLEDGE CLASS:</strong> 
+							<%= active.pledge_class %>
+						</li>
+					<% end %>
 
-					<li><strong>BIOGRAPHY:</strong> 
-						<%= active.biography %>
-					</li>
+					<% unless active.positions_held.blank? %>
+						<li><strong>POSITIONS HELD:</strong> 
+							<%= active.positions_held %>
+						</li>
+					<% end %>
+
+					<% unless active.hometown.blank? %>
+						<li><strong>HOMETOWN:</strong> 
+							<%= active.hometown %>
+						</li>
+					<% end %>
+
+					<% unless active.biography.blank? %>
+						<li><strong>BIOGRAPHY:</strong> 
+							<%= active.biography %>
+						</li>
+					<% end %>
 
 				</ul>
 				<button class="md-close">Close</button>
