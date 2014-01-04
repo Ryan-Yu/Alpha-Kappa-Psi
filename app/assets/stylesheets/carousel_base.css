@@ -19,15 +19,17 @@
 }
 
 .demo-2 .sl-slider h2 {
-	font-size: 80px;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+	font-size: 60px;
+	text-shadow:2px 2px 3px #000;
+	line-height: 100px;
 }
 
 .demo-2 .sl-slider blockquote {
 	font-size: 28px;
 	padding-top: 10px;
 	font-weight: 300;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+	text-shadow:2px 2px 3px #000;
+	line-height:30px;
 }
 
 .demo-2 .sl-slider blockquote cite {
@@ -156,13 +158,13 @@
 /* Content elements */
 
 .demo-2 .bg-img-1 {
-	background-image: url('3d_v1.png');
+	background-image: url('berk_1.jpg');
 }
 .demo-2 .bg-img-2 {
-	background-image: url('haas_3.jpg');
+	background-image: url('berk_3.jpg');
 }
 .demo-2 .bg-img-3 {
-	background-image: url('haas_2.jpg');
+	background-image: url('berk_2.jpg');
 }
 
 /* Animations for content elements */
@@ -320,11 +322,18 @@
 	}
 
 	.demo-2 .sl-slider h2 {
-		font-size: 36px;
+		font-size: 28px;
 	}
 
-	.demo-2 .sl-slider blockquote {
-		font-size: 12px;
+	.demo-2 .sl-slider blockquote p {
+		font-size: 13px;
+		line-height: 18px;
 	}
+
+	.demo-2 .sl-slider blockquote cite {
+		font-size: 13px;
+		line-height: 18px;
+	}
+
 
 }
