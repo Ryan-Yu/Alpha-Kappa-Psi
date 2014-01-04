@@ -3,63 +3,9 @@
 </noscript>
 
 
-
 <!-- Styles for content _below_ the carousel -->
 
 <style>
-
-	input {
-        font-family: FontAwesome;
-    }
-	
-	/* Adding responsitivity to content */
-
-	/* MARKETING CONTENT
-    -------------------------------------------------- */
-    /* Center align the text within the three columns below the carousel */
-    .marketing .span4 {
-      text-align: center;
-    }
-    .marketing h2 {
-      font-weight: normal;
-      font-size: 40px;
-    }
-    .marketing .span4 p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-    .marketing .span8 {
-      text-align: center;
-    }
-    .marketing .span8 p {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-
-
-    /* Featurettes -- edit margin-right  */
-
-    .featurette-divider {
-      margin: 20px 0; /* Space out the Bootstrap <hr> more */
-    }
-
-    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
-    .featurette-image.pull-left {
-      margin-right: 40px;
-    }
-    .featurette-image.pull-right {
-      margin-left: 40px;
-    }
-
-    /* Thin out the marketing headings */
-    .featurette-heading {
-      margin-right: 40px;
-    }
-
-    .featurette .lead {
-    	margin-right: 40px;
-    }
 
     #intro {
     	text-align: center;
@@ -82,7 +28,7 @@
     	margin:-10px 0 0 0;
     	font-size:1.5em;
     	font-weight:400;
-    	font-family:"Open Sans",
+    	font-family:"Open Sans", sans-serif;
     	sans-serif;
     	text-transform:uppercase;
     	line-height:20px;
@@ -109,7 +55,7 @@
 		background: rgba(149,188,184,0.5);
 
 		/* Text color of button */
-		color: #565b60;
+		color: rgba(0,0,0,0.4);
 
 		font-size: 1em;
 		letter-spacing: 1px;
@@ -124,56 +70,37 @@
 		background: rgba(149,188,184,0.7);
 	}
 
+	.media-linebreak {
+		display: none;
+	}
 
-
-    @media (max-width: 979px) {
-
-      .container.navbar-wrapper {
-        margin-bottom: 0;
-        width: auto;
-      }
-
-      .featurette {
-        height: auto;
-        padding: 0;
-      }
-
-      .featurette-image.pull-left,
-      .featurette-image.pull-right {
-        display: block;
-        float: none;
-        max-width: 40%;
-        margin: 0 auto 20px;
-      }
-    }
+	.tint-up-plugin {
+		height:500px;
+		width:100%; 
+		-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); 
+    	background:#fff;
+	}
 
 
     @media (max-width: 767px) {
 
-      .marketing .span4 + .span4 {
-        margin-top: 40px;
-      }
+	    #intro {
+	        padding: 0;
+	    }
 
-      .featurette-heading {
-        font-size: 30px;
-      }
-      .featurette .lead {
-        font-size: 18px;
-        line-height: 1.5;
-      }
-
-      #intro {
-      	padding: 0;
-      }
-
-      .row {
-      	margin-left: 0;
-      }
+	    .row {
+	        margin-left: 0;
+	    }
+	      
+	    .media-linebreak {
+			display: block;
+		}
 
     }
 
 
-}
 </style>
 
 
@@ -200,8 +127,7 @@
 					<div class="bg-img bg-img-2"></div>
 					<h2>Regula aurea.</h2>
 					<blockquote><p>"We were to form an organization which might find a great field of work in being of mutual assistance to each other in future business life."</p><cite>HOWARD M. JEFFERSON<br />
-FOUNDER, ALPHA KAPPA PSI</cite></blockquote>
-
+					FOUNDER, ALPHA KAPPA PSI</cite></blockquote>
 
 				</div>
 			</div>
@@ -266,6 +192,10 @@ FOUNDER, ALPHA KAPPA PSI</cite></blockquote>
 		      <p>Alpha Kappa Psi is founded on brotherhood. Members form meaningful friendships with a multitude of people, from fellow students to faculty to local business leaders. Bonds formed between members are genuine and last a lifetime.</p>
 		      <a class="home-button" href="#">View Actives</a>
 		    </div>
+
+		    <br class="media-linebreak" />
+		    <br class="media-linebreak" />
+
 		    <div class="span3">
 		      <i class="fa fa-lightbulb-o"></i>
 		      <br />
@@ -273,6 +203,10 @@ FOUNDER, ALPHA KAPPA PSI</cite></blockquote>
 		      <p>We help prepare our members to enter the professional world by establishing long lasting relationships with business partners and by fostering business skills.</p>
 		      <a class="home-button" href="#">View Careers</a>
 		    </div>
+
+		    <br class="media-linebreak" />
+		    <br class="media-linebreak" />
+
 		    <div class="span4">
 		      <i class="fa fa-globe"></i>
 		      <br />
@@ -280,7 +214,6 @@ FOUNDER, ALPHA KAPPA PSI</cite></blockquote>
 		      <p>For us, giving back to society is a crucial aspect of our agenda. We accomplish this largely through one of our consulting arms, Alpha Beta Consulting, which assists local nonprofits in addressing pressing social problems.</p>
 		      <a class="home-button" href="#">View Consulting</a>
 		    </div>
-
 		  	
 		</div>
 	      
@@ -294,11 +227,6 @@ FOUNDER, ALPHA KAPPA PSI</cite></blockquote>
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3); background:#fff;"><a href="http://www.tintup.com" style="width:118px;height:31px;background-image:url(//d33w9bm0n1egwm.cloudfront.net/assets/logos/poweredbytintsmall.png);position:absolute;bottom:10px;right: 20px;text-indent: -9999px;z-index:9;">social media feed</a></div>
 
-<br />
-
-<div class="account-wall-static">
-
-	</div>
 
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>

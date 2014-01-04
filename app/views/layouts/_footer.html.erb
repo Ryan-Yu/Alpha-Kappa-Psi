@@ -1,46 +1,67 @@
 <style>
 
-	/* Wrapper for page content to push down footer */
+    .footer-bottom .account-wall-static {
 
+    	padding: 10px 25px 5px 25px; 
+    	text-align:center;
+    	color: #B8B8B8;
+    }
 
-	/* Set the fixed height of the footer here */
-	#footer {
-		height: 120px;
-		box-shadow: 0px -7px 7px -7px rgba(0, 0, 0, 0.1);
-		background-color: #fff;
-	}
-	.footer-image {
-		height: 80px;
-		width: auto;
-		padding-top: 8px;
-	}
+    .linkclickblk a,.linkclickblk a:visited {
+    	font-weight:600;
+    	font-family: 'Lato', sans-serif;
+    	text-transform:uppercase;
+    	line-height:40px;
+    	letter-spacing:1px;
+    	text-decoration:none;
+    	color:#9e9e9e;
+    	padding:5px 10px 5px 10px;
+    	border:3px solid #efefef;
+    	border-radius:0px;
+    	margin-left:7px;
+    	margin-right:7px
+    }
 
-	/* Lastly, apply responsive CSS fixes as necessary */
-	@media (max-width: 767px) {
-		#footer {
-		  margin-left: -20px;
-		  margin-right: -20px;
-		  padding-left: 20px;
-		  padding-right: 20px;
-		}
-	}
+    
+    .linkclickblk a:hover, .linkclickblk a:visited:hover {
+    	color:#95bcb8;
+    	border:3px solid #95bcb8
+    }
+
+    .copyright-desc {
+    	margin-top: -5px;
+    	font-size: 9px;
+    }
+
+    @media (max-width: 767px) {
+    	.copyright-desc {
+    		margin-top: 0;
+    	}
+    }
 
 
 </style>
 
 
-<!-- Part 1: Wrap all page content here -->
+
+<!-- Content -->
+
+<div class="footer-bottom">
+	<div class="account-wall-static">
+
+		<p class="linkclickblk" >Learn 
+			<a href=<%= about_path %>> about </a> 
+			us, meet our 
+			<a href=<%= actives_path %>>brothers</a>
+			or 
+			<a href=<%= contact_path %>>contact</a>
+			us with any questions or concerns.
+		</p>
+
+		<p class="copyright-desc">
+			Copyright &copy; 2014 - Alpha Kappa Psi - Alpha Beta Chapter - University of California, Berkeley &nbsp;&nbsp; <i class="fa fa-bookmark"></i> &nbsp;&nbsp; Website design by Ryan Yu
+		</p>
 
 
-<div id="footer">
-  <div style="text-align:center; padding-left:20px;">
-  
-    <img class="footer-image" src=<%= asset_path("akpsi_bw_200.png")%> alt="akpsi_color_200">
-
-  </div>
-  <div style="text-align:center; padding-left:20px;">
-  
-    Copyright 2013 - All Rights Reserved.
-
-  </div>
+	</div>
 </div>
