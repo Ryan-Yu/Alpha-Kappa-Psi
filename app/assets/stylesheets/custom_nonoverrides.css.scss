@@ -102,13 +102,59 @@
 
 /* Styles for all static pages */
 
-.account-wall-static
-{
+.account-wall-static {
     
-    padding: 40px 40px 40px 40px;
+    padding: 20px 40px 40px 40px;
     background-color: #fff;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 
+}
+
+@media (max-width: 767px) {
+
+    .account-wall-static {
+        padding: 20px 20px 20px 20px;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .account-wall-static {
+        padding: 14px 14px 14px 14px;
+    }
+
+}
+
+
+
+
+#intro {
+    text-align: center;
+    padding:0 0 0 0;
+}
+
+#intro h1 {
+    
+    font-size:3.3em;
+    font-weight:505;
+    font-family:"Open Sans",sans-serif;
+    text-transform:uppercase;
+    line-height:40px;
+    letter-spacing:1.5px;
+    color:#303030
+
+}
+#intro h3 {
+    
+    margin:-10px 0 0 0;
+    font-size:1.5em;
+    font-weight:400;
+    font-family:"Open Sans", sans-serif;
+    text-transform:uppercase;
+    line-height:20px;
+    letter-spacing:1px;
+    color:#666
 }
