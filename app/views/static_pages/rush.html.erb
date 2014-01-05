@@ -1,22 +1,5 @@
-<style>
 
-	#motto-bg h3 {
-		font-family: 'Italianno', cursive; 
-		text-transform:none; 
-		font-size: 22px;
-		color: #A8A8A8;
-	}
-
-	@media (max-width: 767px) {
-
-    #motto-bg h3 {
-    	font-size: 18px;
-    }
-
-}
-
-
-</style>
+<!-- Content -->
 
 <% provide(:title, 'Rush AKΨ') %>
 
@@ -29,12 +12,22 @@
 
 	<div id="intro">
 		  	<h1>Alpha Kappa Psi</h1>
-		  	<h3>Spring 2014 Rush Calendar</h3>
+		  	<h3><%= @rushevents.first.semester %> Rush Calendar</h3>
 		  	<br />
 		  	<div id="motto-bg">
 			  	<h3>"Alpha Kappa Psi is recognized as the premier developer of principled business leaders."</h3>
 			</div>
 			<br />
+			<br />
 	</div>
 
+	<% @rushevents.each do |rush_event| %>
+		<!-- Partial located at views/rush_events/_rush_event.html.erb -->
+		<%= render rush_event %>
+
+	<% end %>
+
 </div>
+
+
+

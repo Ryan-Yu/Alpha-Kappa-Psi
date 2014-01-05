@@ -1,0 +1,46 @@
+<style>
+
+	.rush-event-desc {
+		font-size: 14px;
+		margin-left: 70px;
+		margin-right: 70px;
+	}
+
+	@media (max-width: 767px) {
+
+	    .rush-event-desc {
+	    	margin-left: 15px;
+			margin-right: 15px;
+	    }
+
+	}
+
+</style>
+
+
+<!-- Notes:
+rush_event.event_time.strftime("%A") retrieves day of week 
+rush_event.event_time.strftime("%B") retrieves month
+rush_event.event_time.strftime("%e") retrieves day (in numbers)
+rush_event.event_time.strftime("%l") retrieves hour of day
+rush_event.event_time.strftime("%p") retrieves AM or PM
+-->
+
+<div id="intro">
+	<h1 style="font-weight:400; font-size: 14px; line-height: 0px;"> <%= rush_event.event_time.strftime("%A") %></h1>
+
+	<h1 style="font-weight:505; font-size: 20px; line-height: 12px; color: rgba(149,188,184,0.75);"> <%= rush_event.event_time.strftime("%B") %> <%= rush_event.event_time.strftime("%e") %></h1>
+
+	<h1 style="font-weight:500; font-size: 30px; line-height: 25px;"> <%= rush_event.event_name %></h1>
+
+	<h1 style="font-weight:400; font-size: 14px; line-height: 10px; color: rgba(149,188,184,0.85);"> <%= rush_event.event_time.strftime("%l") %><%= rush_event.event_time.strftime("%p") %> @ <%= rush_event.location %> </h1>
+
+	<br />
+
+	<p class="rush-event-desc">
+		<%= rush_event.event_description %>
+	</p>
+
+	<hr />
+
+</div>

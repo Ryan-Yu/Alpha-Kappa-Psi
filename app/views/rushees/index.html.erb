@@ -1,10 +1,20 @@
 <% provide(:title, 'Rushees') %>
-<h1>Rushees</h1>
 
-<ul class="rushees">
-  <% @rushees.each do |rushee| %>
-    <li>
-      <%= link_to rushee.name, rushee %>
-    </li>
-  <% end %>
-</ul>
+<div class="account-wall-static">  
+
+  <div id="intro">
+
+    <h1>Rushees</h1>
+    <h3><%= @rushsemester %></h3>
+    <br />
+
+	<ul class="rushees">
+	  <% @rushees.each do |rushee| %>
+	    <li>
+	      <%= link_to rushee.name, rushee %>
+	    </li>
+	  <% end %>
+	</ul>
+
+  </div>
+</div>

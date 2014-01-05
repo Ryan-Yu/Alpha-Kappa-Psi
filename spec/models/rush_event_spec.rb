@@ -33,6 +33,26 @@ describe RushEvent do
 		before { @rushevent.event_time = nil }
 		it { should_not be_valid }
 	end
+	describe "when event semester is winter" do
+		before { @rushevent.semester = "Winter 2013" }
+		it { should_not be_valid }
+	end
+	describe "when event semester is summer" do
+		before { @rushevent.semester = "Summer 2013" }
+		it { should_not be_valid }
+	end
+	describe "when event semester year is missing" do
+		before { @rushevent.semester = "Fall" }
+		it { should_not be_valid }
+	end
+	describe "when event semester is missing" do
+		before { @rushevent.semester = "2014" }
+		it { should_not be_valid }
+	end
+	describe "when event semester is 3 words" do
+		before { @rushevent.semester = "Summer 2012 Fall" }
+		it { should_not be_valid }
+	end
 
 
 

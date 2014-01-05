@@ -11,6 +11,7 @@ class RusheesController < ApplicationController
 
 	def index
 		@rushees = Rushee.all
+		@rushsemester = RushEvent.first.semester
 	end
 
 end

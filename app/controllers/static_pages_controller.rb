@@ -14,5 +14,12 @@ class StaticPagesController < ApplicationController
 
   def consulting
   end
+
+  def corporate
+  end
+
+  def rush
+    @rushevents = RushEvent.order(:event_time => :asc)
+  end
   
 end
