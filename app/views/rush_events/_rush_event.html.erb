@@ -33,7 +33,7 @@ rush_event.event_time.strftime("%p") retrieves AM or PM
 
 	<h1 style="font-weight:500; font-size: 30px; line-height: 25px;"> <%= rush_event.event_name %></h1>
 
-	<h1 style="font-weight:400; font-size: 14px; line-height: 10px; color: rgba(149,188,184,0.85);"> <%= rush_event.event_time.strftime("%l") %><%= rush_event.event_time.strftime("%p") %> @ <%= rush_event.location %> </h1>
+	<h1 style="font-weight:400; font-size: 14px; line-height: 10px; color: rgba(149,188,184,0.85);"> <%= rush_event.event_time.strftime("%l") %>:<%= rush_event.event_time.strftime("%M") %><%= rush_event.event_time.strftime("%p") %> @ <%= rush_event.location %> </h1>
 
 	<br />
 

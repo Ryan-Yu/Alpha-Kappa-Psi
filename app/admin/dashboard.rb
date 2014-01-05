@@ -26,8 +26,21 @@ ActiveAdmin.register_page "Dashboard" do
 
     columns do
         column do
+
+            panel "Rush Events currently live on website" do
+                table_for RushEvent.order("created_at asc") do
+                    column :event_name do |event|
+                        link_to event.event_name, [:admin, event]
+                    end
+                    column :semester
+                    column :event_time
+                    column :location
+                    column :event_description
+                end
+            end
+
             panel "Recently modified Actives" do
-                table_for Active.order("updated_at desc").limit(8) do
+                table_for Active.order("updated_at desc").limit(5) do
                     column :name do |active|
                         link_to active.name, [:admin, active]
                     end
@@ -41,7 +54,7 @@ ActiveAdmin.register_page "Dashboard" do
             end
 
             panel "Recently modified Rushees" do
-                table_for Rushee.order("updated_at desc").limit(8) do
+                table_for Rushee.order("updated_at desc").limit(5) do
                     column :name do |rushee|
                         link_to rushee.name, [:admin, rushee]
                     end

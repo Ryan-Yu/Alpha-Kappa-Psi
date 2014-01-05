@@ -12,7 +12,7 @@
 
 	<div id="intro">
 		  	<h1>Alpha Kappa Psi</h1>
-		  	<h3><%= @rushevents.first.semester %> Rush Calendar</h3>
+		  	<h3><%= @rushevents.first.semester unless @rushevents.empty? %> Rush Calendar</h3>
 		  	<br />
 		  	<div id="motto-bg">
 			  	<h3>"Alpha Kappa Psi is recognized as the premier developer of principled business leaders."</h3>
@@ -20,6 +20,11 @@
 			<br />
 			<br />
 	</div>
+
+	<!-- If there are, for some reason, no rush events, then display this message -->
+	<% if @rushevents.empty? %>
+		<p style="font-size:14px; text-align:center;"> Please check back later for rush information.</p>
+	<% end %>
 
 	<% @rushevents.each do |rush_event| %>
 		<!-- Partial located at views/rush_events/_rush_event.html.erb -->
