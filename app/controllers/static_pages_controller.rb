@@ -7,6 +7,7 @@ class StaticPagesController < ApplicationController
   end
 
   def careers
+    @careerentries = CareerEntry.order(:year => :desc, :fullintern => :asc, :job_category => :asc)
   end
 
   def contact

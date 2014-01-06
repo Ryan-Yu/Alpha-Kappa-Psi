@@ -3,7 +3,8 @@ require 'spec_helper'
 describe CareerEntry do
   
 	before { @careerentry = CareerEntry.new(name: "Ryan Yu", company: "Amazon.com", 
-		group: "Outbound Fulfillment Planning", year: 2013, fullintern: "Internship", location: "San Francisco, CA" ) }
+		group: "Outbound Fulfillment Planning", year: 2013, fullintern: "Internship",
+		location: "San Francisco, CA", job_category: "Technology" ) }
 
 	subject { @careerentry }
 
@@ -13,6 +14,7 @@ describe CareerEntry do
 	it { should respond_to(:year) }
 	it { should respond_to(:fullintern) }
 	it { should respond_to(:location) }
+	it { should respond_to(:job_category) }
 
 	it { should be_valid }
 
@@ -22,10 +24,6 @@ describe CareerEntry do
 	end
 	describe "when company is not present" do
 	    before { @careerentry.company = " " }
-	    it { should_not be_valid }
-	end
-	describe "when group is not present" do
-	    before { @careerentry.group = " " }
 	    it { should_not be_valid }
 	end
 	describe "when year is not present" do
@@ -38,6 +36,10 @@ describe CareerEntry do
 	end
 	describe "when location is not present" do
 	    before { @careerentry.location = " " }
+	    it { should_not be_valid }
+	end
+	describe "when job category is not present" do
+	    before { @careerentry.job_category = " " }
 	    it { should_not be_valid }
 	end
 

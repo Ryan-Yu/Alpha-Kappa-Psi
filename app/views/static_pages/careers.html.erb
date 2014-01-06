@@ -1,3 +1,11 @@
+<style>
+
+	table.careers-table {
+		border = "1";
+	}
+
+</style>
+
 <% provide(:title, 'Careers') %>
 
 <div class="account-wall-static">  
@@ -8,6 +16,187 @@
     <h3>Active Brothers + Alumni</h3>
     <br />
 
+
+
+
+	<% for index in 0 ... @careerentries.size %>
+
+		<!-- Create a new table on the first index -->
+		<% if index == 0 %>
+
+
+
+			<!-- Handles the first division of table into full-time/internship on first index -->
+			<% if @careerentries[index].fullintern == "Full-time" %>
+
+				<h3><%= @careerentries[index].year %> Full-time </h3>
+
+				<table class="table table-bordered">
+
+					<tr>
+						<td> <%= @careerentries[index].name %> </td>
+						<td> <%= @careerentries[index].company %> </td>
+						<td> <%= @careerentries[index].group %> </td>
+						<td> <%= @careerentries[index].location %> </td>
+						<td> <%= @careerentries[index].job_category %> </td>
+						<td> <%= @careerentries[index].fullintern %> </td>
+					</tr>
+
+			<!-- First index is an internship (can't happen unless there are no full-time entries for the most recent year -->
+			<% elsif @careerentries[index].fullintern == "Internship" %>
+
+				<h3><%= @careerentries[index].year %> Internships </h3>
+
+				<table class="table table-bordered">
+
+					<tr>
+						<td> <%= @careerentries[index].name %> </td>
+						<td> <%= @careerentries[index].company %> </td>
+						<td> <%= @careerentries[index].group %> </td>
+						<td> <%= @careerentries[index].location %> </td>
+						<td> <%= @careerentries[index].job_category %> </td>
+						<td> <%= @careerentries[index].fullintern %> </td>
+					</tr>
+
+			<% end %>
+
+
+
+		<!-- If we're both (1) on the last entry; (2) the last entry is a new year 
+	    then make a new table and render just that row -->
+		<% elsif (index == (@careerentries.size - 1)) && (@careerentries[index].year != @careerentries[index - 1].year) %>
+
+			</table>
+
+			<!-- Need to check whether the entry for this new year is a full-time entry or an internship entry -->
+			<h3>
+				<% if @careerentries[index].fullintern == "Full-time" %>
+					<%= @careerentries[index].year %> Full-time 
+				<% else %>
+					<%= @careerentries[index].year %> Internships
+				<% end %>
+			</h3>
+
+			<table class="table table-bordered">
+
+				<tr>
+					<td> <%= @careerentries[index].name %> </td>
+					<td> <%= @careerentries[index].company %> </td>
+					<td> <%= @careerentries[index].group %> </td>
+					<td> <%= @careerentries[index].location %> </td>
+					<td> <%= @careerentries[index].job_category %> </td>
+					<td> <%= @careerentries[index].fullintern %> </td>
+				</tr>
+
+			</table>
+
+
+
+
+		<!-- A new year has been encountered, so we must make a new table -->
+		<% elsif @careerentries[index].year != @careerentries[index - 1].year %>
+
+			</table>
+
+			<h3>
+				<% if @careerentries[index].fullintern == "Full-time" %>
+					<%= @careerentries[index].year %> Full-time 
+				<% else %>
+					<%= @careerentries[index].year %> Internships
+				<% end %>
+			</h3>
+
+			<table class="table table-bordered">
+
+				<tr>
+					<td> <%= @careerentries[index].name %> </td>
+					<td> <%= @careerentries[index].company %> </td>
+					<td> <%= @careerentries[index].group %> </td>
+					<td> <%= @careerentries[index].location %> </td>
+					<td> <%= @careerentries[index].job_category %> </td>
+					<td> <%= @careerentries[index].fullintern %> </td>
+				</tr>
+
+
+
+
+		<!-- We're on the last entry, and it is *not* a new year -->
+		<% elsif index == (@careerentries.size - 1) %>
+
+			<!-- If our last entry is NOT a new year, but marks a division from full-time to internship -->
+			<% if @careerentries[index].fullintern != @careerentries[index - 1].fullintern %>
+				</table>
+				<h3><%= @careerentries[index].year %> Internships </h3>
+
+				<table class="table table-bordered">
+					<tr>
+						<td> <%= @careerentries[index].name %> </td>
+						<td> <%= @careerentries[index].company %> </td>
+						<td> <%= @careerentries[index].group %> </td>
+						<td> <%= @careerentries[index].location %> </td>
+						<td> <%= @careerentries[index].job_category %> </td>
+						<td> <%= @careerentries[index].fullintern %> </td>
+					</tr>
+				</table>
+
+			<% else %>
+
+					<tr>
+						<td> <%= @careerentries[index].name %> </td>
+						<td> <%= @careerentries[index].company %> </td>
+						<td> <%= @careerentries[index].group %> </td>
+						<td> <%= @careerentries[index].location %> </td>
+						<td> <%= @careerentries[index].job_category %> </td>
+						<td> <%= @careerentries[index].fullintern %> </td>
+					</tr>
+
+				</table>
+
+			<% end %>
+
+
+
+		<!-- We're on an entry that is the same year as the previous entry -->
+		<% else %>
+
+			<!-- We are still within the same year, but need to make a new table (division from full-time to internship) -->
+			<% if @careerentries[index].fullintern != @careerentries[index - 1].fullintern %>
+
+				</table>
+
+				<h3><%= @careerentries[index].year %> Internships</h3>
+
+				<table class="table table-bordered">
+
+				<tr>
+					<td> <%= @careerentries[index].name %> </td>
+					<td> <%= @careerentries[index].company %> </td>
+					<td> <%= @careerentries[index].group %> </td>
+					<td> <%= @careerentries[index].location %> </td>
+					<td> <%= @careerentries[index].job_category %> </td>
+					<td> <%= @careerentries[index].fullintern %> </td>
+				</tr>
+
+			<% else %>
+
+			<tr>
+				<td> <%= @careerentries[index].name %> </td>
+				<td> <%= @careerentries[index].company %> </td>
+				<td> <%= @careerentries[index].group %> </td>
+				<td> <%= @careerentries[index].location %> </td>
+				<td> <%= @careerentries[index].job_category %> </td>
+				<td> <%= @careerentries[index].fullintern %> </td>
+			</tr>
+
+			<% end %>
+
+		<% end %> <!-- end of outer 'if' statement -->
+
+
+	<% end %> <!-- end of 'for' loop -->
+
+
+	
   </div>
 
 </div>
