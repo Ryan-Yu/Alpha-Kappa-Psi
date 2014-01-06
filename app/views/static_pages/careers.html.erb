@@ -1,12 +1,80 @@
+
+<!-- Styling account-wall-static for padding and adding responsitivity to tables -->
+
 <style>
 
-	table.careers-table {
-		border = "1";
+	.table thead tr {
+		background-color: #a9d3cf;
+	}
+
+	.account-wall-static {
+		padding-left: 110px;
+		padding-right: 110px;
+	}
+
+	@media (max-width: 767px) {
+	  .table-responsive {
+	    width: 100%;
+	    margin-bottom: 15px;
+	    overflow-x: scroll;
+	    overflow-y: hidden;
+	    -ms-overflow-style: -ms-autohiding-scrollbar;
+	    -webkit-overflow-scrolling: touch;
+	  }
+	  .table-responsive > .table {
+	    margin-bottom: 0;
+	  }
+	  .table-responsive > .table > thead > tr > th,
+	  .table-responsive > .table > tbody > tr > th,
+	  .table-responsive > .table > tfoot > tr > th,
+	  .table-responsive > .table > thead > tr > td,
+	  .table-responsive > .table > tbody > tr > td,
+	  .table-responsive > .table > tfoot > tr > td {
+	    white-space: nowrap;
+	  }
+	  .table-responsive > .table-bordered {
+	    border: 0;
+	  }
+	  .table-responsive > .table-bordered > thead > tr > th:first-child,
+	  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+	  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+	  .table-responsive > .table-bordered > thead > tr > td:first-child,
+	  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+	  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+	    border-left: 0;
+	  }
+	  .table-responsive > .table-bordered > thead > tr > th:last-child,
+	  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+	  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+	  .table-responsive > .table-bordered > thead > tr > td:last-child,
+	  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+	  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+	    border-right: 0;
+	  }
+	  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+	  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+	  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+	  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+	    border-bottom: 0;
+	  }
+
+	  .account-wall-static {
+	  	padding-right: 20px;
+	  	padding-left: 20px;
+	  }
 	}
 
 </style>
 
+
+
+<!-- Content -->
+
 <% provide(:title, 'Careers') %>
+
+<img src=<%= asset_path("berk_6.jpg")%> alt="berk_5.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
+<br />
+<br />
 
 <div class="account-wall-static">  
 
@@ -18,7 +86,7 @@
     <br />
 
 
-
+    <!-- LOGIC FOR DISPLAYING THE CAREERENTRIES STORED IN @careerentries  -->
 
 	<% for index in 0 ... @careerentries.size %>
 
@@ -30,40 +98,58 @@
 
 				<h3><%= @careerentries[index].year %> Full-time </h3>
 
-				<table class="table">
+				<br />
+				<div class="table-responsive">
+					<table class="table table-striped table-condensed ">
 
-					<tr>
-						<td> <%= @careerentries[index].job_category %> </td>
-					</tr>
+						<thead>
+							<tr>
+								<th> Name </th>
+								<th> Company </th>
+								<th> Group </th>
+								<th> Location </th>
+							</tr>
+						</thead>
 
-					<tr>
-						<td> <%= @careerentries[index].name %> </td>
-						<td> <%= @careerentries[index].company %> </td>
-						<td> <%= @careerentries[index].group %> </td>
-						<td> <%= @careerentries[index].location %> </td>
-						<td> <%= @careerentries[index].job_category %> </td>
-						<td> <%= @careerentries[index].fullintern %> </td>
-					</tr>
+						<tr>
+							<td> <b><%= @careerentries[index].job_category %></b> </td>
+						</tr>
+
+						<tr>
+							<td> <%= @careerentries[index].name %> </td>
+							<td> <%= @careerentries[index].company %> </td>
+							<td> <%= @careerentries[index].group %> </td>
+							<td> <%= @careerentries[index].location %> </td>
+						</tr>
 
 			<!-- First index is an internship (can't happen unless there are no full-time entries for the most recent year -->
 			<% elsif @careerentries[index].fullintern == "Internship" %>
 
 				<h3><%= @careerentries[index].year %> Internships </h3>
 
-				<table class="table">
+				<br />
+				<div class="table-responsive">
+					<table class="table table-striped table-condensed">
 
-					<tr>
-						<td> <%= @careerentries[index].job_category %> </td>
-					</tr>
+						<thead>
+							<tr>
+								<th> Name </th>
+								<th> Company </th>
+								<th> Group </th>
+								<th> Location </th>
+							</tr>
+						</thead>
 
-					<tr>
-						<td> <%= @careerentries[index].name %> </td>
-						<td> <%= @careerentries[index].company %> </td>
-						<td> <%= @careerentries[index].group %> </td>
-						<td> <%= @careerentries[index].location %> </td>
-						<td> <%= @careerentries[index].job_category %> </td>
-						<td> <%= @careerentries[index].fullintern %> </td>
-					</tr>
+						<tr>
+							<td> <b> <%= @careerentries[index].job_category %> </b> </td>
+						</tr>
+
+						<tr>
+							<td> <%= @careerentries[index].name %> </td>
+							<td> <%= @careerentries[index].company %> </td>
+							<td> <%= @careerentries[index].group %> </td>
+							<td> <%= @careerentries[index].location %> </td>
+						</tr>
 
 			<% end %>
 
@@ -74,6 +160,7 @@
 		<% elsif (index == (@careerentries.size - 1)) && (@careerentries[index].year != @careerentries[index - 1].year) %>
 
 			</table>
+			</div> <!-- Close table responsive div -->
 
 			<br />
 			<br />
@@ -86,22 +173,33 @@
 				<% end %>
 			</h3>
 
-			<table class="table">
+			<br />
 
-				<tr>
-					<td> <%= @careerentries[index].job_category %> </td>
-				</tr>
+			<div class="table-responsive">
+				<table class="table table-striped table-condensed">
 
-				<tr>
-					<td> <%= @careerentries[index].name %> </td>
-					<td> <%= @careerentries[index].company %> </td>
-					<td> <%= @careerentries[index].group %> </td>
-					<td> <%= @careerentries[index].location %> </td>
-					<td> <%= @careerentries[index].job_category %> </td>
-					<td> <%= @careerentries[index].fullintern %> </td>
-				</tr>
+					<thead>
+						<tr>
+							<th> Name </th>
+							<th> Company </th>
+							<th> Group </th>
+							<th> Location </th>
+						</tr>
+					</thead>
 
-			</table>
+					<tr>
+						<td> <b> <%= @careerentries[index].job_category %> </b> </td>
+					</tr>
+
+					<tr>
+						<td> <%= @careerentries[index].name %> </td>
+						<td> <%= @careerentries[index].company %> </td>
+						<td> <%= @careerentries[index].group %> </td>
+						<td> <%= @careerentries[index].location %> </td>
+					</tr>
+
+				</table>
+			</div> <!-- Close table responsive div -->
 
 
 
@@ -110,6 +208,7 @@
 		<% elsif @careerentries[index].year != @careerentries[index - 1].year %>
 
 			</table>
+			</div> <!-- Close table responsive div -->
 
 			<br />
 			<br />
@@ -121,20 +220,29 @@
 				<% end %>
 			</h3>
 
-			<table class="table">
+			<br />
+			<div class="table-responsive">
+				<table class="table table-striped table-condensed">
 
-				<tr>
-					<td> <%= @careerentries[index].job_category %> </td>
-				</tr>
+					<thead>
+						<tr>
+							<th> Name </th>
+							<th> Company </th>
+							<th> Group </th>
+							<th> Location </th>
+						</tr>
+					</thead>
 
-				<tr>
-					<td> <%= @careerentries[index].name %> </td>
-					<td> <%= @careerentries[index].company %> </td>
-					<td> <%= @careerentries[index].group %> </td>
-					<td> <%= @careerentries[index].location %> </td>
-					<td> <%= @careerentries[index].job_category %> </td>
-					<td> <%= @careerentries[index].fullintern %> </td>
-				</tr>
+					<tr>
+						<td> <b> <%= @careerentries[index].job_category %> </b> </td>
+					</tr>
+
+					<tr>
+						<td> <%= @careerentries[index].name %> </td>
+						<td> <%= @careerentries[index].company %> </td>
+						<td> <%= @careerentries[index].group %> </td>
+						<td> <%= @careerentries[index].location %> </td>
+					</tr>
 
 
 
@@ -145,26 +253,37 @@
 			<!-- If our last entry is NOT a new year, but marks a division from full-time to internship -->
 			<% if @careerentries[index].fullintern != @careerentries[index - 1].fullintern %>
 				</table>
+				</div> <!-- Close table responsive div -->
 
 				<br />
 			    <br />
 				<h3><%= @careerentries[index].year %> Internships </h3>
 
-				<table class="table">
+				<br />
+				<div class="table-responsive">
+					<table class="table table-striped table-condensed">
 
-					<tr>
-						<td> <%= @careerentries[index].job_category %> </td>
-					</tr>
+						<thead>
+							<tr>
+								<th> Name </th>
+								<th> Company </th>
+								<th> Group </th>
+								<th> Location </th>
+							</tr>
+						</thead>
 
-					<tr>
-						<td> <%= @careerentries[index].name %> </td>
-						<td> <%= @careerentries[index].company %> </td>
-						<td> <%= @careerentries[index].group %> </td>
-						<td> <%= @careerentries[index].location %> </td>
-						<td> <%= @careerentries[index].job_category %> </td>
-						<td> <%= @careerentries[index].fullintern %> </td>
-					</tr>
-				</table>
+						<tr>
+							<td> <b> <%= @careerentries[index].job_category %> </b> </td>
+						</tr>
+
+						<tr>
+							<td> <%= @careerentries[index].name %> </td>
+							<td> <%= @careerentries[index].company %> </td>
+							<td> <%= @careerentries[index].group %> </td>
+							<td> <%= @careerentries[index].location %> </td>
+						</tr>
+					</table>
+				</div> <!-- Close table responsive div -->
 
 			<!-- Our last entry is NOT a new year, and does NOT mark a division from full-time to internship -->
 			<% else %>
@@ -172,7 +291,7 @@
 					<!-- If we need to start a new job category on this last entry -->
 					<% if @careerentries[index].job_category != @careerentries[index - 1].job_category %>
 						<tr>
-							<td> <%= @careerentries[index].job_category %> </td>
+							<td> <b> <%= @careerentries[index].job_category %> </b> </td>
 						</tr>
 					<% end %>
 
@@ -181,13 +300,13 @@
 						<td> <%= @careerentries[index].company %> </td>
 						<td> <%= @careerentries[index].group %> </td>
 						<td> <%= @careerentries[index].location %> </td>
-						<td> <%= @careerentries[index].job_category %> </td>
-						<td> <%= @careerentries[index].fullintern %> </td>
 					</tr>
 
 				</table>
+				</div> <!-- Close table responsive div -->
 
 			<% end %>
+
 
 
 
@@ -198,33 +317,43 @@
 			<% if @careerentries[index].fullintern != @careerentries[index - 1].fullintern %>
 
 				</table>
+				</div> <!-- Close table responsive div -->
 
 				<br />
 			    <br />
 
 				<h3><%= @careerentries[index].year %> Internships</h3>
+				<div class="table-responsive">
+					<table class="table table-striped table-condensed">
 
-				<table class="table">
+						<br />
 
-					<tr>
-						<td> <%= @careerentries[index].job_category %> </td>
-					</tr>
+						<thead>
+							<tr>
+								<th> Name </th>
+								<th> Company </th>
+								<th> Group </th>
+								<th> Location </th>
+							</tr>
+						</thead>
 
-					<tr>
-						<td> <%= @careerentries[index].name %> </td>
-						<td> <%= @careerentries[index].company %> </td>
-						<td> <%= @careerentries[index].group %> </td>
-						<td> <%= @careerentries[index].location %> </td>
-						<td> <%= @careerentries[index].job_category %> </td>
-						<td> <%= @careerentries[index].fullintern %> </td>
-					</tr>
+						<tr>
+							<td> <b> <%= @careerentries[index].job_category %> </b> </td>
+						</tr>
+
+						<tr>
+							<td> <%= @careerentries[index].name %> </td>
+							<td> <%= @careerentries[index].company %> </td>
+							<td> <%= @careerentries[index].group %> </td>
+							<td> <%= @careerentries[index].location %> </td>
+						</tr>
 
 			<!-- We are still within the same year, and do NOT need to make a new table (staying within full-time or internship) -->
 			<% else %>
 
 				<% if @careerentries[index].job_category != @careerentries[index - 1].job_category %>
 					<tr>
-						<td> <%= @careerentries[index].job_category %> </td>
+						<td> <b> <%= @careerentries[index].job_category %> </b> </td>
 					</tr>
 				<% end %>
 
@@ -233,8 +362,6 @@
 					<td> <%= @careerentries[index].company %> </td>
 					<td> <%= @careerentries[index].group %> </td>
 					<td> <%= @careerentries[index].location %> </td>
-					<td> <%= @careerentries[index].job_category %> </td>
-					<td> <%= @careerentries[index].fullintern %> </td>
 				</tr>
 
 			<% end %>
@@ -244,7 +371,6 @@
 	<% end %> <!-- end of 'for' loop -->
 
 
-	
   </div>
 
 </div>
