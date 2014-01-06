@@ -1,6 +1,7 @@
 class Active < ActiveRecord::Base
 
   before_save :default_values
+  before_save { self.name = name.titleize }
 
   has_many :rusheeposts, dependent: :destroy
 
