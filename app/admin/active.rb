@@ -11,6 +11,7 @@ ActiveAdmin.register Active do
     column :linkedin
     column :positions_held
     column :display_on_index
+    column :approved
 
     # Adds view/edit/delete actions
     default_actions
@@ -30,6 +31,7 @@ ActiveAdmin.register Active do
     end
 
     f.inputs "Appearance settings" do
+      f.input :approved
       f.input :display_on_index
       f.input :photograph
     end
@@ -43,5 +45,44 @@ ActiveAdmin.register Active do
       params.permit!
     end
   end
+
+  #batch_action to activate users in ActiveAdmin Interface
+  batch_action :activate, priority: 1 do |selection|
+    Active.find(selection).each do |active|
+      active.approved = true
+      active.save
+    end
+    redirect_to :back
+  end
+
+  #batch_action to de-activate users in ActiveAdmin Interface
+  batch_action :deactivate, priority: 2, confirm:"Are you sure you want to DE-ACTIVATE these actives?" do |selection|
+    Active.find(selection).each do |active|
+      active.approved = false
+      active.display_on_index = false
+      active.save
+    end
+    redirect_to :back
+  end
+
+  #batch_action to show active in brothers page
+  batch_action :show, priority: 3 do |selection|
+    Active.find(selection).each do |active|
+      active.display_on_index = true
+      active.save
+    end
+    redirect_to :back
+  end
+
+  #batch_action to hide active in brothers page
+  batch_action :hide, priority: 4 do |selection|
+    Active.find(selection).each do |active|
+      active.display_on_index = false
+      active.save
+    end
+    redirect_to :back
+  end
+
+
 
 end
