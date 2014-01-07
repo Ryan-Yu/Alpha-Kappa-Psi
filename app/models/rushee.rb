@@ -6,7 +6,7 @@ class Rushee < ActiveRecord::Base
 	before_save { self.grade = grade.capitalize }
 
 	has_attached_file :photograph,
-	  :styles => { :medium => "300x300>", :middle => "250x250>", :small => "200x200>", :thumb => "100x100>" },
+	  :styles => { :medium => "300x300>", :middle => "250x250>", :middlesmall => "225x225>", :small => "200x200>", :thumb => "100x100>" },
 	  :storage => :s3,
 	  :bucket => "uc-berkeley-akpsi-website",
 	  :default_url => '/images/:attachment/missing_:style.png',

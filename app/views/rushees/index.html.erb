@@ -1,3 +1,17 @@
+<style>
+	.thumbnails {
+	    text-align:center;
+	}
+
+	.thumbnails > li {
+	    display: inline-block;
+	    float: none; /* this is the part that makes it work */
+	    text-align: left;
+	}
+
+</style>
+
+
 <% provide(:title, 'Rushees') %>
 
 <div class="account-wall-static">  
@@ -8,13 +22,18 @@
     <h3><%= @rushsemester %></h3>
     <br />
 
-	<ul class="rushees">
+
+	<ul class="thumbnails">
 	  <% @rushees.each do |rushee| %>
-	    <li>
-	      <%= link_to rushee.name, rushee %>
+
+
+	  	<li>
+	        <%= link_to( image_tag( rushee.photograph(:middlesmall)), rushee) %>
 	    </li>
+
 	  <% end %>
 	</ul>
+
 
   </div>
 </div>

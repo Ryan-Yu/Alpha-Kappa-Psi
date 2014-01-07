@@ -1,5 +1,6 @@
 class Active < ActiveRecord::Base
-  #Assigns Default Values to Active Attributes (ie. display_on_index)
+  
+  # Assigns Default Values to Active Attributes (ie. display_on_index)
   # and standardizes name through titleize method
   before_save :default_values
   before_save { self.name = name.titleize }
@@ -7,7 +8,7 @@ class Active < ActiveRecord::Base
   has_many :rusheeposts, dependent: :destroy
 
   has_attached_file :photograph,
-    :styles => { :medium => "300x300>", :middle => "250x250>", :small => "200x200>", :thumb => "100x100>" },
+    :styles => { :medium => "300x300>", :middle => "250x250>", :middlesmall => "225x225>", :small => "200x200>", :thumb => "100x100>" },
     :storage => :s3,
     :bucket => "uc-berkeley-akpsi-website",
     :default_url => '/images/:attachment/missing_:style.png',
@@ -28,8 +29,8 @@ class Active < ActiveRecord::Base
     self.display_on_index = true if self.display_on_index.nil?
   end
 
-  #Helper methods to implement admin activation via devise,
-  #following https://github.com/plataformatec/devise/wiki/How-To%3a-Require-admin-to-activate-account-before-sign_in
+  # Helper methods to implement admin activation via devise, following 
+  # https://github.com/plataformatec/devise/wiki/How-To%3a-Require-admin-to-activate-account-before-sign_in
   def active_for_authentication?
     super && approved?
   end

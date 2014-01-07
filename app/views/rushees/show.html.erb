@@ -1,31 +1,85 @@
+<!-- Styling for posts -->
+
+<style>
+
+  .thread-post {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .thread-post:nth-child(even) {
+    background-color: #eee; /* For distinguishing every other post */
+  }
+
+</style>
+
+
+<!-- Content -->
+
 <% provide(:title, @rushee.name) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-      	<%= @rushee.name %>
-        <%= @rushee.email %>
-    		<%= @rushee.grade %>
-    		<%= @rushee.major %>
-      </h1>
+  <aside class="span3">
 
-      <%= image_tag @rushee.photograph.url(:medium) %>
+    <div class="account-wall-static" style="padding-top: 40px; padding-left:0px; padding-right:0px;">
 
-      <section>
+      <div style="text-align:center;">
+
+        <%= image_tag @rushee.photograph.url(:middle) %>
+
+        <h3>
+        	<%= @rushee.name %>
+        </h3>
+
+        <p style="font-size:14px;">
+
+          <% if @rushee.grade.empty? %>
+            <i>Grade</i>: [unknown] <br />
+          <% else %>
+            <i>Grade</i>: <%= @rushee.grade %><br />
+          <% end %>
+
+      		<% if @rushee.major.empty? %>
+            <i>Major</i>: [unknown] <br />
+          <% else %>
+            <i>Major</i>: <%= @rushee.major %><br />
+          <% end %>
+
+        </p>
+       
+        <br />
+
         <%= render 'shared/rusheepost_form' %>
-      </section>
 
-    </section>
+      </div>
+
+
+    </div>
+
   </aside>
 
   <!-- Displays the rusheeposts that are associated with the current rushee -->
-  <div class="span8">
-    <% if @rusheeposts.count > 0 %>
-      <h3>Comments (<%= @rusheeposts.count %>)</h3>
-      <ol class="rusheeposts">
+  <div class="span9">
+
+    <div class="account-wall-static">
+
+      <br />
+
+      <div style="text-align:center;">
+        <% if @rusheeposts.count > 0 %>
+          <h4>COMMENTS (<%= @rusheeposts.count %>)</h4>
+          <hr />
+        <% else %>
+          <h4>No comments yet.</h4>
+        <% end %>
+      </div>
+
+      <div id="thread">
          <%= render @rusheeposts %>
-      </ol>
-    <% end %>
+      </div>
+
+
+    </div>
+
   </div>
 
 </div>

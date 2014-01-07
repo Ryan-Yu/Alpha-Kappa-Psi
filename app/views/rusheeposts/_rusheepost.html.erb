@@ -1,6 +1,10 @@
-<li>
-  <span class="content"><%= rusheepost.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(rusheepost.created_at) %> ago by <%= rusheepost.active.name %>.
-  </span>
-</li>
+
+<div class="thread-post">
+
+	<h5> <%= rusheepost.active.name %>:</h5>
+
+	<i>Posted <%= time_ago_in_words(rusheepost.created_at) %> ago:</i>
+
+	<span class="content"><%= rusheepost.content %></span>
+
+</div>
