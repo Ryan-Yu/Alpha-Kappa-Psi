@@ -14,6 +14,7 @@
 
 	.modal-list {
 	  list-style: none;
+	  text-align: left;
 	}
 	 
 	.modal-list li:before {
@@ -59,6 +60,20 @@
 
 	}
 
+	.md-image {
+		float:left;
+		padding-right: 25px;
+		padding-bottom: 25px;
+	}
+
+	@media (max-width: 767px) {
+
+		.md-image {
+			float: none;
+			padding-right: 0;
+		}
+	}
+
 
 </style>
 
@@ -72,9 +87,9 @@
 	<div class="md-modal md-effect-1" id=<%= "modal-" + active.id.to_s %> >
 		<div class="md-content">
 			<h3><%= active.name %></h3>
-			<div>
-				<div style="text-align:center;"><%= image_tag active.photograph.url(:medium) %></div>
-				<br />
+			<div style="text-align:center;">
+				<div class="md-image"><%= image_tag active.photograph.url(:medium) %></div>
+
 				<ul class="modal-list">
 
 					<% unless active.major.blank? %>
@@ -116,7 +131,7 @@
 		
     <button class="md-trigger" data-modal=<%= "modal-" + active.id.to_s %> >
 		<a class="thumbnail">
-		  <%= image_tag active.photograph.url(:medium) %>
+		  <%= image_tag active.photograph.url(:middle) %>
 		</a>
 	</button>
 
