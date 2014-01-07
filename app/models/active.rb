@@ -1,8 +1,17 @@
 class Active < ActiveRecord::Base
-  #Assigns Default Values to Active Attributes (ie. display_on_index)
-  # and standardizes name through titleize method
+  #Before Save Methods -
+  #  :default_values - Assigns Default Values to Active Attributes (ie. display_on_index)
+  #  titleize - Standardizes Name Input
   before_save :default_values
   before_save { self.name = name.titleize }
+
+  #After Creation Methods
+  #   :send_admin_mail - Sends email confirmation to signed up active
+  after_create :send_welcome_mail
+
+  #After Update Methods
+  #   :send_activation_mail - Sends the Status of the User when activated
+  after_update :send_activation_mail
 
   has_many :rusheeposts, dependent: :destroy
 
@@ -40,6 +49,30 @@ class Active < ActiveRecord::Base
     else
       super # Use whatever other message
     end
+  end
+
+  #Sends email confirmation to signed up active
+  def send_welcome_mail
+    ActiveMailer.welcome_email(self).deliver
+  end
+
+  #Sends email confirmation when user is approved
+  def send_activation_mail
+    if approved_changed?
+      ActiveMailer.activation_email(self).deliver unless !self.approved
+    end
+  end
+
+  #I Don't know what this function does, Devise told me to put this here, but it
+  # works without this method as well.
+  def self.send_reset_password_instructions(attributes={})
+    recoverable = find_or_initialize_with_errors(reset_password_keys, attributes, :not_found)
+    if !recoverable.approved?
+      recoverable.errors[:base] << I18n.t("devise.failure.not_approved")
+    elsif recoverable.persisted?
+      recoverable.send_reset_password_instructions
+    end
+    recoverable
   end
 
 end
