@@ -24,7 +24,7 @@ ActiveAdmin.register CareerEntry do
       f.input :group, :label => "Group (i.e. 'Corporate Risk', 'Software Engineering') "
       f.input :location
       f.input :year
-      f.input :fullintern, :label => "Full-time/internship (Must type either 'Full-time' or 'Internship') "
+      f.input :fullintern, as: :select, collection: ["Internship", "Full-time"], :label => "Full-time/internship"
     end
   
     f.actions
