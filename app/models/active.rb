@@ -1,8 +1,17 @@
 class Active < ActiveRecord::Base
-  #Assigns Default Values to Active Attributes (ie. display_on_index)
-  # and standardizes name through titleize method
+  #Before Save Methods -
+  #  :default_values - Assigns Default Values to Active Attributes (ie. display_on_index)
+  #  titleize - Standardizes Name Input
   before_save :default_values
   before_save { self.name = name.titleize }
+
+  #After Creation Methods
+  #   :send_admin_mail - Sends email confirmation to signed up active
+  after_create :send_welcome_mail
+
+  #After Update Methods
+  #   :send_activation_mail - Sends the Status of the User when activated
+  after_update :send_activation_mail
 
   has_many :rusheeposts, dependent: :destroy
 
@@ -39,6 +48,18 @@ class Active < ActiveRecord::Base
       :not_approved
     else
       super # Use whatever other message
+    end
+  end
+
+  #Sends email confirmation to signed up active
+  def send_welcome_mail
+    ActiveMailer.welcome_email(self).deliver
+  end
+
+  #Sends email confirmation when user is approved
+  def send_activation_mail
+    if approved_changed?
+      ActiveMailer.activation_email(self).deliver unless !self.approved
     end
   end
 
