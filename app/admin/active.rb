@@ -8,7 +8,6 @@ ActiveAdmin.register Active do
     column :pledge_class
     column :major
     column :hometown
-    column :biography
     column :linkedin
     column :positions_held
     column :display_on_index

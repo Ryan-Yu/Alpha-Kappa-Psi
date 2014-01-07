@@ -3,7 +3,7 @@
 <style>
 
 	a {
-		color: #c0392b;
+		color: #bed9d9;
 		text-decoration: none;
 	}
 
@@ -62,7 +62,7 @@
 
 	.md-image {
 		float:left;
-		padding-right: 25px;
+		padding-right: 40px;
 		padding-bottom: 25px;
 	}
 
@@ -121,6 +121,13 @@
 							<%= active.biography %>
 						</li>
 					<% end %>
+
+					<% unless active.linkedin.blank? %>
+						<li><strong>CONNECT WITH <%= active.name.split.first.upcase %> ON LINKEDIN: &nbsp;&nbsp;</strong>
+							<a href=<%= active.linkedin %> target="_blank"> <i class="fa fa-linkedin-square" style="font-size: 30px;"></i> </a> 
+						</li>
+					<% end %>
+
 
 				</ul>
 				<button class="md-close">Close</button>
