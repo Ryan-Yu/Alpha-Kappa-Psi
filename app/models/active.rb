@@ -1,5 +1,6 @@
 class Active < ActiveRecord::Base
-
+  #Assigns Default Values to Active Attributes (ie. display_on_index)
+  # and standardizes name through titleize method
   before_save :default_values
   before_save { self.name = name.titleize }
 
@@ -17,7 +18,7 @@ class Active < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
 
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -25,6 +26,20 @@ class Active < ActiveRecord::Base
   # (should be false on production verison of site)
   def default_values
     self.display_on_index = true if self.display_on_index.nil?
+  end
+
+  #Helper methods to implement admin activation via devise,
+  #following https://github.com/plataformatec/devise/wiki/How-To%3a-Require-admin-to-activate-account-before-sign_in
+  def active_for_authentication?
+    super && approved?
+  end
+
+  def inactive_message
+    if !approved?
+      :not_approved
+    else
+      super # Use whatever other message
+    end
   end
 
 end
