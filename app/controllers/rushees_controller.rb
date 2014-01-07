@@ -8,10 +8,9 @@ class RusheesController < ApplicationController
 		@rusheepost = @rushee.rusheeposts.build if active_signed_in?
 	end
 
-
 	def index
 		@rushees = Rushee.all
-		@rushsemester = RushEvent.first.semester
+		@rushsemester = RushEvent.first.semester unless RushEvent.first.nil?
 	end
 
 end

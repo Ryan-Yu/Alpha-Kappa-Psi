@@ -16,6 +16,6 @@ class ActiveMailer < ActionMailer::Base
   def activation_email(user)
     @user = user
     @url = root_url
-    mail(to: @user.email, subject: "#{user.name}, You've been approved as an active at Alpha Kappa Psi - Alpha Beta Chapter")
+    mail(to: @user.email, subject: "You've been approved as an active at Alpha Kappa Psi - Alpha Beta Chapter")
   end
 end
