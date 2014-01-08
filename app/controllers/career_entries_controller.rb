@@ -6,7 +6,7 @@ class CareerEntriesController < ApplicationController
     @careerentry = current_active.career_entries.build(career_params)
     @careerentry.name = current_active.name
     if safe_save(@careerentry)
-      flash[:success] = "Your career has been created"
+      flash[:success] = "Your career has been created!"
       redirect_to careers_path
     else
       flash.now[:error] = "The specified career already exists or something went wrong. Please try again."
@@ -46,7 +46,7 @@ class CareerEntriesController < ApplicationController
 
   def career_params
     params.require(:career_entry).permit(:name, :company, :year,
-                                   :fullintern, :location, :job_category)
+                                   :fullintern, :location, :group, :job_category)
   end
 
   def safe_save(career_entry)

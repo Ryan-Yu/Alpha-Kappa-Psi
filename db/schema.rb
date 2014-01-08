@@ -91,8 +91,6 @@ ActiveRecord::Schema.define(version: 20140108080122) do
     t.integer  "active_id"
   end
 
-  add_index "career_entries", ["active_id", "company", "year", "fullintern"], name: "career_index", unique: true
-
   create_table "rush_events", force: true do |t|
     t.string   "event_name"
     t.string   "event_description"

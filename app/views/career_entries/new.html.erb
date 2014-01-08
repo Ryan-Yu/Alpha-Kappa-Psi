@@ -1,26 +1,52 @@
-<h1>Create your Career</h1>
+<style type="text/css">
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@careerentry) do |f| %>
+    input {
+        font-family: FontAwesome;
+    }
+
+    .btn.btn-sm{
+        border-style:solid;
+        border-color:#fff;
+        text-align: left;
+        font-family: 'Lato', Calibri, Arial, sans-serif;
+        font-size: 13px;
+    }
+
+</style>
+
+<%= form_for(@careerentry, :html => {:class => "form-sign-in-up"}) do |f| %>
+
+    <div class="account-wall"> 
+        <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
+
+        <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
+        <span class="profile-email">Add career entry</span>
+        <span class="profile-email">[<%= current_active.name %>]</span>
+        <br />
+
         <%= render 'shared/error_messages', object: f.object%>
 
-        <%= f.label :company %>
-        <%= f.text_field :company %>
+        <%= f.text_field :company, class: 'form-control', autofocus: true, placeholder: "&#xf0fe;  Company".html_safe %><br />
 
-        <%= f.label :year %>
-        <%= f.text_field :year %>
+        <%= f.text_field :group, class: 'form-control', autofocus: true, placeholder: "&#xf0fe;  Group".html_safe %><br />
 
-        <%= f.label :fullintern, "Career Type" %>
+        <%= f.text_field :year, class: 'form-control', autofocus: true, placeholder: "&#xf0fe;  Year".html_safe %><br />
+
+        <%= f.text_field :location, class: 'form-control', autofocus: true, placeholder: "&#xf0fe;  Location".html_safe %><br />
+
+        <%= f.text_field :job_category, class: 'form-control', autofocus: true, placeholder: "&#xf0fe;  Job Category".html_safe %><br />
+        <p style="font-size:11px;">(eg. "investment banking", "accounting", <br />
+            "technology" - see careers page <br />
+             for different categories)</p>
+
+        <br />
         <%= f.collection_select :fullintern, CareerEntry::CAREER_TYPES, :to_s, :to_s%>
 
-        <%= f.label :location %>
-        <%= f.text_field :location %>
+        <br />
+        <br />
 
-        <%= f.label :job_category, "Job Category" %>
-        <%= f.text_field :job_category %>
+        <%= f.submit "Submit Career", class: "btn btn-sm" %>
 
-        <%= f.submit "Submit Career", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-</div>
+    </div>
+
+<% end %>
