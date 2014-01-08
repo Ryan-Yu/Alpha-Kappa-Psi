@@ -66,6 +66,22 @@
 		padding-bottom: 25px;
 	}
 
+	.active-names {
+		text-align:center; 
+		font-family: 'Open Sans', sans-serif;
+		font-weight: 700;
+		font-size: 13px;
+	}
+
+	.thumbnail {
+	    
+	    box-shadow: none;
+	}
+
+	/*.style_image {
+	  border: 4px solid #000;
+	}*/
+
 	@media (max-width: 767px) {
 
 		.md-image {
@@ -138,11 +154,11 @@
 		
     <button class="md-trigger" data-modal=<%= "modal-" + active.id.to_s %> >
 		<a class="thumbnail">
-		  <%= image_tag active.photograph.url(:middle) %>
+		  <%= image_tag active.photograph.url(:middle), :class => "style_image" %>
 		</a>
 	</button>
 
-	<p style="text-align:center;"><%= active.name %></p>
+	<p class="active-names"><%= active.name %></p>
 
 
 	<div class="md-overlay"></div><!-- the overlay element -->
