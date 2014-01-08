@@ -1,0 +1,12 @@
+<li>
+  <span class="content">
+        <%=career_entry.name %>, <%= career_entry.company %>, <%= career_entry.year %>,
+        <%= career_entry.fullintern %>, <%= career_entry.location %>, <%= career_entry.job_category %>
+  </span>
+  <% if current_active?(career_entry.active) %>
+      <%= link_to "edit", edit_career_entry_path(career_entry)%>
+      <%= link_to "delete", career_entry, method: :delete,
+                  data: { confirm: "You sure?" },
+                  title: career_entry.company %>
+  <% end %>
+</li>

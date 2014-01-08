@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107040616) do
+ActiveRecord::Schema.define(version: 20140108080122) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -88,7 +88,10 @@ ActiveRecord::Schema.define(version: 20140107040616) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "job_category"
+    t.integer  "active_id"
   end
+
+  add_index "career_entries", ["active_id", "company", "year", "fullintern"], name: "career_index", unique: true
 
   create_table "rush_events", force: true do |t|
     t.string   "event_name"

@@ -10,6 +10,8 @@ AlphaKappaPsi::Application.routes.draw do
     resources :rusheeposts, only: [:create, :destroy]
   end
 
+  resources :career_entries
+
   root     'static_pages#home'
   match    '/about',        to: 'static_pages#about',      via: 'get'
   match    '/careers',      to: 'static_pages#careers',    via: 'get'

@@ -3,6 +3,7 @@ ActiveAdmin.register Active do
   # Specify which columns we want to appear in our ActiveAdmin index page
   index do
     selectable_column
+    column :id
     column :name
     column :email
     column :pledge_class
@@ -20,6 +21,7 @@ ActiveAdmin.register Active do
   # Specify which attributes we want the admin to be able to edit
   form do |f|
     f.inputs "Active information" do
+      f.input :id
       f.input :name
       f.input :email
       f.input :major

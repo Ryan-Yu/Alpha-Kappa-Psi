@@ -1,0 +1,10 @@
+<% if active_signed_in? %>
+        <h3>Careers (<%= @active.career_entries.count %>)</h3>
+        <ol>
+          <%= render @activecareers %>
+        </ol>
+
+    <% if current_active?(@active) %>
+        <%= link_to "Add Career", new_career_entry_path %>
+    <%end%>
+<% end %>
