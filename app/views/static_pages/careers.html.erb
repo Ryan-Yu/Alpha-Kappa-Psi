@@ -17,6 +17,11 @@
 	    background-color: #eaeaea;
 	}
 
+	.table {
+		font-size: 11px;
+	}
+
+
 	@media (max-width: 767px) {
 	  .table-responsive {
 	    width: 100%;
@@ -87,7 +92,7 @@
 
     <h1>Careers</h1>
     <h3>Active Brothers + Alumni</h3>
-    <br />
+    <hr />
     <br />
 
 
@@ -164,6 +169,7 @@
 
 			<% end %>
 
+			<!-- If there is only one career entry  -->
 			<% if @careerentries.size == 1 %>
 
 				</table>
