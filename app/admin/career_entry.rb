@@ -3,6 +3,7 @@ ActiveAdmin.register CareerEntry do
   index do
     selectable_column
     column :name
+    column :active_id
     column :job_category
     column :company
     column :group
@@ -19,6 +20,7 @@ ActiveAdmin.register CareerEntry do
   form do |f|
     f.inputs "Career entry information" do
       f.input :name, :label => "Name of active/alumni"
+      f.input :active_id, :label => "Active Id"
       f.input :job_category, :label => "Job Category (i.e. Investment Banking; Technology)"
       f.input :company
       f.input :group, :label => "Group (i.e. 'Corporate Risk', 'Software Engineering') "

@@ -7,4 +7,10 @@ module DeviseHelper
     end
     return ''
   end
+
+  #Checks if the compared active is the same one as the current active
+  def current_active?(active)
+    active == current_active
+  end
+
 end

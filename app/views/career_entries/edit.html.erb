@@ -1,0 +1,26 @@
+<h1>Edit your Career</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@careerentry) do |f| %>
+        <%= render 'shared/error_messages', object: f.object%>
+
+        <%= f.label :company %>
+        <%= f.text_field :company %>
+
+        <%= f.label :year %>
+        <%= f.text_field :year %>
+
+        <%= f.label :fullintern, "Career Type" %>
+        <%= f.collection_select :fullintern, CareerEntry::CAREER_TYPES, :to_s, :to_s%>
+
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+
+        <%= f.label :job_category, "Job Category" %>
+        <%= f.text_field :job_category %>
+
+        <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
