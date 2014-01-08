@@ -7,13 +7,14 @@ class Active < ActiveRecord::Base
 
   #After Creation Methods
   #   :send_admin_mail - Sends email confirmation to signed up active
-  after_create :send_welcome_mail
+  #after_create :send_welcome_mail
 
   #After Update Methods
   #   :send_activation_mail - Sends the Status of the User when activated
-  after_update :send_activation_mail
+  #after_update :send_activation_mail
 
   has_many :rusheeposts, dependent: :destroy
+  has_many :career_entries, foreign_key: 'active_id', dependent: :destroy
 
   has_attached_file :photograph,
                     :styles => { :medium => "300x300>", :middle => "250x250>", :small => "200x200>", :thumb => "100x100>" },
