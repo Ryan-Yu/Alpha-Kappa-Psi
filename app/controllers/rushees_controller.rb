@@ -11,7 +11,7 @@ class RusheesController < ApplicationController
 
 	def index
 		@rushees = Rushee.all
-		@rushsemester = RushEvent.first.semester
+		@rushsemester = RushEvent.first.semester unless RushEvent.first.nil?
 	end
 
 end
