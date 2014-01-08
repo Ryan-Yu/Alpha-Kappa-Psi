@@ -1,16 +1,42 @@
-<h2>Change your password</h2>
+<!-- Styling -->
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+<style>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+	input {
+        font-family: FontAwesome;
+    }
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+    .btn.btn-sm {
+        border-style:solid;
+        border-color:#fff;
+        text-align: left;
+        font-family: 'Lato', Calibri, Arial, sans-serif;
+        font-size: 13px;
+    }
 
-  <div><%= f.submit "Change my password" %></div>
+</style>
+
+
+
+<!-- Content -->
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => "form-sign-in-up" }) do |f| %>
+
+	<div class="account-wall"> 
+		<h5 style="text-align:center;">Change your password</h5>
+
+		<img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
+
+		<%= devise_error_messages! %>
+	    <%= f.hidden_field :reset_password_token %>
+
+		<%= f.password_field :password, class: 'form-control', :autofocus => true, placeholder: "&#xf084; New password".html_safe %>
+
+		<%= f.password_field :password_confirmation, class: 'form-control', placeholder: "&#xf084; Confirm new password".html_safe %>
+
+		<br />
+		<br />
+
+		<%= f.submit "Change my password", class: "btn btn-sm" %>
+	</div>
 <% end %>
-
-<%= render "devise/shared/links" %>
