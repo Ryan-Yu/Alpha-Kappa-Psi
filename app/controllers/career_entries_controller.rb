@@ -21,14 +21,14 @@ class CareerEntriesController < ApplicationController
 
   def destroy
     CareerEntry.find(params[:id]).destroy
-    flash[:success] = "Career deleted."
+    flash[:success] = "Career entry has been successfully deleted."
     redirect_to career_entry_path(current_active)
   end
 
   def update
     @careerentry = CareerEntry.find(params[:id])
     if @careerentry.update_attributes(career_params)
-      flash[:success] = "Career updated"
+      flash[:success] = "Career entry has been successfully updated."
       redirect_to career_entry_path(current_active)
     else
       render 'edit'

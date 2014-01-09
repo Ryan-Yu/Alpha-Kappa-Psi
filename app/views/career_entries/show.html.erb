@@ -1,14 +1,55 @@
+<!-- Styling for table -->
+
+<style>
+
+    .table tbody {
+		font-size: 12px;
+	}
+
+</style>
+
+
+<!-- Content -->
+
 <div class="account-wall-static" style="text-align:center;">
 
 	<% if active_signed_in? %>
-	        <h3>Careers (<%= @active.career_entries.count %>)</h3>
-	        <ol>
-	          <%= render @activecareers %>
-	        </ol>
+		<img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
+		<% if @active.career_entries.count > 0 %>
+
+	        <h3><%= current_active.name %>'s Careers (<%= @active.career_entries.count %>)</h3>
+	        	<br />
+	        	<div class="table-responsive">
+					<table class="table table-striped">
+
+						<thead>
+							<tr>
+								<th> Company </th>
+								<th> Group </th>
+								<th> Year </th>
+								<th> Location </th>
+								<th> Job Category </th>
+								<th> Full-time/internship </th>
+							</tr>
+						</thead>
+						<tbody>
+	        				<%= render @activecareers %>
+	        			</tbody>
+	        		</table>
+	        	</div>
+
+	    <% else %>
+	    	<h4> No careers added. </h4>
+
+	    <% end %>
+	        
 
 	    <% if current_active?(@active) %>
-	        <%= link_to "Add Career", new_career_entry_path %>
-	    <%end%>
+	        <br />
+	    	<a class="btn btn-sm" href=<%= new_career_entry_path %>>Add New Career Entry</a>
+
+	    <% end %>
+
 	<% end %>
 
 </div>

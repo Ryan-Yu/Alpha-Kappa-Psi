@@ -1,12 +1,28 @@
-<li>
-  <span class="content">
-        <%=career_entry.name %>, <%= career_entry.company %>, <%= career_entry.year %>,
-        <%= career_entry.fullintern %>, <%= career_entry.location %>, <%= career_entry.job_category %>
-  </span>
+<!-- Renders each row of the active's career entries -->
+
+<tr>
+  <td> <%= career_entry.company %> </td>
+  <td> <%= career_entry.group %> </td>
+  <td> <%= career_entry.year %> </td>
+  <td> <%= career_entry.location %> </td>
+  <td> <%= career_entry.job_category %> </td>
+  <td> <%= career_entry.fullintern %> </td>
+
   <% if current_active?(career_entry.active) %>
-      <%= link_to "edit", edit_career_entry_path(career_entry)%>
-      <%= link_to "delete", career_entry, method: :delete,
-                  data: { confirm: "You sure?" },
+    <td>
+      <%= link_to "[edit]", edit_career_entry_path(career_entry)%>
+    </td>
+    <td>
+      <%= link_to "[delete]", career_entry, method: :delete,
+                  data: { confirm: "Are you sure you want to delete this career entry?" },
                   title: career_entry.company %>
+              
+    </td>
   <% end %>
-</li>
+</tr>
+  
+
+
+
+
+  
