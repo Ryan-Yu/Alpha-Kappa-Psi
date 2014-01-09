@@ -1,5 +1,7 @@
 class Rushee < ActiveRecord::Base
 
+	GRADE_TYPES = ["Freshman", "Sophomore", "Junior", "Junior Transfer", "Senior"]
+
 	has_many :rusheeposts, dependent: :destroy
 
 	before_save { self.email = email.downcase }
@@ -21,5 +23,7 @@ class Rushee < ActiveRecord::Base
 	# Validation for email attribute
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 	validates(:email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false } )
+
+	validates_inclusion_of :grade, :in => GRADE_TYPES
 
 end

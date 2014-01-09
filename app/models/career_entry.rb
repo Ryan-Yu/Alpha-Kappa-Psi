@@ -1,5 +1,5 @@
 class CareerEntry < ActiveRecord::Base
-  CAREER_TYPES = ["Internship", "Full-time"]
+    CAREER_TYPES = ["Internship", "Full-time"]
 
 	before_save { self.fullintern = fullintern.capitalize }
 
@@ -13,6 +13,6 @@ class CareerEntry < ActiveRecord::Base
 	# full_or_intern attribute must be "Internship" or "Full-time"
 	validates_inclusion_of :fullintern, :in => CAREER_TYPES
 
-  belongs_to :active
+    belongs_to :active
 
 end

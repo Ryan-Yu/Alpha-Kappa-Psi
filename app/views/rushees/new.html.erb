@@ -1,0 +1,53 @@
+<!-- Styling for form -->
+
+<style type="text/css">
+
+    input {
+        font-family: FontAwesome;
+    }
+
+    .btn.btn-sm {
+        border-style:solid;
+        border-color:#fff;
+        text-align: left;
+        font-family: 'Lato', Calibri, Arial, sans-serif;
+        font-size: 13px;
+    }
+
+</style>
+
+
+
+<!-- Content -->
+
+<% provide(:title, 'Rushee Registration') %>
+
+
+<%= form_for(@newrushee, :html => {:class => "form-sign-in-up"}) do |f| %>
+
+  <div class="account-wall">  
+    <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
+
+    <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
+    <span class="profile-email">Rushee Sign-up</span><br />
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: "&#xf007;  Name".html_safe %>
+
+    <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: "&#xf003;  Email".html_safe %>
+
+    <%= f.text_field :major, class: 'form-control', autofocus: true, placeholder: "&#xf15c;  Major".html_safe %>
+
+    <br />
+    <br />
+
+    <%= f.select :grade, ["Freshman", "Sophomore", "Junior", "Junior Transfer", "Senior"], class: 'form-control', autofocus: true %>
+
+    <br />
+    <br />
+
+    <%= f.submit "Submit rush sign-up", class: "btn btn-sm" %>
+  </div>
+<% end %>
+

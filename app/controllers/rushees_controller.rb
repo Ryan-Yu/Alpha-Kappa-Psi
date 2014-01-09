@@ -1,6 +1,20 @@
 class RusheesController < ApplicationController
 
-	before_action :authenticate_active!
+	before_action :authenticate_active!, only: [:show, :index]
+
+	def new
+		@newrushee = Rushee.new
+	end
+
+	def create
+		@newrushee = Rushee.new(rushee_params)
+		if @newrushee.save
+			flash[:success] = @newrushee.name + " sucessfully saved as a new rushee!"
+			redirect_to new_rushee_path
+		else
+			render 'new'
+		end
+	end
 
 	def show
 		@rushee = Rushee.find(params[:id])
@@ -13,5 +27,12 @@ class RusheesController < ApplicationController
 		@rushees = Rushee.all
 		@rushsemester = RushEvent.first.semester unless RushEvent.first.nil?
 	end
+
+
+	private
+
+		def rushee_params
+			params.require(:rushee).permit(:name, :email, :grade, :major, :photograph)
+		end
 
 end

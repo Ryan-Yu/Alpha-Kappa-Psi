@@ -16,7 +16,7 @@ ActiveAdmin.register Rushee do
       f.input :name
       f.input :email
       f.input :major
-      f.input :grade
+      f.input :grade, as: :select, collection: ["Freshman", "Sophomore", "Junior", "Junior Transfer", "Senior"], :label => "Grade"
       f.input :photograph
     end
   
