@@ -1,6 +1,6 @@
 class RusheesController < ApplicationController
 
-	before_action :authenticate_active!, only: [:show, :index]
+	before_action :authenticate_active!, only: [:show, :index, :create, :new]
 
 	def new
 		@newrushee = Rushee.new
