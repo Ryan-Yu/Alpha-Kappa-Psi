@@ -15,7 +15,7 @@
 </style>
 
 
-<%= form_for(@careerentry, :html => {:class => "form-sign-in-up"}) do |f| %>
+<%= form_for([@active, @careerentry], :html => {:class => "form-sign-in-up"}) do |f| %>
     <div class="account-wall">
         <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
 

@@ -4,7 +4,9 @@ AlphaKappaPsi::Application.routes.draw do
   ActiveAdmin.routes(self)
   
   devise_for :actives, :path_prefix => 'alt'
-  resources :actives, only: [:index, :show]
+  resources :actives do
+    resources :career_entries
+  end
 
   resources :rushees, only: [:index, :show] do
     resources :rusheeposts, only: [:create, :destroy]

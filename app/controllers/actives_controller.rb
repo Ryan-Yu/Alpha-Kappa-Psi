@@ -9,6 +9,6 @@ class ActivesController < ApplicationController
 
 	def index
 		@actives = Active.all
-	end
+  end
 
 end

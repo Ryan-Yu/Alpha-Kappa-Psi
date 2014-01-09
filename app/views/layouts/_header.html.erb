@@ -144,7 +144,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to "Edit Profile", edit_active_registration_path %></li>
-                <li><%= link_to "Edit My Careers", career_entry_path(current_active) %></li>
+                <li><%= link_to "Edit My Careers", active_career_entries_path(current_active) %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", destroy_active_session_path, :method => :delete %>
