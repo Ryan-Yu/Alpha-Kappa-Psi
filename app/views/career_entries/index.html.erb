@@ -13,7 +13,6 @@
 
 <div class="account-wall-static" style="text-align:center;">
 
-	<% if active_signed_in? %>
 		<img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
 		<% if @active.career_entries.count > 0 %>
 
@@ -44,12 +43,9 @@
 	    <% end %>
 	        
 
-	    <% if current_active?(@active) %>
+	    <% if active_signed_in? && current_active?(@active) %>
 	        <br />
 	    	<a class="btn btn-sm" href=<%= new_active_career_entry_path %>>Add New Career Entry</a>
-
 	    <% end %>
-
-	<% end %>
 
 </div>
