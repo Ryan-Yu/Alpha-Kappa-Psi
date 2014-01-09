@@ -9,15 +9,15 @@
   <td> <%= career_entry.fullintern %> </td>
 
   <% if current_active?(career_entry.active) %>
-    <td>
-      <%= link_to "[edit]", edit_career_entry_path(career_entry)%>
-    </td>
-    <td>
-      <%= link_to "[delete]", career_entry, method: :delete,
-                  data: { confirm: "Are you sure you want to delete this career entry?" },
-                  title: career_entry.company %>
-              
-    </td>
+      <td>
+        <%= link_to "[edit]", edit_active_career_entry_path(career_entry.active, career_entry)%>
+      </td>
+      <td>
+        <%= link_to "[delete]", active_career_entry_path(career_entry.active, career_entry), :method => :delete,
+                    data: { confirm: "Are you sure you want to delete this career entry?" },
+                    title: career_entry.company %>
+
+      </td>
   <% end %>
 </tr>
   
