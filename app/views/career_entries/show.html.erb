@@ -17,7 +17,7 @@
 		<img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
 		<% if @active.career_entries.count > 0 %>
 
-	        <h3><%= current_active.name %>'s Careers (<%= @active.career_entries.count %>)</h3>
+	        <h3><%= @active.name %>'s Careers (<%= @active.career_entries.count %>)</h3>
 	        	<br />
 	        	<div class="table-responsive">
 					<table class="table table-striped">
