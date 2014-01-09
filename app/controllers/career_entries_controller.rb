@@ -16,12 +16,7 @@ class CareerEntriesController < ApplicationController
   end
 
   def index
-    @active = current_active
-    @activecareers = @active.career_entries.all
-  end
-
-  def show
-    @active = Active.find(params[:id])
+    @active = Active.find(params[:active_id])
     @activecareers = @active.career_entries.all
   end
 
