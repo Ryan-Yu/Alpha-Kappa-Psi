@@ -22,5 +22,9 @@ class StaticPagesController < ApplicationController
   def rush
     @rushevents = RushEvent.order(:event_time => :asc)
   end
+
+  def classes
+    @pledgeclasses = PledgeClassEntry.order(:year => :desc, :semester => :asc)
+  end
   
 end
