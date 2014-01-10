@@ -125,7 +125,16 @@
           <li><%= link_to "Home",            root_path %></li>
           <li><%= link_to "Rush",            rush_path %></li>
           <li><%= link_to "About Us",        about_path %></li>
-          <li><%= link_to "Active Brothers", actives_path %></li>
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Active Brothers
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Active Profiles", actives_path %></li>
+              <li><%= link_to "Pledge Classes", classes_path %></li>
+            </ul>
+          </li>
+
           <li><%= link_to "Careers",         careers_path %></li>
           <li><%= link_to "Consulting",      consulting_path %></li>
           <li><%= link_to "Corporate",       corporate_path %></li>
