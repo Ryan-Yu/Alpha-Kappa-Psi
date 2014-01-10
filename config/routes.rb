@@ -14,12 +14,13 @@ AlphaKappaPsi::Application.routes.draw do
 
 
   root     'static_pages#home'
-  match    '/about',        to: 'static_pages#about',      via: 'get'
-  match    '/careers',      to: 'static_pages#careers',    via: 'get'
-  match    '/contact',      to: 'static_pages#contact',    via: 'get'
-  match    '/consulting',   to: 'static_pages#consulting', via: 'get'
-  match    '/corporate',    to: 'static_pages#corporate',  via: 'get'
-  match    '/rush',         to: 'static_pages#rush',       via: 'get'
+  match    '/about',        to: 'static_pages#about',               via: 'get'
+  match    '/careers',      to: 'static_pages#careers',             via: 'get'
+  match    '/contact',      to: 'static_pages#contact',             via: 'get'
+  match    '/contact',      to: 'static_pages#contact_request',     via: 'post'
+  match    '/consulting',   to: 'static_pages#consulting',          via: 'get'
+  match    '/corporate',    to: 'static_pages#corporate',           via: 'get'
+  match    '/rush',         to: 'static_pages#rush',                via: 'get'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

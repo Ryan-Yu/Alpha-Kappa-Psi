@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+    @contact_request = ContactRequest.new
   end
 
   def consulting
@@ -22,5 +23,23 @@ class StaticPagesController < ApplicationController
   def rush
     @rushevents = RushEvent.order(:event_time => :asc)
   end
-  
+
+  def contact_request
+    @contact_request = ContactRequest.new(contact_params)
+    if @contact_request.valid?
+      ActiveMailer.contact_email(@contact_request).deliver
+      flash[:success] = "You've successfully submitted your request to calakpsi.new@gmail.com. We will contact you back at #{@contact_request.email}."
+      redirect_to contact_path
+    else
+      render 'contact'
+    end
+  end
+
+  private
+
+    def contact_params
+      params.require(:contact_request).permit(:name, :email, :subject, :body)
+    end
+
 end
+
