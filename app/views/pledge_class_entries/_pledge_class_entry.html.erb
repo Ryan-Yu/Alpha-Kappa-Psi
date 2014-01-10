@@ -2,17 +2,12 @@
     <time class="cbp_tmtime">
     	<span><%= pledge_class_entry.semester %> <%= pledge_class_entry.year %></span>
     	
-    	<% if pledge_class_entry.classname.split.length == 1 %>
-    		<span><%= pledge_class_entry.classname %></span>
-    	<% elsif pledge_class_entry.classname.split.length == 2 %>
-    		<span><%= pledge_class_entry.classname.split.first %><br /><%= pledge_class_entry.classname.split.last %></span>
-    	<% end %>
+    	<span><%= pledge_class_entry.classname %></span>
 
     </time>
 
     <div class="cbp_tmicon cbp_tmicon-phone"></div>
     <div class="cbp_tmlabel">
-        <h2>Ricebean black-eyed pea</h2>
-        <p><%= pledge_class_entry.members.split(";")%></p>
+        <p><%= pledge_class_entry.members.split(";").sort.join("  |  ") %></p>
     </div>
 </li>

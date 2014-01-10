@@ -30,7 +30,7 @@
 .cbp_tmtimeline > li .cbp_tmtime span {
     display: block;
     text-align: right;
-    line-height: 42px;
+    line-height: 32px;
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:first-child {
@@ -39,7 +39,7 @@
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
-    font-size: 3.1em;
+    font-size: 2.2em;
     color: #90bab6;
 }
 
