@@ -1,0 +1,9 @@
+<% provide(:title, 'Pledge Classes') %>
+
+	<ul class="cbp_tmtimeline">
+		<% @pledgeclasses.each do |pledge_class_entry| %>
+			<!-- Partial located at views/pledge_class_entries/_pledge_class_entry.html.erb -->
+			<%= render pledge_class_entry %>
+
+		<% end %>
+	</ul>
