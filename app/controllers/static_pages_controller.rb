@@ -11,6 +11,7 @@ class StaticPagesController < ApplicationController
   end
 
   def contact
+    @contact_request = ContactRequest.new
   end
 
   def consulting
@@ -26,5 +27,23 @@ class StaticPagesController < ApplicationController
   def classes
     @pledgeclasses = PledgeClassEntry.order(:year => :desc, :semester => :asc)
   end
-  
+
+  def contact_request
+    @contact_request = ContactRequest.new(contact_params)
+    if @contact_request.valid?
+      ActiveMailer.contact_email(@contact_request).deliver
+      flash[:success] = "You've successfully submitted your request to calakpsi.new@gmail.com. We will contact you back at #{@contact_request.email}."
+      redirect_to contact_path
+    else
+      render 'contact'
+    end
+  end
+
+  private
+
+    def contact_params
+      params.require(:contact_request).permit(:name, :email, :subject, :body)
+    end
+
 end
+

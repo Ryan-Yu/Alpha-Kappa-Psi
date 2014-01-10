@@ -6,8 +6,44 @@
   <div id="intro">
 
     <h1>Contact Us</h1>
-    <h3>Questions or concerns?</h3>
+    <h3>Questions or concerns?</h3> <br/>
+    <h3>General Inquiries: <%= mail_to "info@calakpsi.com" %> </h3> <br/>
+    <h3>Rush Information: <%= mail_to "rush@calakpsi.com" %> </h3>  <br/>
+    <h3>ABC Consulting: <%= mail_to "abc@calakpsi.com" %> </h3> <br/>
+    <h3>BCS Consulting:<%= mail_to "bcs@calakpsi.com" %> </h3> <br/>
+    <h3>Corporate:  <%= mail_to "corporaterelations@calakpsi.com" %> </h3> <br/>
+
     <br />
+
+    <%= form_for @contact_request, :url => contact_path, method: "post" do |form| %>
+
+        <%= render 'shared/error_messages', object: form.object%>
+
+        <fieldset class="fields">
+          <div class="field">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+          </div>
+
+          <div class="field">
+            <%= form.label :your_email%>
+            <%= form.text_field :email %>
+          </div>
+          <div class="field">
+            <%= form.label :subject %>
+            <%= form.text_field :subject %>
+          </div>
+
+          <div class="field">
+            <%= form.label :body %>
+            <%= form.text_area :body %>
+          </div>
+        </fieldset>
+
+        <fieldset class="actions">
+          <%= form.submit "Contact Us" %>
+        </fieldset>
+    <% end %>
 
   </div>
 

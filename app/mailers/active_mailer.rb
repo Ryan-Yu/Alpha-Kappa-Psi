@@ -2,7 +2,8 @@
 # Views are located in app/views/active_mailer/xxx_email
 # Views are coded in HTML or TXT (plain text)
 class ActiveMailer < ActionMailer::Base
-  default from: "welcome@calakpsi.com"
+  default from: "calakpsi.news@gmail.com"
+  default to: "calakpsi.news@gmail.com"
 
   #Welcome email instance variables, uses a user, root_url
   # uses to: to send it to specified email and subject: for subject line.
@@ -18,4 +19,11 @@ class ActiveMailer < ActionMailer::Base
     @url = root_url
     mail(to: @user.email, subject: "You've been approved as an active at Alpha Kappa Psi - Alpha Beta Chapter")
   end
+
+  #Contact Request Email
+  def contact_email(contact_request)
+    @contact_request = contact_request
+    mail(subject: "[Contact Request] - #{@contact_request.name} - #{@contact_request.subject}", from: @contact_request.email)
+  end
+
 end
