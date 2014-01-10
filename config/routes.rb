@@ -21,7 +21,7 @@ AlphaKappaPsi::Application.routes.draw do
   match    '/corporate',    to: 'static_pages#corporate',  via: 'get'
   match    '/rush',         to: 'static_pages#rush',       via: 'get'
   match    '/classes',      to: 'static_pages#classes',    via: 'get'
-
+  match    '/contact',      to: 'static_pages#contact_request',     via: 'post'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
