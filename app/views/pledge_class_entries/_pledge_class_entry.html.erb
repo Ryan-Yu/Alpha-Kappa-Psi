@@ -8,6 +8,6 @@
 
     <div class="cbp_tmicon cbp_tmicon-phone"></div>
     <div class="cbp_tmlabel">
-        <p><%= pledge_class_entry.members.split(";").sort.join("  |  ") %></p>
+        <p><%= pledge_class_entry.members.split(";").map(&:strip).sort.join(" | ") %></p>
     </div>
 </li>
