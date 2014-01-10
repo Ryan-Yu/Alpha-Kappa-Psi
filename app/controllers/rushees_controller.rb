@@ -10,7 +10,7 @@ class RusheesController < ApplicationController
 		@newrushee = Rushee.new(rushee_params)
 		if @newrushee.save
 			flash[:success] = @newrushee.name + " sucessfully saved as a new rushee!"
-			redirect_to new_rushee_path
+			redirect_to root_path
 		else
 			render 'new'
 		end

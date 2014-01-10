@@ -1,10 +1,9 @@
 
 <div class="thread-post">
 
-	<h5> <%= rusheepost.active.name %>:</h5>
+	<p style="font-size:13px;"> <b><%= rusheepost.active.name %></b> <i>(posted <%= time_ago_in_words(rusheepost.created_at) %> ago):</i></p>
 
-	<i>Posted <%= time_ago_in_words(rusheepost.created_at) %> ago:</i>
-
-	<span class="content"><%= rusheepost.content %></span>
+	<span class="content"> <i class="fa fa-reply"></i>&nbsp;&nbsp; <%= rusheepost.content %></span> 
+	<br /><br />
 
 </div>

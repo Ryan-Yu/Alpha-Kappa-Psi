@@ -51,7 +51,7 @@
 
 	/* Styles for outer active button (that activates modal) */
 	.md-trigger {
-		border: none;
+		border: 2px #c0c0c0 solid;
 		background: none;
 		outline: 0;
 	}
@@ -69,18 +69,17 @@
 	.active-names {
 		text-align:center; 
 		font-family: 'Open Sans', sans-serif;
-		font-weight: 700;
-		font-size: 13px;
+		font-weight: 500;
+		font-size: 12px;
+		
+		line-height: 18px;
 	}
 
 	.thumbnail {
-	    
+	    border: 0 none;
 	    box-shadow: none;
 	}
 
-	/*.style_image {
-	  border: 4px solid #000;
-	}*/
 
 	@media (max-width: 767px) {
 
@@ -154,11 +153,11 @@
 		
     <button class="md-trigger" data-modal=<%= "modal-" + active.id.to_s %> >
 		<a class="thumbnail">
-		  <%= image_tag active.photograph.url(:middle), :class => "style_image" %>
+		  <%= image_tag active.photograph.url(:middlesmall), :class => "style_image" %>
 		</a>
-	</button>
 
-	<p class="active-names"><%= active.name %></p>
+		<p class="active-names"><%= active.name.split[0] %> <br /> <%= active.name.split[1..-1].join(' ') %></p>
+	</button>
 
 
 	<div class="md-overlay"></div><!-- the overlay element -->
