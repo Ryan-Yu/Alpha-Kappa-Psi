@@ -7,8 +7,8 @@
 <h1>Welcome to Alpha Kappa Psi at Berkeley, <%= @rushee.name %></h1>
 <p>
   You are now officially part of AKΨ Alpha Beta Chapter's rush process.  <br/>
-  Your username and password are as follows, please place this information in a safe place as it will be required when you submit
-  your rush application. <br/>
+  Your username and password are as follows; <i>please place this information in a safe place as it will be required when you submit
+  your rush application.</i> <br/>
 
   <br/>
   <b>Username:</b> <%= @rushee.email %>    <br/>
@@ -21,7 +21,7 @@
     <br/>
       <%= @rush_events[index].event_name   %> <br/>
       <%= @rush_events[index].event_description   %> <br/>
-      <%= @rush_events[index].event_time   %> <br/>
+      <%= @rush_events[index].event_time.strftime("%A, %B %d, %Y") %> <br/>
       <%= @rush_events[index].location  %> <br/>
   <% end %>
 

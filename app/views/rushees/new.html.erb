@@ -25,13 +25,13 @@
 
 <%= form_for(@newrushee, :html => {:class => "form-sign-in-up"}) do |f| %>
 
+  <%= render 'shared/error_messages', object: f.object %>
+
   <div class="account-wall">  
     <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
 
     <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
     <span class="profile-email">Rushee Sign-up</span><br />
-
-    <%= render 'shared/error_messages', object: f.object %>
 
     <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: "&#xf007;  Name".html_safe %>
 
