@@ -50,7 +50,7 @@
 /* Right content */
 .cbp_tmtimeline > li .cbp_tmlabel {
     margin: 0 0 15px 25%;
-    background: #a9a9a9;
+    background: #7a7a7a;
     color: #fff;
     padding: 2em;
     font-size: 1.2em;
@@ -61,7 +61,7 @@
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
-    background: #90bab6;
+    background: #6c938f;
 }
 
 .cbp_tmtimeline > li .cbp_tmlabel h2 { 
@@ -103,7 +103,7 @@
     -webkit-font-smoothing: antialiased;
     position: absolute;
     color: #fff;
-    background: #90bab6;
+    background: #6c938f;
     border-radius: 50%;
     box-shadow: 0 0 0 8px #a1a1a1;
     text-align: center;

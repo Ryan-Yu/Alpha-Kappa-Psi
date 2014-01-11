@@ -1,50 +1,189 @@
+<!-- Styling for form, other features -->
+
+<style>
+
+  .btn.btn-sm {
+    border-style:solid;
+    border-color:#fff;
+    text-align: left;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 13px;
+  }
+
+  #contactintro #socialmedia {
+    z-index: 99;
+    margin: 0 auto;
+    width: auto;
+    font-weight: 600;
+    font-family: "Open Sans",sans-serif;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    display: inline-block
+  }
+
+  #contactintro #socialmedia li {
+    display: inline
+  }
+
+  #contactintro #socialmedia #contactemail,#contactintro #socialmedia li a#facebook,#contactintro #socialmedia li a#twitter {
+    margin: 0px 20px 0 20px;
+    width: auto;
+    float: left;
+    position: relative;
+    color: #ccc;
+    text-decoration: none
+  }
+
+  #contactintro #socialmedia i {
+    color: rgba(149,188,184,0.5);
+  }
+
+  #contactintro #socialmedia i:hover {
+    color:#95bcb8
+  }
+
+  #contactintro #socialmedia #contactemail:hover {
+    color:#95bcb8
+  }
+
+
+  #contactintro #socialmedia a#facebook:hover,#contactintro #socialmedia li a#twitter:hover {
+    color:#95bcb8
+  }
+
+  #contactintro #socialmedia span {
+    height: 22px;
+    width: 22px;
+    margin: 0 auto;
+    display: block;
+    text-indent: -9999em;
+    padding-bottom: 20px;
+    background-position: 0 0;
+    background-repeat: no-repeat
+  }
+
+  .form-sign-in-up
+  {
+      max-width: 500px;
+      padding: 15px;
+      margin: 0 auto;
+      padding-top: 5px;
+      text-align: center; 
+  }
+
+  .form-sign-in-up .form-control
+  {
+      position: relative;
+      font-size: 12px;
+      height: auto;
+      padding: 6px;
+      width: 500px;
+
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+
+  }
+
+  @media (max-width: 767px) {
+
+    .form-sign-in-up {
+      max-width: 330px;
+    }
+
+    .form-sign-in-up .form-control {
+      width: 200px;
+    }
+
+    #contactintro #socialmedia {
+      font-size:0.em;
+    }
+
+  }
+
+</style>
+
+
+<!-- Content -->
+
 
 <% provide(:title, 'Contact Us') %>
+
+<!-- <img src=<%= asset_path("keyboard.jpg")%> alt="berk_4.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
+
+<br />
+<br /> -->
 
 <div class="account-wall-static">  
 
   <div id="intro">
+    <br />
+    <h1 style="font-weight:500;">Contact Us</h1>
+    <h3 style="color:#b5b5b5;">Questions or concerns?</h3>
 
-    <h1>Contact Us</h1>
-    <h3>Questions or concerns?</h3> <br/>
-    <h3>General Inquiries: <%= mail_to "info@calakpsi.com" %> </h3> <br/>
-    <h3>Rush Information: <%= mail_to "rush@calakpsi.com" %> </h3>  <br/>
-    <h3>ABC Consulting: <%= mail_to "abc@calakpsi.com" %> </h3> <br/>
-    <h3>BCS Consulting:<%= mail_to "bcs@calakpsi.com" %> </h3> <br/>
-    <h3>Corporate:  <%= mail_to "corporaterelations@calakpsi.com" %> </h3> <br/>
+    <div id="contactintro">
+
+      <ul id="socialmedia">
+        <li><a id="twitter" href="https://twitter.com/UCBerkeleyAKPsi"><span></span><i class="fa fa-twitter-square" style="font-size:50px;"></i><br />Twitter</a></li>
+
+        <li><a id="facebook" href="https://www.facebook.com/ucberkeleyakpsi"><span></span><i class="fa fa-facebook-square" style="font-size:50px;"></i><br />Facebook</a></li>
+
+        <br />
+      </ul>
+
+      <br />
+
+      <ul id="socialmedia">
+        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px; ">&nbsp; </i> Rush Information: rush@calakpsi.com</li>
+      </ul>
+
+      <br />
+
+      <ul id="socialmedia">
+        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> Corporate: corporaterelations@calakpsi.com</li>
+      </ul>
+
+      <br />
+
+      <ul id="socialmedia">
+        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> ABC Consulting: abc@calakpsi.com</li>
+      </ul>
+
+      <br />
+
+      <ul id="socialmedia">
+        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> BCS Relations: bcs@calakpsi.com</li>
+      </ul>
+
+    </div>
 
     <br />
+    <br />
 
-    <%= form_for @contact_request, :url => contact_path, method: "post" do |form| %>
 
-        <%= render 'shared/error_messages', object: form.object%>
+    <h1 style="font-weight:500; font-size:30px;"><i class="fa fa-share-square" style="color: rgba(149,188,184,0.5);"></i> General Inquiries</h1>
+    <br />
 
-        <fieldset class="fields">
-          <div class="field">
-            <%= form.label :name %>
-            <%= form.text_field :name %>
-          </div>
+    <%= form_for @contact_request, :html => {:class => "form-sign-in-up"}, :url => contact_path, method: "post" do |form| %>
 
-          <div class="field">
-            <%= form.label :your_email%>
-            <%= form.text_field :email %>
-          </div>
-          <div class="field">
-            <%= form.label :subject %>
-            <%= form.text_field :subject %>
-          </div>
+      <%= render 'shared/error_messages', object: form.object%>
 
-          <div class="field">
-            <%= form.label :body %>
-            <%= form.text_area :body %>
-          </div>
-        </fieldset>
+        <%= form.text_field :name, class: 'form-control', placeholder: "Name" %>
 
-        <fieldset class="actions">
-          <%= form.submit "Contact Us" %>
-        </fieldset>
+        <%= form.text_field :email, class: 'form-control', placeholder: "Email" %>
+
+        <%= form.text_field :subject, class: 'form-control', placeholder: "Subject" %>
+
+        <%= form.text_area :body, class: 'form-control', placeholder: "Body" %>
+
+        <br />
+        <br />
+
+        <%= form.submit "Send Message", class: "home-button" %>
+
     <% end %>
 
   </div>
 
 </div>
+
