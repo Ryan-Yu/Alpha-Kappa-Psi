@@ -20,7 +20,7 @@
     width: auto;
     font-weight: 600;
     font-family: "Open Sans",sans-serif;
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-transform: uppercase;
     display: inline-block
   }
@@ -81,11 +81,19 @@
       font-size: 12px;
       height: auto;
       padding: 6px;
-      width: 500px;
+      width: 300px;
 
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
       box-sizing: border-box;
+
+  }
+
+  @media (max-width: 979px) {
+
+    #contactintro #socialmedia {
+      font-size:1.0em;
+    }
 
   }
 
@@ -125,7 +133,7 @@
     <h1 style="font-weight:500;">Contact Us</h1>
     <h3 style="color:#b5b5b5;">Questions or concerns?</h3>
 
-    <div class="row">
+    <div class="row" style="margin-left:0; margin-right:0;">
 
       <div class="span5">
 
@@ -168,11 +176,14 @@
 
       </div> <!-- end span5 div -->
 
-      <div class="span6">
+      <div class="span1">
+      </div>
+
+      <div class="span5">
         <br />
         <br />
 
-        <h1 style="font-weight:500; font-size:30px;"><i class="fa fa-share-square" style="color: rgba(149,188,184,0.5);"></i> General Inquiries</h1>
+        <h1 style="font-weight:500; font-size:25px;"><i class="fa fa-share-square" style="color: rgba(149,188,184,0.5);"></i> General Inquiries</h1>
         <br />
 
         <%= form_for @contact_request, :html => {:class => "form-sign-in-up"}, :url => contact_path, method: "post" do |form| %>
