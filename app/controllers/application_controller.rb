@@ -6,6 +6,11 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # Supposed to override Devise redirect path after active sign in
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+
   protected
 
   # Setting strong parameters to enable adding of additional attributes to Active model
