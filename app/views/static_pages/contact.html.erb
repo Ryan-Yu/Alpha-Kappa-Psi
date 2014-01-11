@@ -2,6 +2,10 @@
 
 <style>
 
+  input {
+    font-family: FontAwesome;
+  }
+
   .btn.btn-sm {
     border-style:solid;
     border-color:#fff;
@@ -96,7 +100,7 @@
     }
 
     #contactintro #socialmedia {
-      font-size:0.em;
+      font-size:0.9em;
     }
 
   }
@@ -109,10 +113,10 @@
 
 <% provide(:title, 'Contact Us') %>
 
-<!-- <img src=<%= asset_path("keyboard.jpg")%> alt="berk_4.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
+<img src=<%= asset_path("berk_8.jpg")%> alt="berk_4.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
 
 <br />
-<br /> -->
+<br />
 
 <div class="account-wall-static">  
 
@@ -121,69 +125,82 @@
     <h1 style="font-weight:500;">Contact Us</h1>
     <h3 style="color:#b5b5b5;">Questions or concerns?</h3>
 
-    <div id="contactintro">
+    <div class="row">
 
-      <ul id="socialmedia">
-        <li><a id="twitter" href="https://twitter.com/UCBerkeleyAKPsi"><span></span><i class="fa fa-twitter-square" style="font-size:50px;"></i><br />Twitter</a></li>
+      <div class="span5">
 
-        <li><a id="facebook" href="https://www.facebook.com/ucberkeleyakpsi"><span></span><i class="fa fa-facebook-square" style="font-size:50px;"></i><br />Facebook</a></li>
+        <div id="contactintro">
 
+          <ul id="socialmedia">
+            <li><a id="twitter" href="https://twitter.com/UCBerkeleyAKPsi"><span></span><i class="fa fa-twitter-square" style="font-size:50px;"></i><br />Twitter</a></li>
+
+            <li><a id="facebook" href="https://www.facebook.com/ucberkeleyakpsi"><span></span><i class="fa fa-facebook-square" style="font-size:50px;"></i><br />Facebook</a></li>
+
+            <br />
+          </ul>
+
+          <br />
+
+          <ul id="socialmedia">
+            <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px; ">&nbsp; </i> Rush Information: rush@calakpsi.com</li>
+          </ul>
+
+          <br />
+
+          <ul id="socialmedia">
+            <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> Corporate: corporaterelations@calakpsi.com</li>
+          </ul>
+
+          <br />
+
+          <ul id="socialmedia">
+            <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> ABC Consulting: abc@calakpsi.com</li>
+          </ul>
+
+          <br />
+
+          <ul id="socialmedia">
+            <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> BCS Relations: bcs@calakpsi.com</li>
+          </ul>
+
+        </div> <!-- end contactintro div -->
         <br />
-      </ul>
 
-      <br />
+      </div> <!-- end span5 div -->
 
-      <ul id="socialmedia">
-        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px; ">&nbsp; </i> Rush Information: rush@calakpsi.com</li>
-      </ul>
-
-      <br />
-
-      <ul id="socialmedia">
-        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> Corporate: corporaterelations@calakpsi.com</li>
-      </ul>
-
-      <br />
-
-      <ul id="socialmedia">
-        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> ABC Consulting: abc@calakpsi.com</li>
-      </ul>
-
-      <br />
-
-      <ul id="socialmedia">
-        <li id="contactemail"><span></span><i class="fa fa-envelope" style="font-size:16px;">&nbsp; </i> BCS Relations: bcs@calakpsi.com</li>
-      </ul>
-
-    </div>
-
-    <br />
-    <br />
-
-
-    <h1 style="font-weight:500; font-size:30px;"><i class="fa fa-share-square" style="color: rgba(149,188,184,0.5);"></i> General Inquiries</h1>
-    <br />
-
-    <%= form_for @contact_request, :html => {:class => "form-sign-in-up"}, :url => contact_path, method: "post" do |form| %>
-
-      <%= render 'shared/error_messages', object: form.object%>
-
-        <%= form.text_field :name, class: 'form-control', placeholder: "Name" %>
-
-        <%= form.text_field :email, class: 'form-control', placeholder: "Email" %>
-
-        <%= form.text_field :subject, class: 'form-control', placeholder: "Subject" %>
-
-        <%= form.text_area :body, class: 'form-control', placeholder: "Body" %>
-
+      <div class="span6">
         <br />
         <br />
 
-        <%= form.submit "Send Message", class: "home-button" %>
+        <h1 style="font-weight:500; font-size:30px;"><i class="fa fa-share-square" style="color: rgba(149,188,184,0.5);"></i> General Inquiries</h1>
+        <br />
 
-    <% end %>
+        <%= form_for @contact_request, :html => {:class => "form-sign-in-up"}, :url => contact_path, method: "post" do |form| %>
 
-  </div>
+          <%= render 'shared/error_messages', object: form.object%>
 
-</div>
+            <%= form.text_field :name, class: 'form-control', placeholder: "&#xf007; Name".html_safe %>
+
+            <%= form.text_field :email, class: 'form-control', placeholder: "&#xf003; Email".html_safe %>
+
+            <%= form.text_field :subject, class: 'form-control', placeholder: "Subject".html_safe %>
+
+            <%= form.text_area :body, class: 'form-control', placeholder: "Body".html_safe %>
+
+            <br />
+            <br />
+
+            <%= form.submit "Send Message", class: "home-button" %>
+
+        <% end %> <!-- end form_for -->
+
+        <br />
+
+      </div> <!-- end span6 div -->
+
+    </div> <!-- end row div -->
+
+  </div> <!-- end intro div -->
+
+</div> <!-- end account-wall-static div -->
 

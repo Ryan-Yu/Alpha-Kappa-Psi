@@ -91,8 +91,6 @@ ActiveRecord::Schema.define(version: 20140111004325) do
     t.integer  "active_id"
   end
 
-  add_index "career_entries", ["active_id", "company", "year", "fullintern"], name: "career_index", unique: true
-
   create_table "pledge_class_entries", force: true do |t|
     t.string   "classname"
     t.string   "semester"
@@ -133,11 +131,9 @@ ActiveRecord::Schema.define(version: 20140111004325) do
     t.string   "photograph_content_type"
     t.integer  "photograph_file_size"
     t.datetime "photograph_updated_at"
-    t.string   "password"
     t.string   "password_digest"
   end
 
-  add_index "rushees", ["email", "password"], name: "index_rushees_on_email_and_password", unique: true
   add_index "rushees", ["email"], name: "index_rushees_on_email", unique: true
 
 end

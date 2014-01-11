@@ -31,24 +31,21 @@
 
 
   <body>
-    <div id="wrap">
-      <%= render 'layouts/header' %>
 
-      <!-- Bootstrap Container -->
-      <div class="container">
+    <%= render 'layouts/header' %>
 
-        <!-- Flash messages -->
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
+    <!-- Bootstrap Container -->
+    <div class="container">
 
-        <%= yield %>
+      <!-- Flash messages -->
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
 
-      </div>
-      
-      <div id="push"></div>
+      <%= yield %>
+
     </div>
-
+      
     <br />
 
     <div class="container">
