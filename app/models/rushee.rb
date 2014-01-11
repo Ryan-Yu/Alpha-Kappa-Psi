@@ -26,7 +26,7 @@ class Rushee < ActiveRecord::Base
 
 	# Validates password
 	has_secure_password
-	validates :password, length: { minimum: 6 }
+	validates :password, presence: { on: :create }, length: { minimum: 6, allow_blank: true }
 
 	validates_inclusion_of :grade, :in => GRADE_TYPES
 
