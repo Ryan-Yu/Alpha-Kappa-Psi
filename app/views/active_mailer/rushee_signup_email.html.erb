@@ -19,10 +19,10 @@
 
   <% for index in 0 ... @rush_events.size %>
     <br/>
-      <%= @rush_events[index].event_name   %> <br/>
-      <%= @rush_events[index].event_description   %> <br/>
-      <%= @rush_events[index].event_time.strftime("%A, %B %d, %Y") %> <br/>
-      <%= @rush_events[index].location  %> <br/>
+      <b><%= @rush_events[index].event_name %></b> <br/>
+      <i>Description: </i><%= @rush_events[index].event_description   %> <br/>
+      <i>Time: </i><%= @rush_events[index].event_time.strftime("%A, %B %d, %Y") %> <br/>
+      <i>Location: </i><%= @rush_events[index].location  %> <br/>
   <% end %>
 
   <br/>
