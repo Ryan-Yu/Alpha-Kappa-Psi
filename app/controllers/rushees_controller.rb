@@ -9,8 +9,9 @@ class RusheesController < ApplicationController
 	def create
 		@newrushee = Rushee.new(rushee_params)
 		if @newrushee.save
-			flash[:success] = @newrushee.name + " sucessfully saved as a new rushee!"
-			redirect_to root_path
+      ActiveMailer.rushee_signup_email(@newrushee).deliver
+			flash[:success] = @newrushee.name.titleize + " was sucessfully saved as a new rushee."
+			redirect_to new_rushee_path
 		else
 			render 'new'
 		end
@@ -32,7 +33,7 @@ class RusheesController < ApplicationController
 	private
 
 		def rushee_params
-			params.require(:rushee).permit(:name, :email, :grade, :major, :photograph)
+			params.require(:rushee).permit(:name, :email, :grade, :major, :photograph, :password, :password_confirmation)
 		end
 
 end

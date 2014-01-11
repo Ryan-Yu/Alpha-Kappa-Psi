@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+<h1>Welcome to Alpha Kappa Psi at Berkeley, <%= @rushee.name %></h1>
+<p>
+  You are now officially part of AKΨ Alpha Beta Chapter's rush process.  <br/>
+  Your username and password are as follows, please place this information in a safe place as it will be required when you submit
+  your rush application. <br/>
+
+  <br/>
+  <b>Username:</b> <%= @rushee.email %>    <br/>
+  <b>Password:</b> <%= @rushee.password %>      <br/>
+  <br/>
+
+  In addition, you'll receive updates and reminders about our rush events. Below is a quick breakdown of all planned events and their times:    <br/>
+
+  <% for index in 0 ... @rush_events.size %>
+    <br/>
+      <%= @rush_events[index].event_name   %> <br/>
+      <%= @rush_events[index].event_description   %> <br/>
+      <%= @rush_events[index].event_time   %> <br/>
+      <%= @rush_events[index].location  %> <br/>
+  <% end %>
+
+  <br/>
+  Thank you for your interest in Alpha Kappa Psi and the best of luck to you in the process.
+  <br/>
+</p>
+<p>
+  Feel free to check out our website here: <%=@url %>.
+  If you would like to withdraw from the process, please click <%=link_to "here", @url %>.
+</p>
+</body>
+</html>
