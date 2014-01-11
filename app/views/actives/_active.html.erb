@@ -51,33 +51,17 @@
 
 	/* Styles for outer active button (that activates modal) */
 	.md-trigger {
-		border: 2px #c0c0c0 solid;
+
+		/* Outer border */
+		border: 0px #c0c0c0 solid;
 		background: none;
 		outline: 0;
-	}
-
-	.md-trigger:hover {
-
 	}
 
 	.md-image {
 		float:left;
 		padding-right: 40px;
 		padding-bottom: 25px;
-	}
-
-	.active-names {
-		text-align:center; 
-		font-family: 'Open Sans', sans-serif;
-		font-weight: 500;
-		font-size: 12px;
-		
-		line-height: 18px;
-	}
-
-	.thumbnail {
-	    border: 0 none;
-	    box-shadow: none;
 	}
 
 
@@ -152,11 +136,10 @@
 
 		
     <button class="md-trigger" data-modal=<%= "modal-" + active.id.to_s %> >
-		<a class="thumbnail">
-		  <%= image_tag active.photograph.url(:middlesmall), :class => "style_image" %>
+		<a class="thumbnail" title=<%= active.name %> >
+		  <%= image_tag active.photograph.url(:middlesmall) %>
+		  <p class="active-names"><%= active.name.split[0] %> <br /> <i><%= active.name.split[1..-1].join(' ') %></i></p>
 		</a>
-
-		<p class="active-names"><%= active.name.split[0] %> <br /> <%= active.name.split[1..-1].join(' ') %></p>
 	</button>
 
 
