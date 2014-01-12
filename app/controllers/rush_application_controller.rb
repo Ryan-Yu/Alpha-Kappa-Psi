@@ -28,6 +28,7 @@ class RushApplicationController < ApplicationController
       render 'index'
     else
       if @rushee.authenticate(params[:password])
+        @rushee_application = find_rush_application(@rushee.id)
         if @rushee_application.nil?
           @rushee_application = @rushee.build_rush_application
           @rushee_application.email = @rushee.email
@@ -49,6 +50,12 @@ class RushApplicationController < ApplicationController
                                              :third_major_gpa, :cumulative_gpa, :intended_haas,
                                              :academic_schedule, :extracurricular_info, :name,
                                              :cover_letter, :resume, :transcript, :additional_transcript, :photograph)
+  end
+
+  def find_rush_application(rushee_id)
+    return RushApplication.find(rushee_id)
+  rescue
+    return nil
   end
 
 end

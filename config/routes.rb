@@ -12,8 +12,6 @@ AlphaKappaPsi::Application.routes.draw do
     resources :rusheeposts, only: [:create, :destroy]
   end
 
-  resources :rush_application, only: [:index]
-
   root     'static_pages#home'
   match    '/about',        to: 'static_pages#about',      via: 'get'
   match    '/careers',      to: 'static_pages#careers',    via: 'get'
@@ -24,7 +22,7 @@ AlphaKappaPsi::Application.routes.draw do
   match    '/classes',      to: 'static_pages#classes',    via: 'get'
   match    '/contact',      to: 'static_pages#contact_request',     via: 'post'
 
-
+  resources :rush_application, only: [:index]
   match    '/rush_application',      to: 'rush_application#new',     via: 'post'
   match    '/rush_application/new',      to: 'rush_application#create',     via: 'post'
 
