@@ -305,5 +305,18 @@
     box-shadow: 0 10px 20px rgba(0,0,0,.7);
 
     text-decoration: none;
+}
+
+/* Line break that is only visible on small screens ( < 767px ) */
+
+.media-linebreak {
+    display: none;
+}
+
+ @media (max-width: 767px) {
+
+    .media-linebreak {
+        display: block;
+    }
 
 }

@@ -1,7 +1,33 @@
+<!-- Styling for alignment of comment name and time -->
+
+<style>
+
+	.alignleft {
+	    float: left;
+	    padding-left: 10px;
+	}
+
+	.alignright {
+	    float: right;
+	    font-weight: normal;
+	    padding-right: 10px;
+	}
+
+</style>
+
+
+
+<!-- Content -->
 
 <div class="thread-post">
 
-	<p style="font-size:13px;"> <b><%= rusheepost.active.name %></b> <i>(posted <%= time_ago_in_words(rusheepost.created_at) %> ago):</i></p>
+	<!-- <p style="font-size:13px;"> <b><%= rusheepost.active.name %></b> <i>(posted <%= time_ago_in_words(rusheepost.created_at) %> ago):</i></p> -->
+
+	<div id="textbox">
+		<h5 class="alignleft"> <%= rusheepost.active.name %> </h5>
+		<h6 class="alignright"> (posted <%= time_ago_in_words(rusheepost.created_at) %> ago) </h6>
+	</div>
+	<div style="clear: both;"></div>
 
 	<span class="content"> <i class="fa fa-reply"></i>&nbsp;&nbsp; <%= rusheepost.content %></span> 
 	<br /><br />

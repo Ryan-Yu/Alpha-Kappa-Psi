@@ -1,6 +1,57 @@
+
+<!-- Styling -->
+
+<style>
+
+
+
+	.row {
+		text-align: center;
+		padding-left: 32px;
+	}
+
+	.row h4, h5 {
+		font-family: 'Lato', sans-serif;
+		letter-spacing: 0.05em;
+	}
+
+	.row h5 {
+		color: #82bbb5;
+		letter-spacing: 0.1em;
+
+	}
+
+	.consulting-body {
+    	font-size: 13px;
+    	font-family: 'Lato', sans-serif;
+    	letter-spacing: 0.05em;
+    	padding-left: 25px;
+    	padding-right: 25px;
+    	margin-top: 10px;
+    	text-align: justify;
+    }
+
+    .span1 {
+    	margin-left: -10px;
+    	margin-right: -10px;
+    }
+
+    @media (max-width: 979px) {
+
+    	.row {
+    		padding-left: 10px;
+    	}
+    }
+
+</style>
+
+
+<!-- Content -->
+
+
 <% provide(:title, 'Consulting') %>
 
-<div class="account-wall-static">  
+<div class="account-wall-static" style="text-align:center;">  
 
   <div id="intro">
 
@@ -10,7 +61,54 @@
     <div id="motto-bg">
       <h3>"Alpha Beta Consulting - Berkeley Corporate Solutions"</h3>
     </div>
-
   </div>
 
-</div>
+  <br />
+  <br />
+
+  <div class="row">
+
+  	<div class="span5">
+  		<h4>BERKELEY CORPORATE SOLUTIONS</h4>
+  		<h5>For-profit consulting</h5>
+  		<br />
+  		<img src=<%= asset_path("bcs.jpg")%> alt="berk_5.jpg" style="box-shadow: 0 8px 16px rgba(0,0,0,0.4);" />
+  		<br /><br />
+  		<h5>Founded: 2007</h5>
+  		<p class="consulting-body">
+  			In contrast to Alpha Beta Consulting, BCS focuses on the corporate business realm, providing its members with the opportunity to work on extensive market research projects requiring the use of finance and valuation techniques. In the past, BCS has worked with <i>Cisco Systems, Agilent Technologies, Salesforce.com and Numenta</i>. Our alumni have matriculated into successful careers at companies including Goldman Sachs, Morgan Stanley, JP Morgan Chase, and even Duke Law School.
+  		</p>
+  		<br />
+  		<p class="linkclickblk" ><b>Contact BCS:</b><br /><br />
+			<a> bcs@calakpsi.com </a> 
+		</p>
+
+  	</div> <!-- end of span5 div -->
+
+  	<div class="span1">
+
+  	</div>
+
+	<br class="media-linebreak" />
+    <br class="media-linebreak" />
+
+  	<div class="span5">
+  		<h4>ALPHA BETA CONSULTING</h4>
+  		<h5>Non-profit consulting</h5>
+  		<br />
+  		<img src=<%= asset_path("abc.jpg")%> alt="berk_5.jpg" style="box-shadow: 0 8px 16px rgba(0,0,0,0.4);" />
+  		<br /><br />
+  		<h5>Founded: 2002</h5>
+  		<p class="consulting-body">
+  			Alpha Beta Consulting was created by the Alpha Beta chapter of Alpha Kappa Psi as an effort to revamp the fraternity's community involvement and professional caliber by combining professional service with community service. ABC offers pro bono consulting services in management, strategy, technology, finance, tax, human resources and other areas to assist promising local nonprofit organizations to address pressing social problems. 
+  		</p>
+  		<br />
+  		<p class="linkclickblk"><b>ABC is always looking for new nonprofit organizations to consult for. If your organization is interested, please contact us:</b><br /><br />
+  			<a> abc@calakpsi.com </a>
+  		</p>
+  		
+  	</div> <!-- end of span5 div -->
+
+  </div> <!-- end of row div -->
+
+</div> <!-- end of account-wall-static div -->
