@@ -32,6 +32,8 @@ class RushApplicationController < ApplicationController
           @rushee_application = @rushee.build_rush_application
           @rushee_application.email = @rushee.email
           @rushee_application.name = @rushee.name
+          @rushee_application.first_major = @rushee.major
+          @rushee_application.grade = @rushee.grade
         end
         return
       else
@@ -45,7 +47,7 @@ class RushApplicationController < ApplicationController
     params.permit(:email, :phone_number, :address, :city, :state, :country, :zip_code, :grade,
                                              :first_major, :first_major_gpa, :second_major, :second_major_gpa, :third_major,
                                              :third_major_gpa, :cumulative_gpa, :intended_haas,
-                                             :academic_schedule, :extracurricular_information, :name,
+                                             :academic_schedule, :extracurricular_info, :name,
                                              :cover_letter, :resume, :transcript, :additional_transcript, :photograph)
   end
 

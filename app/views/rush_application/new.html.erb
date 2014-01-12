@@ -49,22 +49,25 @@
         <%= f.text_field :first_major, class: 'form-control', autofocus: true %>
 
         <%= f.label :first_major_gpa %>
-        <%= f.text_field :first_major_gpa, value: (number_with_precision(f.object.first_major_gpa, precision: 3, scale:2)), class: 'form-control', autofocus: true %>
+        <%= f.text_field :first_major_gpa, value: (number_with_precision(f.object.first_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
 
         <%= f.label :second_major %>
         <%= f.text_field :second_major, class: 'form-control', autofocus: true %>
 
         <%= f.label :second_major_gpa %>
-        <%= f.text_field :second_major_gpa, value: (number_with_precision(f.object.second_major_gpa, precision: 3, scale:2)), class: 'form-control', autofocus: true %>
+        <%= f.text_field :second_major_gpa, value: (number_with_precision(f.object.second_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
 
         <%= f.label :third_major %>
         <%= f.text_field :third_major, class: 'form-control', autofocus: true %>
 
         <%= f.label :third_major_gpa %>
-        <%= f.text_field :third_major_gpa, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:2)), class: 'form-control', autofocus: true %>
+        <%= f.text_field :third_major_gpa, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
+
+        <%= f.label :cumulative_gpa %>
+        <%= f.text_field :cumulative_gpa, value: (number_with_precision(f.object.cumulative_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
 
         <%= f.label :intended_haas %>
-        <%= f.check_box :intended_haas, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:2)), class: 'form-control', autofocus: true %>
+        <%= f.check_box :intended_haas, class: 'form-control', autofocus: true %>
 
       </div>
 
@@ -72,7 +75,7 @@
         <h3>ACADEMIC SCHEDULE</h3>
 
         <%= f.label :academic_schedule %>
-        <%= f.text_field :academic_schedule, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:2)), class: 'form-control', autofocus: true %>
+        <%= f.text_field :academic_schedule, class: 'form-control', autofocus: true %>
 
       </div>
 
@@ -81,7 +84,7 @@
         <br/>
         If you are actively involved in any other organizations on campus or employed, please list them along with the number of hours per week you are involved in each. <br/>
         <%= f.label :extracurricular_information %>
-        <%= f.text_field :extracurricular_info, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:2)), class: 'form-control', autofocus: true %>
+        <%= f.text_field :extracurricular_info, class: 'form-control', autofocus: true %>
       </div>
 
       <div>
