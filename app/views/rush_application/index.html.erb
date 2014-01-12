@@ -1,0 +1,99 @@
+<% provide(:title, 'Rush Application') %>
+
+<img src=<%= asset_path("berk_8.jpg")%> alt="berk_4.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
+
+<br />
+<br />
+
+<div class="account-wall-static">
+
+  <div id="intro">
+    <br />
+    <h1 style="font-weight:500;">Rush Application Login</h1>
+    <h3 style="color:#b5b5b5;">Place Holder Text</h3>
+
+    <p align="left">
+      <br/>
+      Welcome
+      <br/>        <br/>
+
+      Dear Potential Brother,
+      <br/>        <br/>
+
+      On behalf of the brothers of Alpha Kappa Psi, I would like to extend you a warm welcome to our Fall 2013 Rush. The following two weeks should provide you with an essential perspective into our fraternity, our brotherhood, and the ambition that binds us together. No matter what your academic year is, rushing Alpha Kappa Psi is taking the first step toward tomorrow and the dreams you wish to achieve.
+      <br/>          <br/>
+
+      Upon joining, I discovered an amazing environment that emphasizes the development of new leaders, the transition of knowledge, and an unparalleled determination to succeed. Our brothers can be found at the top of several diverse domains, be it the Haas School of Business, College of Engineering, or even entrepreneurial ventures. Alpha Kappa Psi will not only enable you to create vast networks in different career fields, but also provide you the opportunity to make lifelong friends who will support your every endeavor.
+      <br/>
+      Should you have any questions during the rush process, please do not hesitate to contact me. You can e-mail me at rush@calakpsi.com or find me at any one of our rush events. On behalf of the brothers of Alpha Kappa Psi, we look forward to getting to know you during this rush period. During the next two weeks, we hope you will discover that Alpha Kappa Psi offers you what cannot be attained elsewhere: Discover Your Potential, Discover Alpha Kappa Psi.
+      <br/>
+      <br/>
+      Sincerely,
+      <br/>
+      <br/>
+      Justine Lee<br/>
+      Vice President of Membership    <br/>
+      Alpha Beta Chapter of Alpha Kappa Psi <br/>
+      <br/>
+
+      <% if !@rush_events.nil? %>
+          Rush Calendar     <br/>
+          <br/>
+
+          <% for index in 0 ... @rush_events.size %>
+              <br/>
+              <b><%= @rush_events[index].event_name %></b> <br/>
+              <i>Description: </i><%= @rush_events[index].event_description   %> <br/>
+              <i>Time: </i><%= @rush_events[index].event_time.strftime("%A, %B %d, %Y") %> <br/>
+              <i>Location: </i><%= @rush_events[index].location  %> <br/>
+          <% end %>
+      <%end%>
+
+      <br/>
+
+      Application Materials
+      <br/>
+      <br/>
+
+      You must submit online and print the following application materials (paper-clipped, no staples), in order to be considered in the recruitment process:
+
+      <br/>
+      Candidate Application
+      <br/>
+      Cover letter
+      <br/>
+      Resume
+      <br/>
+      Schedule of current coursework
+      <br/>
+      Unofficial transcript with your name from Bear Facts
+      <br/>
+      Recent photo of yourself (this will not be returned)
+      <br/>
+      <br/>
+      Applications must be submitted by 11:59 AM, before noon, on Saturday, September 7th. Please print a copy of your application materials and bring it to your personal interview on Saturday, September 7th or Sunday, September 8th at your scheduled time.
+      <br/>
+      If you have any questions, concerns, or need special accommodations, feel free to e-mail our VP of Membership, Justine Lee, at rush@calakpsi.com. To return to our website, click here.
+    </p>
+
+    <div>
+      <br />
+
+      <%= form_tag do %>
+          <%= label_tag(:email, "Username") %>
+          <%= text_field_tag(:email) %>
+          <br/>
+          <%= label_tag(:password, "Password") %>
+          <%= password_field_tag(:password) %>
+          <br/>
+          <%= submit_tag("Begin Application") %>
+      <% end %>
+
+      <br />
+
+    </div> <!-- end row div -->
+
+  </div> <!-- end intro div -->
+
+</div> <!-- end account-wall-static div -->
+
