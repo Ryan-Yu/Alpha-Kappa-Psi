@@ -13,12 +13,15 @@
 	<ul class="thumbnails">
 	  <% @rushees.each do |rushee| %>
 
-	  	<li>
-	  		<a href=<%= rushee_path(rushee.id) %> class="thumbnail">
-	  			<%= image_tag rushee.photograph.url(:middlesmall) %>
-				<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
-	  		</a>
-	    </li>
+	  	<!-- Only display rushees that have photographs -->
+	  	<% if rushee.photograph.exists? %>
+		  	<li>
+		  		<a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+		  			<%= image_tag rushee.photograph.url(:middlesmall) %>
+					<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+		  		</a>
+		    </li>
+		<% end %>
 
 	  <% end %>
 	</ul>
