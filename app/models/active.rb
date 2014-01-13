@@ -19,7 +19,7 @@ class Active < ActiveRecord::Base
   has_attached_file :photograph,
                     :styles => { :medium => "300x300>", :middle => "250x250>", :middlesmall => "225x225>", :small => "200x200>", :thumb => "100x100>" },
                     :storage => :s3,
-                    :bucket => "uc-berkeley-akpsi-website",
+                    :bucket => "akpsi-alpha-beta",
                     :default_url => '/images/:attachment/missing_:style.png',
                     :url =>':s3_domain_url',
                     :path => '/:class/:attachment/:id_partition/:style/:filename',

@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-</head>
-<body>
-<h1>Congratulations, <%= @user.name %>, you've been approved as an active.</h1>
-<p>
-  Your username is: <%= @user.email %>.<br/>
-  To login to the site, just follow this link: <%= @url %>.
-</p>
-<p>Welcome to the fraternity, in U- and I-.</p>
-</body>
+	<head>
+	  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+	<body>
+		<h3>Congratulations, <%= @user.name %>, you've been approved as an active.</h3>
+		<p>
+		  Your username is: <%= @user.email %>.<br/>
+		  To login to the site, just follow this link: <%= @url %>.
+		</p>
+
+		<p>
+		  <b>Important: </b>Please log in and proceed to edit your profile as soon as possible so that we may include you onto the active body roster. You can edit your profile by navigating to the 'account' button, and then clicking 'Edit Profile'. Furthermore, if you have previously held an internship position, or you have received an upcoming internship or full-time position, please input this information as well so we may include you onto the careers page. You may input new career entries by clicking the 'account' button, and then clicking 'Edit My Careers'. 
+		</p>
+
+		<p>Welcome to the fraternity, in U- and I-.</p>
+	</body>
 </html>

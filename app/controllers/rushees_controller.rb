@@ -10,7 +10,7 @@ class RusheesController < ApplicationController
 	def create
 		@newrushee = Rushee.new(rushee_params)
 		if @newrushee.save
-      		ActiveMailer.rushee_signup_email(@newrushee).deliver
+      		# ActiveMailer.rushee_signup_email(@newrushee).deliver
 			flash[:success] = @newrushee.name.titleize + " was successfully saved as a new rushee."
 			redirect_to new_rushee_path
 		else
