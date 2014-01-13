@@ -1,13 +1,9 @@
 
 <style>
 
-    input {
-        font-family: FontAwesome;
-    }
-
     .rushapp-body {
         font-size:13px;
-        line-height: 24px;
+        line-height: 28px;
     }
 
     .account-wall-static {
@@ -26,19 +22,24 @@
 
 <% provide(:title, 'Rush Application') %>
 
-<img src=<%= asset_path("berk_8.jpg")%> alt="berk_4.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
-
-<br />
-<br />
-
 <div class="account-wall-static">
-  <h4 style="text-align:center;"><%= @rush_application.name %>'s rush application:</h4>
+  <h4 style="text-align:center;"><%= @rush_application.name %>'s Rush Application:</h4>
 
   <br />
 
-  <div class="row" style="font-size:13px;">
+  <div class="row" style="font-size:14px;">
 
     <div class="span4">
+
+      <p class="linkclickblk">
+        <a style="color:#95bcb8; border:3px solid #95bcb8;"> Personal </a>
+      </p>
+      <ul>
+        <li><b>Email:</b> <%= @rush_application.email %> </li>
+        <li><b>Grade:</b> <%= @rush_application.grade %> </li>
+        <li><b>Phone Number:</b> <%= @rush_application.phone_number %> </li>
+        <li><b>Address:</b> <%= @rush_application.address %> <%= @rush_application.city %> <%= @rush_application.state %> <%= @rush_application.zip_code %></li>
+      </ul>
 
       <p class="linkclickblk">
         <a style="color:#95bcb8; border:3px solid #95bcb8;"> Academics </a>
@@ -76,10 +77,9 @@
   </div> <!-- end of row div -->
 
   <br />
-
-    </div> <!-- end row div -->
-
-  </div> <!-- end intro div -->
+  <p class="linkclickblk" style="text-align:center;">
+    <a href=<%= root_path %>> Return to homepage</a> 
+  </p>
 
 </div> <!-- end account-wall-static div -->
 

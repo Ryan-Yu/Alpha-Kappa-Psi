@@ -38,29 +38,40 @@
     <h3 style="color:#b5b5b5;">Application Complete</h3>
     <br />
 
-    <p class="rushapp-body">
-      You have successfully submitted your online application. You will receive a confirmation email in your inbox shortly at <%="#{@rush_application.email}" %>
+    <p class="rushapp-body" style="text-align:left;">
+      You have successfully submitted your online application. You will receive a confirmation email in your inbox shortly at <%="#{@rush_application.email}" %>.<br /><br />
 
-      Please print out a copy of the application. You can access it by clicking <%=link_to "here", print_rush_application_path(@rush_application, confirmation: @rushee.password_digest), :method => :post%>
-
-      Additionally, please bring the following application materials to your professional interview at your scheduled time.
-
-      Candidate Application
-      Cover letter
-      Resume
-      Schedule of current coursework
-      Unofficial transcript with your name from Bear Facts
-      Recent photo of yourself (this will not be returned)
-
-      Thank you for rushing Alpha Kappa Psi. We wish you the best of luck with the rush process. Click <%= link_to "here", root_url %> to return to the website.
+      Please print out a copy of the application. You can access it below:
     </p>
 
-    <div>
-      <br />
+    <p class="linkclickblk">
+      <%=link_to "Print my application", print_rush_application_path(@rush_application, confirmation: @rushee.password_digest), :method => :post%>
+    </p>
 
-      <br />
+    <hr />
 
-    </div> <!-- end row div -->
+    <p class="rushapp-body" style="text-align:left;">
+      Additionally, please bring the following application materials to your professional interview at your scheduled time:
+    </p>
+
+    <p class="linkclickblk">
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Candidate Application </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Cover Letter </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Resume </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Current Academic Schedule </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Unofficial Transcript </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Recent Self Photo </a><br />
+    </p>
+
+    <p class="rushapp-body" style="text-align:left;">
+      Ensure that your unofficial Transcript from Bearfacts has your name on it. Also note that the photograph you submit will not be returned.<br /><br />
+    
+      Thank you for rushing Alpha Kappa Psi. We wish you the best of luck with the rush process. 
+    </p>
+    <br />
+    <p class="linkclickblk">
+      <a href=<%= root_path %>> Return to homepage</a> 
+    </p>
 
   </div> <!-- end intro div -->
 

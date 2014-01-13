@@ -23,14 +23,21 @@
       <span class="profile-email">Rushee Application</span><br /><br />
 
       <% unless @new_application || @rush_application.id.nil? %>
+
           <p>
             You have already completed your application. If you wish to print your application, you should click below: <br/>
           </p>
-          <%=link_to "Print Application Here", print_rush_application_path(@rush_application, confirmation: @rushee.password_digest), :method => :post%>
+
+          <p class="linkclickblk">
+            <%= link_to "Print Application Here", print_rush_application_path(@rush_application, confirmation: @rushee.password_digest), :method => :post %>
+          </p>
+          <br />
           <p>
             If you wish to edit your application, please edit the details below and click submit.
           </p>
+
       <% end %>
+
       <div>
 
         <p class="linkclickblk">
