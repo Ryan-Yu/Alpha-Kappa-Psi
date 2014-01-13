@@ -23,7 +23,13 @@ AlphaKappaPsi::Application.routes.draw do
   match    '/contact',      to: 'static_pages#contact_request',     via: 'post'
 
   # Handles GET /rush_application -- controller: rush_application | method: INDEX
-  resources :rush_application, only: [:index]
+  resources :rush_application, only: [:index] do
+    member do
+      post 'print'
+    end
+  end
+
+  match    '/rush_application/landing',      to: 'rush_application#landing',     via: [:post], as: :landing_rush_application
 
   # Handles GET/POST /rush_application/new -- controller: rush_application | method: NEW
   # Paths created: new_rush_application_path | new_rush_application_url
