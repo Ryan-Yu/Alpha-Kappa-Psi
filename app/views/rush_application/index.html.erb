@@ -1,3 +1,31 @@
+
+<style>
+
+  input {
+    font-family: FontAwesome;
+  }
+
+  .rushapp-body {
+    font-size:13px;
+    line-height: 24px;
+  }
+
+  .account-wall-static {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+  
+  @media (max-width: 768px) {
+    .account-wall-static {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+</style>
+
+
+
 <% provide(:title, 'Rush Application') %>
 
 <img src=<%= asset_path("berk_8.jpg")%> alt="berk_4.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
@@ -8,86 +36,66 @@
 <div class="account-wall-static">
 
   <div id="intro">
+    <h1 style="font-weight:500;">Rush Application</h1>
+    <h3 style="color:#b5b5b5;">Instructions</h3>
     <br />
-    <h1 style="font-weight:500;">Rush Application Login</h1>
-    <h3 style="color:#b5b5b5;">Place Holder Text</h3>
 
-    <p align="left">
-      <br/>
-      Welcome
-      <br/>        <br/>
-
-      Dear Potential Brother,
-      <br/>        <br/>
-
-      On behalf of the brothers of Alpha Kappa Psi, I would like to extend you a warm welcome to our Fall 2013 Rush. The following two weeks should provide you with an essential perspective into our fraternity, our brotherhood, and the ambition that binds us together. No matter what your academic year is, rushing Alpha Kappa Psi is taking the first step toward tomorrow and the dreams you wish to achieve.
-      <br/>          <br/>
-
-      Upon joining, I discovered an amazing environment that emphasizes the development of new leaders, the transition of knowledge, and an unparalleled determination to succeed. Our brothers can be found at the top of several diverse domains, be it the Haas School of Business, College of Engineering, or even entrepreneurial ventures. Alpha Kappa Psi will not only enable you to create vast networks in different career fields, but also provide you the opportunity to make lifelong friends who will support your every endeavor.
-      <br/>
-      Should you have any questions during the rush process, please do not hesitate to contact me. You can e-mail me at rush@calakpsi.com or find me at any one of our rush events. On behalf of the brothers of Alpha Kappa Psi, we look forward to getting to know you during this rush period. During the next two weeks, we hope you will discover that Alpha Kappa Psi offers you what cannot be attained elsewhere: Discover Your Potential, Discover Alpha Kappa Psi.
-      <br/>
-      <br/>
-      Sincerely,
-      <br/>
-      <br/>
-      Justine Lee<br/>
-      Vice President of Membership    <br/>
-      Alpha Beta Chapter of Alpha Kappa Psi <br/>
-      <br/>
-
-      <% if !@rush_events.nil? %>
-          Rush Calendar     <br/>
-          <br/>
-
-          <% for index in 0 ... @rush_events.size %>
-              <br/>
-              <b><%= @rush_events[index].event_name %></b> <br/>
-              <i>Description: </i><%= @rush_events[index].event_description   %> <br/>
-              <i>Time: </i><%= @rush_events[index].event_time.strftime("%A, %B %d, %Y") %> <br/>
-              <i>Location: </i><%= @rush_events[index].location  %> <br/>
-          <% end %>
-      <%end%>
-
-      <br/>
-
-      Application Materials
-      <br/>
-      <br/>
-
-      You must submit online and print the following application materials (paper-clipped, no staples), in order to be considered in the recruitment process:
-
-      <br/>
-      Candidate Application
-      <br/>
-      Cover letter
-      <br/>
-      Resume
-      <br/>
-      Schedule of current coursework
-      <br/>
-      Unofficial transcript with your name from Bear Facts
-      <br/>
-      Recent photo of yourself (this will not be returned)
-      <br/>
-      <br/>
-      Applications must be submitted by 11:59 AM, before noon, on Saturday, September 7th. Please print a copy of your application materials and bring it to your personal interview on Saturday, September 7th or Sunday, September 8th at your scheduled time.
-      <br/>
-      If you have any questions, concerns, or need special accommodations, feel free to e-mail our VP of Membership, Justine Lee, at rush@calakpsi.com. To return to our website, click here.
+    <p class="rushapp-body">
+      A prerequisite to accessing the Alpha Kappa Psi rush application is you have signed up as a rushee.
+      If you have not yet signed up as a rushee at a rush event, please:
     </p>
+
+    <p class="linkclickblk">
+      <a href=<%= new_rushee_path %> style="color:#95bcb8; border:3px solid #95bcb8;"> Click here </a> 
+    </p>
+
+    <br />
+
+    <p class="rushapp-body">
+      Once you have signed up as a rushee, then you are ready to continue with the application.
+      To do so, please access the application using the same email and password that you signed up with:
+    </p>
+
+    <%= form_tag(new_rush_application_path, class: "form-sign-in-up") do %>
+        <%= text_field_tag(:email, nil, class: 'form-control', placeholder: "&#xf003; Email".html_safe) %>
+        <br />
+        <%= password_field_tag(:password, nil, class: 'form-control', placeholder: "&#xf084; Password".html_safe) %>
+        <br />
+        <br />
+        <%= submit_tag("Begin Application", class: "btn btn-sm") %>
+    <% end %>
+
+    <br/><br />
+
+    <h3 style="color:#b5b5b5;"> Things to note (please read):</h3>
+    <br/>
+
+    <p class="rushapp-body">
+      In addition to completing and submitting the above application, you must also print the following application materials (paper-clipped, no staples) and bring them to your individual professional interview in order to be considered in the recruitment process.
+    </p>
+
+    <p class="linkclickblk">
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Candidate Application </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Cover Letter </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Resume </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Current Academic Schedule </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Unofficial Transcript </a><br />
+      <a style="color:#95bcb8; border:3px solid #95bcb8;"> Recent Self Photo </a><br />
+    </p>
+
+    <p class="rushapp-body">
+      Ensure that your unofficial Transcript from Bearfacts has your name on it. Also note that the photograph you submit will not be returned.
+    </p>
+
+    <br />
+
+    <p class="rushapp-body">
+      <b>The due date for this rush application can be found at <%= root_url %>rush. Please print a copy of your application materials and bring it to your individual professional interview at your scheduled time (your time slot will be emailed to you.)</b> If you have any questions, concerns, or need special accommodations, feel free to e-mail our VP of Membership at rush@calakpsi.com.
+    </p>
+    
 
     <div>
       <br />
-
-      <%= form_tag new_rush_application_path do %>
-          <%= label_tag(:email, "Username") %>
-          <%= text_field_tag(:email) %>
-          <br/>
-          <%= label_tag(:password, "Password") %>
-          <%= password_field_tag(:password) %>
-          <br/>
-          <%= submit_tag("Begin Application") %>
-      <% end %>
 
       <br />
 
