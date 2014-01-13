@@ -29,9 +29,9 @@ AlphaKappaPsi::Application.routes.draw do
   # Paths created: new_rush_application_path | new_rush_application_url
   match    '/rush_application/new',      to: 'rush_application#new',     via: [:post, :get], as: :new_rush_application
 
-  # Handles POST /rush_application/submit -- controller: rush_application | method: CREATE
+  # Handles POST/PATCH /rush_application/submit -- controller: rush_application | method: CREATE
   # Paths created: submit_rush_application_path | submit_rush_application_url
-  match    '/rush_application/submit',      to: 'rush_application#create',     via: 'post', as: :submit_rush_application
+  match    '/rush_application/submit',      to: 'rush_application#create',     via: [:patch, :post], as: :submit_rush_application
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

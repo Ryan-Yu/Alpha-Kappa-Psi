@@ -6,12 +6,27 @@ class RushApplicationController < ApplicationController
 
   def create
     @rushee = Rushee.find_by(email: params[:rush_application][:email])
-    @rushee_application = @rushee.build_rush_application(application_params(params[:rush_application]))
-    if @rushee_application.save
-      flash[:success] = "Your application has been successfully submitted!"
-      redirect_to root_url
+    @rush_application = find_rush_application(@rushee)
+
+    #No Previous Rush Application
+    if @rush_application.nil?
+      @rush_application = @rushee.build_rush_application(application_params(params[:rush_application]))
+      if @rush_application.save
+        flash[:success] = "Your application has been successfully submitted."
+        redirect_to root_url
+      else
+        render 'new'
+        return
+      end
+    #Updating Previous Rush Application
     else
-      render action: 'new', :params => { email: params[:email], password: params[:password] }
+      if @rush_application.update_attributes(application_params(params[:rush_application]))
+        flash[:success] = "Your application has been successfully updated."
+        redirect_to root_url
+      else
+        render 'new'
+        return
+      end
     end
   end
 
@@ -28,13 +43,13 @@ class RushApplicationController < ApplicationController
       render 'index'
     else
       if @rushee.authenticate(params[:password])
-        @rushee_application = RushApplication.find_by(rushee_id: @rushee.id)
-        if @rushee_application.nil?
-          @rushee_application = @rushee.build_rush_application
-          @rushee_application.email = @rushee.email
-          @rushee_application.name = @rushee.name
-          @rushee_application.first_major = @rushee.major
-          @rushee_application.grade = @rushee.grade
+        @rush_application = find_rush_application(@rushee)
+        if @rush_application.nil?
+          @rush_application = RushApplication.new
+          @rush_application.email = @rushee.email
+          @rush_application.name = @rushee.name
+          @rush_application.first_major = @rushee.major
+          @rush_application.grade = @rushee.grade
         end
         return
       else
@@ -52,10 +67,10 @@ class RushApplicationController < ApplicationController
                                              :cover_letter, :resume, :transcript, :additional_transcript, :photograph)
   end
 
-  def find_rush_application(rushee_id)
-    return RushApplication.find_by(rushee_id: rushee_id)
+  def find_rush_application(rushee)
+    return RushApplication.find_by(rushee_id: rushee.id)
   rescue
-    return nil
+    nil
   end
 
 end
