@@ -1,142 +1,162 @@
+<style>
+
+  input {
+    font-family: FontAwesome;
+  }
+
+</style>
+
+
+
+<!-- Content -->
+
 <% provide(:title, 'Rush Application') %>
 
+<div class="account-wall-static">
+  <%= form_for(@rush_application, url: submit_rush_application_url, :html => {multipart: true, :class => "form-edit-active"}) do |f| %>
 
-<%= form_for(@rush_application, url: submit_rush_application_url, :html => {multipart: true, :class => "form-sign-in-up"}) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-    <%= render 'shared/error_messages', object: f.object %>
-
-    <div class="account-wall">
       <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
 
       <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
-      <span class="profile-email">Rushee Application</span><br />
+      <span class="profile-email">Rushee Application</span><br /><br />
+
+
 
       <div>
-        <h3>PERSONAL INFORMATION</h3>
 
-        <%= f.label :email %>
-        <%= f.text_field :email, class: 'form-control', autofocus: true%>
-
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control', autofocus: true%>
-
-        <%= f.label :phone_number %>
-        <%= f.text_field :phone_number, class: 'form-control', autofocus: true %>
-
-        <%= f.label :address %>
-        <%= f.text_field :address, class: 'form-control', autofocus: true %>
-
-        <%= f.label :city %>
-        <%= f.text_field :city, class: 'form-control', autofocus: true %>
-
-        <%= f.label :state %>
-        <%= f.text_field :state, class: 'form-control', autofocus: true %>
-
-        <%= f.label :country %>
-        <%= f.text_field :country, class: 'form-control', autofocus: true %>
-
-        <%= f.label :zip_code %>
-        <%= f.text_field :zip_code, class: 'form-control', autofocus: true %>
-      </div>
-
-      <div>
-        <h3>ACADEMIC INFORMATION</h3>
-
-        <%= f.label :grade %>
-        <%= f.text_field :grade, class: 'form-control', autofocus: true %>
-
-        <%= f.label :first_major %>
-        <%= f.text_field :first_major, class: 'form-control', autofocus: true %>
-
-        <%= f.label :first_major_gpa %>
-        <%= f.text_field :first_major_gpa, value: (number_with_precision(f.object.first_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
-
-        <%= f.label :second_major %>
-        <%= f.text_field :second_major, class: 'form-control', autofocus: true %>
-
-        <%= f.label :second_major_gpa %>
-        <%= f.text_field :second_major_gpa, value: (number_with_precision(f.object.second_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
-
-        <%= f.label :third_major %>
-        <%= f.text_field :third_major, class: 'form-control', autofocus: true %>
-
-        <%= f.label :third_major_gpa %>
-        <%= f.text_field :third_major_gpa, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
-
-        <%= f.label :cumulative_gpa %>
-        <%= f.text_field :cumulative_gpa, value: (number_with_precision(f.object.cumulative_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
-
-        <%= f.label :intended_haas %>
-        <%= f.check_box :intended_haas, class: 'form-control', autofocus: true %>
-
-      </div>
-
-      <div>
-        <h3>ACADEMIC SCHEDULE</h3>
-
-        <%= f.label :academic_schedule %>
-        <%= f.text_field :academic_schedule, class: 'form-control', autofocus: true %>
-
-      </div>
-
-      <div>
-        <h3>EXTRACURRICULAR INFORMATION</h3>
-        <br/>
-        If you are actively involved in any other organizations on campus or employed, please list them along with the number of hours per week you are involved in each. <br/>
-        <%= f.label :extracurricular_information %>
-        <%= f.text_field :extracurricular_info, class: 'form-control', autofocus: true %>
-      </div>
-
-      <div>
-        <h3>COVER LETTER</h3>
-        <p>
-          The cover letter should be limited to one page in length and should be submitted in PDF format. 
-          <br/>
-          <br/>
-          Tip: Either cutepdf the file or use the free online conversion site, www.docupub.com     
-          <br/>
-          <br/>
-          Please address the following questions in your cover letter:                
-          <br/>
-          <br/>
-          What do you hope to gain with Alpha Kappa Psi and what can you contribute?     
-          <br/>
-          How do you think you stand out?                                            
-          <br/>
-          What are your future goals and how do you plan on achieving them?    
-          <br/>
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8;"> Personal Information </a>
         </p>
 
-        <%= f.label :cover_letter %>
-        <%= f.file_field :cover_letter %>
+        <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: "&#xf003; Email".html_safe %>
+
+        <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: "&#xf007; Name".html_safe %>
+
+        <%= f.text_field :phone_number, class: 'form-control', autofocus: true, placeholder: "&#xf095; Phone Number".html_safe %>
+
+        <%= f.text_field :address, class: 'form-control', autofocus: true, placeholder: "&#xf0f7; Address".html_safe %>
+
+        <%= f.text_field :city, class: 'form-control', autofocus: true, placeholder: "&#xf0f7; City".html_safe %>
+
+        <%= f.text_field :state, class: 'form-control', autofocus: true, placeholder: "&#xf0f7; State".html_safe %>
+
+        <%= f.text_field :country, class: 'form-control', autofocus: true, placeholder: "&#xf0f7; Country".html_safe %>
+
+        <%= f.text_field :zip_code, class: 'form-control', autofocus: true, placeholder: "&#xf0f7; Zip Code".html_safe %>
       </div>
+      <br /><br />
+
 
       <div>
-        <h3>ADDITIONAL MATERIALS</h3>
-        <p>
-          Please submit all documents in PDF format and the photo in JPG, JPEG, PNG, GIF. The resume should be one page in length.
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8;"> Academic Information </a>
+        </p>
+
+        <%= f.text_field :grade, class: 'form-control', autofocus: true, placeholder: "&#xf05d; Grade".html_safe %>
+
+        <%= f.text_field :first_major, class: 'form-control', autofocus: true, placeholder: "&#xf0ae; Major".html_safe %>
+
+        <%= f.text_field :first_major_gpa, value: (number_with_precision(f.object.first_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true, placeholder: "&#xf0c9; Major GPA".html_safe %>
+
+        <%= f.text_field :second_major, class: 'form-control', autofocus: true, placeholder: "&#xf0ae; 2nd Major (optional)".html_safe %>
+
+        <%= f.text_field :second_major_gpa, value: (number_with_precision(f.object.second_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true, placeholder: "&#xf0c9; 2nd Major GPA (Optional)".html_safe %>
+
+        <%= f.text_field :third_major, class: 'form-control', autofocus: true, placeholder: "&#xf0ae; 3rd Major (optional)".html_safe %>
+
+        <%= f.text_field :third_major_gpa, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true, placeholder: "&#xf0c9; 3rd Major GPA (optional)".html_safe %>
+
+        <%= f.text_field :cumulative_gpa, value: (number_with_precision(f.object.cumulative_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true, placeholder: "&#xf047; Cumulative GPA".html_safe %><br />
+
+        Intended haas? &nbsp;&nbsp;
+        <%= f.check_box :intended_haas, class: 'checkbox inline', autofocus: true %>
+      </div>
+      <br /><br />
+
+
+
+      <div>
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8;"> Academic Schedule </a>
+        </p>
+
+        <%= f.text_field :academic_schedule, class: 'form-control-wide', autofocus: true, placeholder: "List all classes that you are enrolled in this semester" %>
+
+      </div>
+      <br /><br />
+
+
+
+      <div>
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8;"> Extracurriculars </a>
+        </p>
+
+        If you are actively involved in any other organizations on campus or if you are employed, please indicate below, along with the number of hours <i>per week</i> you envision committing to each. <br /><br />
+        <%= f.text_field :extracurricular_info, class: 'form-control-wide', autofocus: true, placeholder: "i.e. Club 1 (5 hours), Club 2 (3 hours), Work Study (10 hours)" %>
+      </div>
+      <br /><br />
+
+
+
+      <div>
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8;"> Cover Letter </a>
+        </p>
+
+        <p style="text-align:left;">
+          The cover letter should be limited to one page in length and should be submitted in PDF format. Please address the following questions in your cover letter, and upload it with the button below:                
+          <br/>
+          <ol style="text-align:left;">
+            <li>What do you hope to gain with Alpha Kappa Psi and what can you contribute?</li>
+            <li>How do you think you stand out?</li>                                           
+            <li>What are your future goals and how do you plan on achieving them?</li>  
+          </ol>
+          <br />
+          <div style="text-align:left;"><%= f.file_field :cover_letter %></div>
+        </p>
+
+      </div>
+      <br /><br />
+
+
+
+      <div>
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8;"> Additional Materials </a>
+        </p>
+
+        <p style="text-align:left;">
+          Please submit all documents in PDF format and the photo in JPG, JPEG, PNG, or GIF. The resume should be one page in length.
           In addition, if you are a freshman, please attach your high school transcript as well as your BearFacts transcript.
         </p>
-        <%= f.label :resume %>
-        <%= f.file_field :resume %>
+        <br />
 
-        <%= f.label :transcript %>
-        <%= f.file_field :transcript %>
+        <div style="text-align:left;">
+          Resume: &nbsp;&nbsp;
+          <%= f.file_field :resume, class: 'inline' %>
+          <br />
 
-        <%= f.label :additional_transcript %>
-        <%= f.file_field :additional_transcript %>
+          Transcript: &nbsp;&nbsp;
+          <%= f.file_field :transcript, class: 'inline' %>
+          <br />
 
-        <%= f.label :photograph %>
-        <%= f.file_field :photograph %>
-      </div>
+          Additional Transcript (optional): &nbsp;&nbsp;
+          <%= f.file_field :additional_transcript, class: 'inline' %>
+          <br />
 
-      <div>
-        <h3></h3>
+          Photograph: &nbsp;&nbsp;
+          <%= f.file_field :photograph, class: 'inline' %>
+          <br />
+        </div>
       </div>
 
       <br />
       <br />
 
       <%= f.submit "Submit Application", class: "btn btn-sm" %>
-    </div>
-<% end %>
+
+  <% end %>
+</div>

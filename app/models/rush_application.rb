@@ -42,7 +42,7 @@ class RushApplication < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, :phone_number, :address, :city, :state, :country, :zip_code, :grade,
             :first_major, :first_major_gpa, :cumulative_gpa,
-            :academic_schedule, :extracurricular_info, presence: true
+            :academic_schedule, presence: true
 
   #validates_attachment :cover_letter, :resume, :transcript, :additional_transcript,
   #                     content_type: {content_type: "application/pdf"},

@@ -20,6 +20,7 @@ class RusheesController < ApplicationController
 
 	def show
 		@rushee = Rushee.find(params[:id])
+		@rushee_app = @rushee.rush_application #### might fail
 		@rusheeposts = @rushee.rusheeposts.all
 		@rusheepost = @rushee.rusheeposts.build if active_signed_in?
 	end

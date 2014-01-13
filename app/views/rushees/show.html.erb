@@ -9,7 +9,7 @@
   }
 
   .thread-posts:nth-child(even) {
-      background-color: #dedede;
+      background-color: #eee;
   }
 
   .alignleft {
@@ -45,6 +45,8 @@
 
         <p style="font-size:14px;">
 
+          <i>Email</i>: <%= @rushee.email %><br />
+
           <% if @rushee.grade.empty? %>
             <i>Year</i>: [unknown] <br />
           <% else %>
@@ -70,8 +72,98 @@
 
   </aside>
 
+  <br class="media-linebreak" />
+
   <!-- Displays the rusheeposts that are associated with the current rushee -->
   <div class="span9">
+
+    <% if @rushee_app.nil? %>
+      <div class="account-wall-static">
+        <h5 style="text-align:center;"><%= @rushee.name %> has not submitted a rush application yet.</h5>
+      </div>
+
+    <% else %>
+      <div class="account-wall-static">
+        <h4 style="text-align:center;"><%= @rushee.name %>'s rush application:</h4>
+
+        <br />
+
+        <div class="row" style="font-size:13px;">
+
+          <div class="span4">
+
+            <p class="linkclickblk">
+              <a style="color:#95bcb8; border:3px solid #95bcb8;"> Academics </a>
+            </p>
+            <ul>
+              <li><b>Major:</b> <%= @rushee_app.first_major %> </li>
+              <li><b>Major GPA:</b> <%= @rushee_app.first_major_gpa %> </li>
+              <% unless @rushee_app.second_major.empty? %>
+                <li><b>Second Major:</b> <%= @rushee_app.second_major %> </li>
+                <li><b>Second Major GPA:</b> <%= @rushee_app.first_major %> </li>
+                <% unless @rushee_app.third_major.empty? %>
+                  <li><b>Third Major:</b> <%= @rushee_app.third_major %> </li>
+                  <li><b>Third Major GPA:</b> <%= @rushee_app.third_major %> </li>
+                <% end %>
+              <% end %>
+              <li><b>Cumulative GPA:</b> <%= @rushee_app.cumulative_gpa %> </li>
+              <li><b>Intended Haas?</b> <%= @rushee_app.intended_haas.to_s.capitalize %>. </li>
+              <li><b>Academic schedule this semester:</b> <%= @rushee_app.academic_schedule %> </li>
+            </ul>
+
+          </div> <!-- end of first span4 div -->
+
+          <div class="span4">
+
+            <p class="linkclickblk">
+              <a style="color:#95bcb8; border:3px solid #95bcb8;"> Extracurriculars </a>
+            </p>
+
+            <b>Activities planned for this semester and time commitment per week:</b>
+            <br /><br />
+            <%= @rushee_app.extracurricular_info %>
+
+          </div> <!-- end of second span4 div -->
+
+        </div> <!-- end of row div -->
+
+        <br />
+
+        <% if @rushee_app.cover_letter.exists? %>
+          <p class="linkclickblk">
+            <a style="color:#95bcb8; border:3px solid #95bcb8;"> Cover Letter </a>
+            <%= link_to "Download", @rushee_app.cover_letter.url(:original, false) %>
+          </p>
+        <% end %>
+
+        <% if @rushee_app.resume.exists? %>
+          <p class="linkclickblk">
+            <a style="color:#95bcb8; border:3px solid #95bcb8;"> Resume </a>
+            <%= link_to "Download", @rushee_app.resume.url(:original, false) %>
+          </p>
+        <% end %>
+
+        <% if @rushee_app.transcript.exists? %>
+          <p class="linkclickblk">
+            <a style="color:#95bcb8; border:3px solid #95bcb8;"> Transcript </a>
+            <%= link_to "Download", @rushee_app.transcript.url(:original, false) %>
+          </p>
+        <% end %>
+
+        <% if @rushee_app.additional_transcript.exists? %>
+          <p class="linkclickblk">
+            <a style="color:#95bcb8; border:3px solid #95bcb8;"> Additional Transcript </a>
+            <%= link_to "Download", @rushee_app.additional_transcript.url(:original, false) %>
+          </p>
+        <% end %>
+
+      </div> <!-- end account-wall-static div -->
+
+    <% end %> <!-- end if @rushee_app.nil? statement -->
+
+
+    <br />
+
 
     <div class="account-wall-static">
 
