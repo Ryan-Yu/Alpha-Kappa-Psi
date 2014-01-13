@@ -1,0 +1,136 @@
+<% provide(:title, 'Rush Application') %>
+
+
+<%= form_for(@rushee_application, url: submit_rush_application_url, :html => {multipart: true, :class => "form-sign-in-up"}) do |f| %>
+
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="account-wall">
+      <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
+
+      <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
+      <span class="profile-email">Rushee Application</span><br />
+
+      <div>
+        <h3>PERSONAL INFORMATION</h3>
+
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'form-control', autofocus: true%>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', autofocus: true%>
+
+        <%= f.label :phone_number %>
+        <%= f.text_field :phone_number, class: 'form-control', autofocus: true %>
+
+        <%= f.label :address %>
+        <%= f.text_field :address, class: 'form-control', autofocus: true %>
+
+        <%= f.label :city %>
+        <%= f.text_field :city, class: 'form-control', autofocus: true %>
+
+        <%= f.label :state %>
+        <%= f.text_field :state, class: 'form-control', autofocus: true %>
+
+        <%= f.label :country %>
+        <%= f.text_field :country, class: 'form-control', autofocus: true %>
+
+        <%= f.label :zip_code %>
+        <%= f.text_field :zip_code, class: 'form-control', autofocus: true %>
+      </div>
+
+      <div>
+        <h3>ACADEMIC INFORMATION</h3>
+
+        <%= f.label :grade %>
+        <%= f.text_field :grade, class: 'form-control', autofocus: true %>
+
+        <%= f.label :first_major %>
+        <%= f.text_field :first_major, class: 'form-control', autofocus: true %>
+
+        <%= f.label :first_major_gpa %>
+        <%= f.text_field :first_major_gpa, value: (number_with_precision(f.object.first_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
+
+        <%= f.label :second_major %>
+        <%= f.text_field :second_major, class: 'form-control', autofocus: true %>
+
+        <%= f.label :second_major_gpa %>
+        <%= f.text_field :second_major_gpa, value: (number_with_precision(f.object.second_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
+
+        <%= f.label :third_major %>
+        <%= f.text_field :third_major, class: 'form-control', autofocus: true %>
+
+        <%= f.label :third_major_gpa %>
+        <%= f.text_field :third_major_gpa, value: (number_with_precision(f.object.third_major_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
+
+        <%= f.label :cumulative_gpa %>
+        <%= f.text_field :cumulative_gpa, value: (number_with_precision(f.object.cumulative_gpa, precision: 3, scale:1)), class: 'form-control', autofocus: true %>
+
+        <%= f.label :intended_haas %>
+        <%= f.check_box :intended_haas, class: 'form-control', autofocus: true %>
+
+      </div>
+
+      <div>
+        <h3>ACADEMIC SCHEDULE</h3>
+
+        <%= f.label :academic_schedule %>
+        <%= f.text_field :academic_schedule, class: 'form-control', autofocus: true %>
+
+      </div>
+
+      <div>
+        <h3>EXTRACURRICULAR INFORMATION</h3>
+        <br/>
+        If you are actively involved in any other organizations on campus or employed, please list them along with the number of hours per week you are involved in each. <br/>
+        <%= f.label :extracurricular_information %>
+        <%= f.text_field :extracurricular_info, class: 'form-control', autofocus: true %>
+      </div>
+
+      <div>
+        <h3>COVER LETTER</h3>
+        <p>
+          The cover letter should be limited to one page in length and should be submitted in PDF format. <br/>
+          <br/>
+          Tip: Either cutepdf the file or use the free online conversion site, www.docupub.com     <br/>
+          <br/>
+          Please address the following questions in your cover letter:                <br/>
+          <br/>
+          What do you hope to gain with Alpha Kappa Psi and what can you contribute?     <br/>
+          How do you think you stand out?                                             <br/>
+          What are your future goals and how do you plan on achieving them?    <br/>
+        </p>
+
+        <%= f.label :cover_letter %>
+        <%= f.file_field :cover_letter %>
+      </div>
+
+      <div>
+        <h3>ADDITIONAL MATERIALS</h3>
+        <p>
+          Please submit all documents in PDF format and the photo in JPG, JPEG, PNG, GIF. The resume should be one page in length.
+          In addition, if you are an incoming freshman, please attach your high school transcript in place of your BearFacts transcript.
+        </p>
+        <%= f.label :resume %>
+        <%= f.file_field :resume %>
+
+        <%= f.label :transcript %>
+        <%= f.file_field :transcript %>
+
+        <%= f.label :additional_transcript %>
+        <%= f.file_field :additional_transcript %>
+
+        <%= f.label :photograph %>
+        <%= f.file_field :photograph %>
+      </div>
+
+      <div>
+        <h3></h3>
+      </div>
+
+      <br />
+      <br />
+
+      <%= f.submit "Submit Application", class: "btn btn-sm" %>
+    </div>
+<% end %>

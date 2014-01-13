@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140111004325) do
+ActiveRecord::Schema.define(version: 20140112213138) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -99,6 +99,56 @@ ActiveRecord::Schema.define(version: 20140111004325) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rush_applications", force: true do |t|
+    t.string   "name"
+    t.string   "phone_number"
+    t.string   "email"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "zip_code"
+    t.string   "grade"
+    t.string   "first_major"
+    t.decimal  "first_major_gpa",                    precision: 3, scale: 2
+    t.string   "second_major"
+    t.decimal  "second_major_gpa",                   precision: 3, scale: 2
+    t.string   "third_major"
+    t.decimal  "third_major_gpa",                    precision: 3, scale: 2
+    t.string   "minor"
+    t.decimal  "cumulative_gpa",                     precision: 3, scale: 2
+    t.boolean  "intended_haas"
+    t.string   "academic_schedule"
+    t.string   "extracurricular_info"
+    t.string   "cover_letter_file_name"
+    t.string   "cover_letter_content_type"
+    t.integer  "cover_letter_file_size"
+    t.datetime "cover_letter_updated_at"
+    t.string   "resume_file_name"
+    t.string   "resume_content_type"
+    t.integer  "resume_file_size"
+    t.datetime "resume_updated_at"
+    t.string   "transcript_file_name"
+    t.string   "transcript_content_type"
+    t.integer  "transcript_file_size"
+    t.datetime "transcript_updated_at"
+    t.string   "additional_transcript_file_name"
+    t.string   "additional_transcript_content_type"
+    t.integer  "additional_transcript_file_size"
+    t.datetime "additional_transcript_updated_at"
+    t.string   "photograph_file_name"
+    t.string   "photograph_content_type"
+    t.integer  "photograph_file_size"
+    t.datetime "photograph_updated_at"
+    t.string   "found_through"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "rushee_id"
+  end
+
+  add_index "rush_applications", ["email"], name: "index_rush_applications_on_email", unique: true
+  add_index "rush_applications", ["rushee_id"], name: "index_rush_applications_on_rushee_id", unique: true
 
   create_table "rush_events", force: true do |t|
     t.string   "event_name"
