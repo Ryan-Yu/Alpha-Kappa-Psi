@@ -32,48 +32,22 @@ class RushApplicationController < ApplicationController
     end
   end
 
-  def landing
-  #  if !(params[:email].present? && params[:password].present?)
-  #    flash.now[:notice] = "Please enter both credentials to access the rush application."
-  #    render 'index'
-  #    return
-  #  end
-  #
-  #  @rushee = Rushee.find_by(email: params[:email])
-  #  if @rushee.nil?
-  #    flash.now[:notice] = "This email has not yet been registered by a rushee. Please register at #{new_rushee_url}."
-  #    render 'index'
-  #  else
-  #    if @rushee.authenticate(params[:password])
-  #      @rush_application = find_rush_application(@rushee)
-  #      if @rush_application.nil?
-  #        @rush_application = RushApplication.new
-  #        @rush_application.email = @rushee.email
-  #        @rush_application.name = @rushee.name
-  #        @rush_application.first_major = @rushee.major
-  #        @rush_application.grade = @rushee.grade
-  #      else
-  #        render
-  #      end
-  #      return
-  #    else
-  #      flash.now[:notice] = "The password you have entered is incorrect. Please try again."
-  #      render 'index'
-  #    end
-  #  end
-  end
-
   def submitted
 
   end
 
   def print
      @rush_application = RushApplication.find(params[:id])
+     @rushee = Rushee.find(@rush_application.rushee_id)
+     if @rushee.password_digest != params[:confirmation]
+       flash[:error] = 'You do not have sufficient privileges to access this page."'
+       redirect_to root_url
+     end
   end
 
   def new
     if !(params[:email].present? && params[:password].present?)
-      flash.now[:notice] = "Please enter both credentials to access the rush application."
+      flash.now[:notice] = 'Please enter both credentials to access the rush application.'
       render 'index'
       return
     end
@@ -84,16 +58,15 @@ class RushApplicationController < ApplicationController
       render 'index'
     else
       if @rushee.authenticate(params[:password])
+        @new_application = false
         @rush_application = find_rush_application(@rushee)
         if @rush_application.nil?
+          @new_application = true
           @rush_application = RushApplication.new
           @rush_application.email = @rushee.email
           @rush_application.name = @rushee.name
           @rush_application.first_major = @rushee.major
           @rush_application.grade = @rushee.grade
-        else
-          render 'landing'
-          return
         end
         return
       else

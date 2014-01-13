@@ -41,7 +41,7 @@
     <p class="rushapp-body">
       You have successfully submitted your online application. You will receive a confirmation email in your inbox shortly at <%="#{@rush_application.email}" %>
 
-      Please print out a copy of the application. You can access it by clicking <%=link_to "here", print_rush_application_path(@rush_application), :method => :post%>
+      Please print out a copy of the application. You can access it by clicking <%=link_to "here", print_rush_application_path(@rush_application, confirmation: @rushee.password_digest), :method => :post%>
 
       Additionally, please bring the following application materials to your professional interview at your scheduled time.
 

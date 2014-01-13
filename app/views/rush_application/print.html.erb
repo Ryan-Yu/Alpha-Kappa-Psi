@@ -32,28 +32,50 @@
 <br />
 
 <div class="account-wall-static">
+  <h4 style="text-align:center;"><%= @rush_application.name %>'s rush application:</h4>
 
-  <div id="intro">
-    <h1 style="font-weight:500;">Rush Application</h1>
-    <h3 style="color:#b5b5b5;">Print Me</h3>
-    <br />
+  <br />
 
-    <p class="rushapp-body">
-     Hi I'm the print rush application view.
-      <%= "Name: #{@rush_application.name}" %>
-      <%= "Email: #{@rush_application.email}" %>
-      <%= "Phone: #{@rush_application.phone_number}" %>
-      <%= "Address: #{@rush_application.address}" %>
-      <%= "City: #{@rush_application.city}" %>
-      <%= "State: #{@rush_application.state}" %>
-      <%= "Country: #{@rush_application.country}" %>
-      <%= "Zip Code: #{@rush_application.zip_code}" %>
-    </p>
+  <div class="row" style="font-size:13px;">
 
-    <div>
-      <br />
+    <div class="span4">
 
-      <br />
+      <p class="linkclickblk">
+        <a style="color:#95bcb8; border:3px solid #95bcb8;"> Academics </a>
+      </p>
+      <ul>
+        <li><b>Major:</b> <%= @rush_application.first_major %> </li>
+        <li><b>Major GPA:</b> <%= @rush_application.first_major_gpa %> </li>
+        <% unless @rush_application.second_major.empty? %>
+            <li><b>Second Major:</b> <%= @rush_application.second_major %> </li>
+            <li><b>Second Major GPA:</b> <%= @rush_application.first_major %> </li>
+            <% unless @rush_application.third_major.empty? %>
+                <li><b>Third Major:</b> <%= @rush_application.third_major %> </li>
+                <li><b>Third Major GPA:</b> <%= @rush_application.third_major %> </li>
+            <% end %>
+        <% end %>
+        <li><b>Cumulative GPA:</b> <%= @rush_application.cumulative_gpa %> </li>
+        <li><b>Intended Haas?</b> <%= @rush_application.intended_haas.to_s.capitalize %>. </li>
+        <li><b>Academic schedule this semester:</b> <%= @rush_application.academic_schedule %> </li>
+      </ul>
+
+    </div> <!-- end of first span4 div -->
+
+    <div class="span4">
+
+      <p class="linkclickblk">
+        <a style="color:#95bcb8; border:3px solid #95bcb8;"> Extracurriculars </a>
+      </p>
+
+      <b>Activities planned for this semester and time commitment per week:</b>
+      <br /><br />
+      <%= @rush_application.extracurricular_info %>
+
+    </div> <!-- end of second span4 div -->
+
+  </div> <!-- end of row div -->
+
+  <br />
 
     </div> <!-- end row div -->
 
