@@ -1,0 +1,85 @@
+
+<style>
+
+    input {
+        font-family: FontAwesome;
+    }
+
+    .rushapp-body {
+        font-size:13px;
+        line-height: 24px;
+    }
+
+    .account-wall-static {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+
+    @media (max-width: 768px) {
+        .account-wall-static {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+
+</style>
+
+<% provide(:title, 'Rush Application') %>
+
+<img src=<%= asset_path("berk_8.jpg")%> alt="berk_4.jpg" style="box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);" />
+
+<br />
+<br />
+
+<div class="account-wall-static">
+  <h4 style="text-align:center;"><%= @rush_application.name %>'s rush application:</h4>
+
+  <br />
+
+  <div class="row" style="font-size:13px;">
+
+    <div class="span4">
+
+      <p class="linkclickblk">
+        <a style="color:#95bcb8; border:3px solid #95bcb8;"> Academics </a>
+      </p>
+      <ul>
+        <li><b>Major:</b> <%= @rush_application.first_major %> </li>
+        <li><b>Major GPA:</b> <%= @rush_application.first_major_gpa %> </li>
+        <% unless @rush_application.second_major.empty? %>
+            <li><b>Second Major:</b> <%= @rush_application.second_major %> </li>
+            <li><b>Second Major GPA:</b> <%= @rush_application.first_major %> </li>
+            <% unless @rush_application.third_major.empty? %>
+                <li><b>Third Major:</b> <%= @rush_application.third_major %> </li>
+                <li><b>Third Major GPA:</b> <%= @rush_application.third_major %> </li>
+            <% end %>
+        <% end %>
+        <li><b>Cumulative GPA:</b> <%= @rush_application.cumulative_gpa %> </li>
+        <li><b>Intended Haas?</b> <%= @rush_application.intended_haas.to_s.capitalize %>. </li>
+        <li><b>Academic schedule this semester:</b> <%= @rush_application.academic_schedule %> </li>
+      </ul>
+
+    </div> <!-- end of first span4 div -->
+
+    <div class="span4">
+
+      <p class="linkclickblk">
+        <a style="color:#95bcb8; border:3px solid #95bcb8;"> Extracurriculars </a>
+      </p>
+
+      <b>Activities planned for this semester and time commitment per week:</b>
+      <br /><br />
+      <%= @rush_application.extracurricular_info %>
+
+    </div> <!-- end of second span4 div -->
+
+  </div> <!-- end of row div -->
+
+  <br />
+
+    </div> <!-- end row div -->
+
+  </div> <!-- end intro div -->
+
+</div> <!-- end account-wall-static div -->
+
