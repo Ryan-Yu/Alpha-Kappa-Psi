@@ -22,7 +22,7 @@
       <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
       <span class="profile-email">Rushee Application</span><br /><br />
 
-      <% unless @new_application %>
+      <% unless @new_application || @rush_application.id.nil? %>
           <p>
             You have already completed your application. If you wish to print your application, you should click below: <br/>
           </p>
@@ -36,6 +36,8 @@
         <p class="linkclickblk">
           <a style="color:#95bcb8; border:3px solid #95bcb8;"> Personal Information </a>
         </p>
+
+        <%= f.hidden_field :rushee_id, :value => @rush_application.rushee_id.to_i %>
 
         <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: "&#xf003; Email".html_safe %>
 

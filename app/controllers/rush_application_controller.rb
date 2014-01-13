@@ -5,7 +5,7 @@ class RushApplicationController < ApplicationController
   end
 
   def create
-    @rushee = Rushee.find_by(email: params[:rush_application][:email])
+    @rushee = Rushee.find(params[:rush_application][:rushee_id])
     @rush_application = find_rush_application(@rushee)
 
     #No Previous Rush Application
@@ -62,7 +62,7 @@ class RushApplicationController < ApplicationController
         @rush_application = find_rush_application(@rushee)
         if @rush_application.nil?
           @new_application = true
-          @rush_application = RushApplication.new
+          @rush_application = @rushee.build_rush_application
           @rush_application.email = @rushee.email
           @rush_application.name = @rushee.name
           @rush_application.first_major = @rushee.major
