@@ -1,5 +1,6 @@
 class RusheesController < ApplicationController
-
+	
+	skip_before_filter :verify_authenticity_token  
 	before_action :authenticate_active!, only: [:show, :index]
 
 	def new
