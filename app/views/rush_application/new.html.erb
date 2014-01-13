@@ -1,7 +1,7 @@
 <% provide(:title, 'Rush Application') %>
 
 
-<%= form_for(@rushee_application, url: "#{root_url}rush_application/new", :html => {multipart: true, :class => "form-sign-in-up"}) do |f| %>
+<%= form_for(@rushee_application, url: submit_rush_application_url, :html => {multipart: true, :class => "form-sign-in-up"}) do |f| %>
 
     <%= render 'shared/error_messages', object: f.object %>
 

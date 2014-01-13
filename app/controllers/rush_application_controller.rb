@@ -28,7 +28,7 @@ class RushApplicationController < ApplicationController
       render 'index'
     else
       if @rushee.authenticate(params[:password])
-        @rushee_application = find_rush_application(@rushee.id)
+        @rushee_application = RushApplication.find_by(rushee_id: @rushee.id)
         if @rushee_application.nil?
           @rushee_application = @rushee.build_rush_application
           @rushee_application.email = @rushee.email
@@ -53,7 +53,7 @@ class RushApplicationController < ApplicationController
   end
 
   def find_rush_application(rushee_id)
-    return RushApplication.find(rushee_id)
+    return RushApplication.find_by(rushee_id: rushee_id)
   rescue
     return nil
   end
