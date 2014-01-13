@@ -12,7 +12,6 @@ AlphaKappaPsi::Application.routes.draw do
     resources :rusheeposts, only: [:create, :destroy]
   end
 
-
   root     'static_pages#home'
   match    '/about',        to: 'static_pages#about',      via: 'get'
   match    '/careers',      to: 'static_pages#careers',    via: 'get'
@@ -22,6 +21,17 @@ AlphaKappaPsi::Application.routes.draw do
   match    '/rush',         to: 'static_pages#rush',       via: 'get'
   match    '/classes',      to: 'static_pages#classes',    via: 'get'
   match    '/contact',      to: 'static_pages#contact_request',     via: 'post'
+
+  # Handles GET /rush_application -- controller: rush_application | method: INDEX
+  resources :rush_application, only: [:index]
+
+  # Handles GET/POST /rush_application/new -- controller: rush_application | method: NEW
+  # Paths created: new_rush_application_path | new_rush_application_url
+  match    '/rush_application/new',      to: 'rush_application#new',     via: [:post, :get], as: :new_rush_application
+
+  # Handles POST/PATCH /rush_application/submit -- controller: rush_application | method: CREATE
+  # Paths created: submit_rush_application_path | submit_rush_application_url
+  match    '/rush_application/submit',      to: 'rush_application#create',     via: [:patch, :post], as: :submit_rush_application
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
