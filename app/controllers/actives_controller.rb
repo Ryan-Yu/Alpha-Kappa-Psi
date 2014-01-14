@@ -13,4 +13,6 @@ class ActivesController < ApplicationController
 		@actives = Active.all
     end
 
+    
+
 end

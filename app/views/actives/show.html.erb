@@ -1,6 +1,12 @@
 <style>
 
-  @media (min-width: 768px) {
+  .account-wall-static {
+    padding-top: 40px; 
+    padding-left: 100px; 
+    padding-right: 100px;
+  }
+
+  @media (max-width: 768px) {
   	.account-wall-static {
   		padding-left: 20px;
   		padding-right: 20px;
@@ -14,17 +20,23 @@
 
 <% provide(:title, @active.name) %>
 
+<div class="account-wall-static" style="padding-left:40px; padding-right:20px;">
 
-
-    <div class="account-wall-static" style="padding-top: 40px; padding-left: 175px; padding-right: 175px;">
+  <div class="row">
+    <div class="span5">
+      
 
       <div style="text-align:center;">
 
         <%= image_tag @active.photograph.url(:middle) %>
 
-        <h3>
-        	<%= @active.name %>
-        </h3>
+        <h2 style="font-family: 'Lato', sans-serif;">
+          <%= @active.name %>
+        </h2>
+
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Profile </a>
+        </p>
 
         <p style="font-size:14px; line-height: 28px;">
 
@@ -34,7 +46,7 @@
             <i>Pledge Class</i>: <%= @active.pledge_class %><br />
           <% end %>
 
-      	  <% if @active.major.empty? %>
+          <% if @active.major.empty? %>
             <i>Major</i>: [unknown] <br />
           <% else %>
             <i>Major</i>: <%= @active.major %><br />
@@ -66,12 +78,82 @@
 
         </p>
 
+        <% if active_signed_in? && current_active?(@active) %>
+          <a class="btn btn-sm" href=<%= edit_active_registration_path %>> Edit Profile </a>
+        <% end %>
+
+      </div> <!-- end of text-align:center; div -->
+      
+    </div> <!-- end of span6 div -->
+
+    <br class="media-linebreak" />
+    <br class="media-linebreak" />
+    <br class="media-linebreak" />
 
 
-       
-        <br />
+    <div class="span6">
+      <div style="text-align:center;">
+        <p class="linkclickblk">
+          <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Active Resources </a>
+        </p>
 
+        <h5>Test Bank:</h5>
+        <a class="btn btn-sm" href="#">Access Tests </a><br /><br />
+        <a class="btn btn-sm" href="#">Submit Test </a>
+
+        <br /><br />
+
+        <h5>Recruiting Material</h5>
+        <a class="btn btn-sm" href="#">Access Resources </a><br /><br />
+        <a class="btn btn-sm" href="#">Submit Resource </a>
 
 
       </div>
+
+    </div> <!-- end of span6 div -->
+    <br />
+
+  </div> <!-- end of row div -->
+</div> <!-- end of account-wall-static div -->
+
+  
+<br />
+
+
+<div class="account-wall-static" style="text-align:center;">
+  <% if @active.career_entries.count > 0 %>
+
+    <p class="linkclickblk">
+      <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Career Experience </a>
+    </p>
+
+    <br />
+    <div class="table-responsive">
+      <table class="table table-striped" style="font-size:12px;">
+
+        <thead>
+          <tr>
+            <th> Company </th>
+            <th> Group </th>
+            <th> Year </th>
+            <th> Location </th>
+            <th> Job Category </th>
+            <th> Full-time/internship </th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @active.career_entries.all %>
+        </tbody>
+      </table>
     </div>
+
+  <% else %>
+    <h4 style="text-align:center;"> No careers added. </h4>
+
+  <% end %>
+
+  <% if active_signed_in? && current_active?(@active) %>
+    <br />
+    <a class="btn btn-sm" href=<%= new_active_career_entry_path(@active.id) %>>Add New Career Entry</a>
+  <% end %>
+</div> <!-- end of third account-wall-static div -->
