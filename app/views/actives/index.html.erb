@@ -26,6 +26,26 @@
 
 <div class="account-wall-static">
 
+	<!-- Find actives that are on e-board -->
+
+	<div id="intro">
+	    <h1>Executive Board</h1>
+	    <h3>Alpha Beta Chapter</h3>
+	    <br />
+	    <br />
+	</div>
+
+	<ul class="thumbnails">
+	  <% @actives.each do |active| %>
+
+	    <%= render active if (active.display_on_index? && active.photograph.exists? && !active.eboard.empty?) %>
+
+	  <% end %>
+	</ul>
+
+
+	<!-- Find actives that are not on e-board -->
+
 	<div id="intro">
 	    <h1>Active Brothers</h1>
 	    <h3>Alpha Beta Chapter</h3>
@@ -36,10 +56,27 @@
 	<ul class="thumbnails">
 	  <% @actives.each do |active| %>
 
-	    <%= render active if active.display_on_index? %>
+	    <%= render active if (active.display_on_index? && active.photograph.exists? && active.eboard.empty?) %>
 
 	  <% end %>
 	</ul>
+
+
+	<!-- Deals with actives not pictured  -->
+
+	<div id="intro">
+		<h3>Actives not pictured:</h3><br />
+
+		<% @actives.each do |active| %>
+
+		    <% if (active.display_on_index? && !active.photograph.exists?) %>
+		    	<p style="line-height:14px;"><%= active.name %></p>
+		    <% end %>
+
+	  <% end %>
+	</div>
+
+
 </div>
 
 

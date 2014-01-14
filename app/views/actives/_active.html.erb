@@ -139,6 +139,10 @@
 		<a class="thumbnail" title=<%= active.name %> >
 		  <%= image_tag active.photograph.url(:middlesmall) %>
 		  <p class="active-names"><%= active.name.split[0] %> <br /> <i><%= active.name.split[1..-1].join(' ') %></i></p>
+		  <% unless active.eboard.empty? %>
+		  	<p style="font-family: 'Lato', sans-serif; letter-spacing:0.1em;"><%= active.eboard %></p>
+		  <% end %>
+
 		</a>
 	</button>
 
