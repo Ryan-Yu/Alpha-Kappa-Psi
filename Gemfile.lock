@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 8c2ff62c30beda6ae4f2c389c113c3a65bd5e785
+  revision: 5ba39c0c85920ddfc5be9985a8c0c9310da1f878
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: f2c670e233cf40847476a4dcbf753e97f58ad1ad
+  revision: eb75c08d4a68c3ff2d0a3fba19587fa24acce772
   specs:
     paperclip (3.5.2)
       activemodel (>= 3.0.0)
@@ -140,7 +140,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.5.2)
     minitest (4.7.5)
-    multi_json (1.8.2)
+    multi_json (1.8.4)
     multi_xml (0.5.5)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
