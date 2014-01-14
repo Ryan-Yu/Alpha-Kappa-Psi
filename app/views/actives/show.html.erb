@@ -40,37 +40,37 @@
 
         <p style="font-size:14px; line-height: 28px;">
 
-          <% if @active.pledge_class.empty? %>
+          <% if @active.pledge_class.nil? || @active.pledge_class.empty? %>
             <i>Pledge Class</i>: [unknown] <br />
           <% else %>
             <i>Pledge Class</i>: <%= @active.pledge_class %><br />
           <% end %>
 
-          <% if @active.major.empty? %>
+          <% if @active.major.nil? || @active.major.empty? %>
             <i>Major</i>: [unknown] <br />
           <% else %>
             <i>Major</i>: <%= @active.major %><br />
           <% end %>
 
-          <% if @active.hometown.empty? %>
+          <% if @active.hometown.nil? || @active.hometown.empty? %>
             <i>Hometown</i>: [unknown] <br />
           <% else %>
             <i>Hometown</i>: <%= @active.hometown %><br />
           <% end %>
 
-          <% if @active.positions_held.empty? %>
+          <% if @active.positions_held.nil? || @active.positions_held.empty? %>
             <i>Positions Held</i>: [unknown] <br />
           <% else %>
             <i>Positions Held</i>: <%= @active.positions_held %><br />
           <% end %>
 
-          <% if @active.biography.empty? %>
+          <% if @active.biography.nil? || @active.biography.empty? %>
             <i>Biography</i>: [unknown] <br />
           <% else %>
             <i>Biography</i>: <%= @active.biography %><br />
           <% end %>
 
-          <% if @active.linkedin.empty? %>
+          <% if @active.linkedin.nil? || @active.linkedin.empty? %>
             <i>LinkedIn URL</i>: [unknown] <br />
           <% else %>
             <i>LinkedIn URL</i>: &nbsp; <a href=<%= @active.linkedin %> target="_blank"> <i class="fa fa-linkedin-square" style="font-size: 30px;"></i> </a> 

@@ -47,13 +47,13 @@
 
           <i>Email</i>: <%= @rushee.email %><br />
 
-          <% if @rushee.grade.empty? %>
+          <% if @rushee.grade.nil? || @rushee.grade.empty? %>
             <i>Year</i>: [unknown] <br />
           <% else %>
             <i>Year</i>: <%= @rushee.grade %><br />
           <% end %>
 
-      		<% if @rushee.major.empty? %>
+      		<% if @rushee.major.nil? || @rushee.major.empty? %>
             <i>Major</i>: [unknown] <br />
           <% else %>
             <i>Major</i>: <%= @rushee.major %><br />
@@ -98,10 +98,10 @@
             <ul>
               <li><b>Major:</b> <%= @rushee_app.first_major %> </li>
               <li><b>Major GPA:</b> <%= @rushee_app.first_major_gpa %> </li>
-              <% unless @rushee_app.second_major.empty? %>
+              <% unless @rushee_app.second_major.nil? || @rushee_app.second_major.empty? %>
                 <li><b>Second Major:</b> <%= @rushee_app.second_major %> </li>
                 <li><b>Second Major GPA:</b> <%= @rushee_app.first_major %> </li>
-                <% unless @rushee_app.third_major.empty? %>
+                <% unless @rushee_app.third_major.nil? || @rushee_app.third_major.empty? %>
                   <li><b>Third Major:</b> <%= @rushee_app.third_major %> </li>
                   <li><b>Third Major GPA:</b> <%= @rushee_app.third_major %> </li>
                 <% end %>
