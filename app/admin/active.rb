@@ -6,6 +6,7 @@ ActiveAdmin.register Active do
     column :id
     column :name
     column :email
+    column "Current executive board position, if applicable", :eboard
     column :pledge_class
     column :major
     column :hometown
@@ -27,6 +28,7 @@ ActiveAdmin.register Active do
       f.input :major
       f.input :pledge_class
       f.input :positions_held
+      f.input :eboard, :label => "Current executive board position (leave blank if not on e-board)"
       f.input :hometown
       f.input :biography
       f.input :linkedin

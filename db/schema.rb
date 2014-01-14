@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112213138) do
+ActiveRecord::Schema.define(version: 20140114071750) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20140112213138) do
     t.string   "positions_held"
     t.string   "hometown"
     t.boolean  "approved",                default: false, null: false
+    t.string   "eboard",                  default: ""
   end
 
   add_index "actives", ["approved"], name: "index_actives_on_approved"

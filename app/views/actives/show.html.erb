@@ -2,8 +2,8 @@
 
   .account-wall-static {
     padding-top: 40px; 
-    padding-left: 100px; 
-    padding-right: 100px;
+    padding-left: 50px; 
+    padding-right: 50px;
   }
 
   @media (max-width: 768px) {
@@ -13,6 +13,13 @@
   	}
   }
 
+  @media (min-width: 768px) {
+    .account-wall-static {
+      padding-left: 50px;
+      padding-right: 10px;
+    }
+  }
+
 </style>
 
 
@@ -20,107 +27,189 @@
 
 <% provide(:title, @active.name) %>
 
-<div class="account-wall-static" style="padding-left:20px; padding-right:20px;">
 
-  <div class="row">
-    <div class="span6">
-      
+<!-- TOP HALF OF THE SHOW PAGE  -->
 
-      <div style="text-align:center;">
 
-        <%= image_tag @active.photograph.url(:middle) %>
+<!-- If active is signed in, then we want to render the active resources column -->
 
-        <h2 style="font-family: 'Lato', sans-serif;">
-          <%= @active.name %>
-        </h2>
+<% if active_signed_in? && current_active?(@active) %>
+  <div class="account-wall-static">
+    <div class="row">
+      <div class="span6">
+        
 
-        <p class="linkclickblk">
-          <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Profile </a>
-        </p>
+        <div style="text-align:center;">
 
-        <p style="font-size:14px; line-height: 28px;">
+          <%= image_tag @active.photograph.url(:middle) %>
 
-          <% if @active.pledge_class.nil? || @active.pledge_class.empty? %>
-            <i>Pledge Class</i>: [unknown] <br />
-          <% else %>
-            <i>Pledge Class</i>: <%= @active.pledge_class %><br />
+          <h2 style="font-family: 'Lato', sans-serif;">
+            <%= @active.name %>
+          </h2>
+
+          <p class="linkclickblk">
+            <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Profile </a>
+          </p>
+
+          <p style="font-size:14px; line-height: 28px;">
+
+            <% unless @active.eboard.nil? || @active.eboard.empty? %>
+              <i><b>Current Member of Executive Board:<br /></b></i> <%= @active.eboard %><br /><br />
+            <% end %>
+
+            <% if @active.pledge_class.nil? || @active.pledge_class.empty? %>
+              <i>Pledge Class</i>: [unknown] <br />
+            <% else %>
+              <i>Pledge Class</i>: <%= @active.pledge_class %><br />
+            <% end %>
+
+            <% if @active.major.nil? || @active.major.empty? %>
+              <i>Major</i>: [unknown] <br />
+            <% else %>
+              <i>Major</i>: <%= @active.major %><br />
+            <% end %>
+
+            <% if @active.hometown.nil? || @active.hometown.empty? %>
+              <i>Hometown</i>: [unknown] <br />
+            <% else %>
+              <i>Hometown</i>: <%= @active.hometown %><br />
+            <% end %>
+
+            <% if @active.positions_held.nil? || @active.positions_held.empty? %>
+              <i>Positions Held</i>: [unknown] <br />
+            <% else %>
+              <i>Positions Held</i>: <%= @active.positions_held %><br />
+            <% end %>
+
+            <% if @active.biography.nil? || @active.biography.empty? %>
+              <i>Biography</i>: [unknown] <br />
+            <% else %>
+              <i>Biography</i>: <%= @active.biography %><br />
+            <% end %>
+
+            <% if @active.linkedin.nil? || @active.linkedin.empty? %>
+              <i>LinkedIn URL</i>: [unknown] <br />
+            <% else %>
+              <i>LinkedIn URL</i>: &nbsp; <a href=<%= @active.linkedin %> target="_blank"> <i class="fa fa-linkedin-square" style="font-size: 30px;"></i> </a> 
+            <% end %>
+
+          </p>
+
+          <% if active_signed_in? && current_active?(@active) %>
+            <a class="btn btn-sm" href=<%= edit_active_registration_path %>> Edit Profile </a>
           <% end %>
 
-          <% if @active.major.nil? || @active.major.empty? %>
-            <i>Major</i>: [unknown] <br />
-          <% else %>
-            <i>Major</i>: <%= @active.major %><br />
-          <% end %>
+        </div> <!-- end of text-align:center; div -->
+        
+      </div> <!-- end of span6 div -->
 
-          <% if @active.hometown.nil? || @active.hometown.empty? %>
-            <i>Hometown</i>: [unknown] <br />
-          <% else %>
-            <i>Hometown</i>: <%= @active.hometown %><br />
-          <% end %>
+      <br class="media-linebreak" />
+      <br class="media-linebreak" />
+      <br class="media-linebreak" />
 
-          <% if @active.positions_held.nil? || @active.positions_held.empty? %>
-            <i>Positions Held</i>: [unknown] <br />
-          <% else %>
-            <i>Positions Held</i>: <%= @active.positions_held %><br />
-          <% end %>
 
-          <% if @active.biography.nil? || @active.biography.empty? %>
-            <i>Biography</i>: [unknown] <br />
-          <% else %>
-            <i>Biography</i>: <%= @active.biography %><br />
-          <% end %>
+      <div class="span5">
+        <div style="text-align:center;">
+          <p class="linkclickblk">
+            <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Active Resources </a>
+          </p>
 
-          <% if @active.linkedin.nil? || @active.linkedin.empty? %>
-            <i>LinkedIn URL</i>: [unknown] <br />
-          <% else %>
-            <i>LinkedIn URL</i>: &nbsp; <a href=<%= @active.linkedin %> target="_blank"> <i class="fa fa-linkedin-square" style="font-size: 30px;"></i> </a> 
-          <% end %>
+          <h5>Test Bank:</h5>
+          <a class="btn btn-sm" href="#">Access Tests </a><br /><br />
+          <a class="btn btn-sm" href="#">Submit Test </a>
 
-        </p>
+          <br /><br />
 
-        <% if active_signed_in? && current_active?(@active) %>
-          <a class="btn btn-sm" href=<%= edit_active_registration_path %>> Edit Profile </a>
+          <h5>Recruiting Material</h5>
+          <a class="btn btn-sm" href="#">Access Resources </a><br /><br />
+          <a class="btn btn-sm" href="#">Submit Resource </a>
+
+
+        </div>
+
+      </div> <!-- end of span6 div -->
+      <br />
+
+    </div> <!-- end of row div -->
+
+  </div> <!-- end of account-wall-static div -->
+
+
+
+
+<!-- User is not signed in as an active, so profile should be formatted in the center  -->
+<% else %>
+  <div class="account-wall-static">
+    <div style="text-align:center;">
+
+      <%= image_tag @active.photograph.url(:middle) %>
+
+      <h2 style="font-family: 'Lato', sans-serif;">
+        <%= @active.name %>
+      </h2>
+
+      <p class="linkclickblk">
+        <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Profile </a>
+      </p>
+
+      <p style="font-size:14px; line-height: 28px;">
+
+        <% unless @active.eboard.nil? || @active.eboard.empty? %>
+          <i><b>Current Member of Executive Board:<br /></b></i> <%= @active.eboard %><br /><br />
         <% end %>
 
-      </div> <!-- end of text-align:center; div -->
-      
-    </div> <!-- end of span6 div -->
+        <% if @active.pledge_class.nil? || @active.pledge_class.empty? %>
+          <i>Pledge Class</i>: [unknown] <br />
+        <% else %>
+          <i>Pledge Class</i>: <%= @active.pledge_class %><br />
+        <% end %>
 
-    <br class="media-linebreak" />
-    <br class="media-linebreak" />
-    <br class="media-linebreak" />
+        <% if @active.major.nil? || @active.major.empty? %>
+          <i>Major</i>: [unknown] <br />
+        <% else %>
+          <i>Major</i>: <%= @active.major %><br />
+        <% end %>
+
+        <% if @active.hometown.nil? || @active.hometown.empty? %>
+          <i>Hometown</i>: [unknown] <br />
+        <% else %>
+          <i>Hometown</i>: <%= @active.hometown %><br />
+        <% end %>
+
+        <% if @active.positions_held.nil? || @active.positions_held.empty? %>
+          <i>Positions Held</i>: [unknown] <br />
+        <% else %>
+          <i>Positions Held</i>: <%= @active.positions_held %><br />
+        <% end %>
+
+        <% if @active.biography.nil? || @active.biography.empty? %>
+          <i>Biography</i>: [unknown] <br />
+        <% else %>
+          <i>Biography</i>: <%= @active.biography %><br />
+        <% end %>
+
+        <% if @active.linkedin.nil? || @active.linkedin.empty? %>
+          <i>LinkedIn URL</i>: [unknown] <br />
+        <% else %>
+          <i>LinkedIn URL</i>: &nbsp; <a href=<%= @active.linkedin %> target="_blank"> <i class="fa fa-linkedin-square" style="font-size: 30px;"></i> </a> 
+        <% end %>
+
+      </p>
+    </div> <!-- end of text-align:center; div -->
+
+  </div> <!-- end of account-wall-static div -->
+
+<% end %> <!-- end of active signed in or not conditional -->
 
 
-    <div class="span5">
-      <div style="text-align:center;">
-        <p class="linkclickblk">
-          <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Active Resources </a>
-        </p>
 
-        <h5>Test Bank:</h5>
-        <a class="btn btn-sm" href="#">Access Tests </a><br /><br />
-        <a class="btn btn-sm" href="#">Submit Test </a>
-
-        <br /><br />
-
-        <h5>Recruiting Material</h5>
-        <a class="btn btn-sm" href="#">Access Resources </a><br /><br />
-        <a class="btn btn-sm" href="#">Submit Resource </a>
+<!-- BOTTOM HALF OF THE SHOW PAGE  -->
 
 
-      </div>
-
-    </div> <!-- end of span6 div -->
-    <br />
-
-  </div> <!-- end of row div -->
-</div> <!-- end of account-wall-static div -->
-
-  
 <br />
 
 
-<div class="account-wall-static" style="text-align:center;">
+<div class="account-wall-static" style="text-align:center; padding-left:100px; padding-right: 100px;">
   <% if @active.career_entries.count > 0 %>
 
     <p class="linkclickblk">
