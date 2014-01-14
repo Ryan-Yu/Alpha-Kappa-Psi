@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
 
   # Specifies the path that Devise redirects to after active sign-in
   def after_sign_in_path_for(resource)
-    # root_path
-    current_active
+    root_path
   end
 
   protected
