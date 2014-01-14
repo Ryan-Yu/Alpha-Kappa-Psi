@@ -8,7 +8,8 @@ class CareerEntriesController < ApplicationController
     @careerentry.name = current_active.name
     if safe_save(@careerentry)
       flash[:success] = "Your career has been created!"
-      redirect_to active_career_entries_path(current_active)
+      # redirect_to active_career_entries_path(current_active)
+      redirect_to current_active
     else
       flash.now[:error] = "The specified career already exists or something went wrong. Please try again."
       render 'new'
@@ -23,14 +24,16 @@ class CareerEntriesController < ApplicationController
   def destroy
     CareerEntry.find(params[:id]).destroy
     flash[:success] = "Career entry has been successfully deleted."
-    redirect_to active_career_entries_path(current_active)
+    # redirect_to active_career_entries_path(current_active)
+    redirect_to current_active
   end
 
   def update
     @careerentry = CareerEntry.find(params[:id])
     if @careerentry.update_attributes(career_params)
       flash[:success] = "Career entry has been successfully updated."
-      redirect_to active_career_entries_path(current_active)
+      # redirect_to active_career_entries_path(current_active)
+      redirect_to current_active
     else
       render 'edit'
     end
