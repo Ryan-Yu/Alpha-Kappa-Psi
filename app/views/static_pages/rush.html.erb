@@ -25,7 +25,7 @@
 
 	.rush-flyer {
 		position:relative;
-		width:63%; 
+		width:75%; 
 		height:auto; 
 		display:block; 
 		margin-left:auto; 
@@ -34,8 +34,35 @@
 		box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.5);
 	}
 
+	a {
+		color:#000;
+	}
+
 	a:hover {
 		text-decoration: none;
+	}
+
+	.account-wall-static {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+
+	.faq-ul li {
+	  list-style: none;
+	  margin-left: 0;
+	  padding-left: 0;
+	  font-size:14px; 
+	  text-indent: -1em;
+	  line-height: 23px;
+	}
+
+	.faq-ul li:before {
+	  content: "+";
+	  padding-right: 5px;
+	}
+
+	.media-body {
+		font-size: 13px;
 	}
 
 	@media (max-width: 767px) {
@@ -47,6 +74,11 @@
 		.rush-flyer {
 			width: 80%;
 			height:auto;
+		}
+
+		.account-wall-static {
+			padding-right: 20px;
+			padding-left: 20px;
 		}
 	}
 
@@ -63,8 +95,8 @@
 			View Rush Calendar &nbsp;
 			<i class="fa fa-arrow-circle-o-down" style="font-size:18px; color:#eee;"></i>
 		</div>
-		
 	</a>
+
 	<br />
 
 	<%= image_tag @rushflyer.front.url, :class => "rush-flyer" %>
@@ -98,12 +130,92 @@
 	<br />
 
 	<div id="intro">
-		<h1>Prospective Rushees</h1>
-		<h3>Rushing Alpha Kappa Psi this semester?</h3>
+		<h1 style="font-size:30px;">Prospective Rushees</h1>
+		<h3 style="font-size:15px;">Rushing Alpha Kappa Psi this semester?</h3>
 		<p class="linkclickblk"><br />
 		   <a href=<%= rush_application_index_path %> style="color:#95bcb8; border:3px solid #95bcb8;"> Click here </a> 
 	    </p>
 	</div>
+
+	<hr />
+
+	<div id="intro">
+		<h1 style="font-size:30px;">FAQ</h1>
+		<h3 style="font-size:15px;">Frequently Asked Questions</h3>
+	</div>
+
+	<br />
+
+	<div style="font-family: 'Lato', sans-serif; ">
+
+		<ul class="faq-ul">
+			<a href="#q1"><li>Why Alpha Kappa Psi?</li></a>
+			<a href="#q2"><li>What is rush?</li></a>
+			<a href="#q3"><li>Are there any restrictions to who can rush?</li></a>
+			<a href="#q4"><li>How is Alpha Kappa Psi different from the other business fraternities?</li></a>
+			<a href="#q5"><li>Is attending all of the rush events required?</li></a>
+			<a href="#q6"><li>What kind of rush candidates are you looking for?</li></a>
+			<a href="#q7"><li>How many pledges does Alpha Kappa Psi take each semester? </li></a>
+			<a href="#q8"><li>What is pledging like?</li></a>
+			<a href="#q9"><li>If I do not get a bid the first time, can I rush again?</li></a>
+			<a href="#q10"><li>What do I do if I have further questions that were not addressed here?</li></a>
+		</ul>
+		<a name="q1">&nbsp;</a>
+		<br />
+
+		<div class="media">
+			<div class="media-body">
+			    <a name="q2"><h4 class="media-heading">Why Alpha Kappa Psi?</h4>
+				Alpha Kappa Psi offers a unique opportunity to attain the critical professional skills necessary to excel in tomorrow’s workforce. Based on it’s two pillars of Brotherhood and Professionalism, Alpha Kappa Psi brings together a diversity of people who have a common desire for excellence and a motivation to achieve more. Through hands on leadership experience, insightful seminars, professional workshops, and internship opportunities, our members have grown to become a highly recognized pool of potential recruits by many of the nation’s leading firms.</a>
+				<br /><br />
+
+				<a name="q3"><h4 class="media-heading"> What is rush? </h4>
+				Rush is a series of events over two weeks to allow potential rushees the opportunity learn more about Alpha Kappa Psi. In turn, it also allows the Active Brothers to know more about interested candidates.</a>
+				<br /><br />
+
+				<a name="q4"><h4 class="media-heading"> Are there any restrictions to who can rush? </h4>
+				You do <i>not</i> have to be a business major to rush; Alpha Kappa Psi recognizes the universal nature of business, and offers equal opportunity for students of all majors to rush. However, the Alpha Beta chapter does <i>not</i> hand out bids to first-semester freshman. Despite this fact, first-semester freshman are welcome to attend all rush events to get a feel for how the rush process works.</a>
+				<br /><br />
+
+				<a name="q5"><h4 class="media-heading"> How is Alpha Kappa Psi different from the other business fraternities? </h4>
+				Alpha Kappa Psi offers a wide range of opportunities, allowing our Active Brothers to excel where they choose. Because Alpha Kappa Psi is open to all majors, the breadth of knowledge gained and shared by the Active Brothers and Alumni Brothers allow us to offer innovative perspectives on business and beyond.</a>
+				<br /><br />
+
+				<a name="q6"><h4 class="media-heading"> Is attending all of the rush events required? </h4>
+				Although attendance to rush events is voluntary, it is highly encouraged that serious applicants attend all rush events, or as many as possible. Due to the high traffic of our rush, it is difficult to remember every rush candidate. The more interactions an individual has with our fraternity, the more he or she can learn about it, and the more we can learn about him or her.</a>
+				<br /><br />
+
+				<a name="q7"><h4 class="media-heading"> What kind of rush candidates are you looking for? </h4>
+				There is no pre-set image of the ideal rush candidate as we recognize the different contributions that various individuals can make. However, we are still looking for highly motivated scholars that not only work well independently, but within a group as well. Potential, as well as present qualities, is a determining factor in the bid process.</a>
+				<br /><br />
+
+				<a name="q8"><h4 class="media-heading"> How many pledges does Alpha Kappa Psi take each semester? </h4>
+				This widely varies each semester. Pledge classes have ranged in size from as little as 8 to as many as 17.</a>
+				<br /><br />
+
+				<a name="q9"><h4 class="media-heading"> What is pledging like? </h4>
+				Pledging is much like training for an actual company and can be compared alongside an internship. You will learn and exercise team-building skills, public speaking skills, leadership opportunities, and more, all in the context of business projects and practices.  Although difficult, pledging is designed to build the highest caliber of brotherhood and professionalism.</a>
+				<br /><br />
+
+				<a name="q10"><h4 class="media-heading"> If I do not get a bid the first time, can I rush again? </h4>
+				Yes. it is highly encouraged that a rush candidate apply again if he or she did not receive a bid the first time. Determination and personal refinement are valued traits in rush candidates.</a>
+				<br /><br />
+
+				<h4 class="media-heading"> What do I do if I have further questions that were not addressed here? </h4>
+				Please contact the Vice President of Membership at:<br /><br />
+
+				<p class="linkclickblk">
+				   <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:11px;"> rush@calakpsi.com </a> 
+			    </p>
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+
 
 </div>
 
