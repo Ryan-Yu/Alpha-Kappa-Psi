@@ -22,6 +22,7 @@ class StaticPagesController < ApplicationController
 
   def rush
     @rushevents = RushEvent.order(:event_time => :asc)
+    @rushflyer = RushFlyer.first
   end
 
   def classes

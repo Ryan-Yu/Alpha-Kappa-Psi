@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114071750) do
+ActiveRecord::Schema.define(version: 20140115035120) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -159,6 +159,15 @@ ActiveRecord::Schema.define(version: 20140114071750) do
     t.string   "semester"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "rush_flyers", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "front_file_name"
+    t.string   "front_content_type"
+    t.integer  "front_file_size"
+    t.datetime "front_updated_at"
   end
 
   create_table "rusheeposts", force: true do |t|
