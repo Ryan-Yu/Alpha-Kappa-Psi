@@ -3,6 +3,7 @@ ruby '2.0.0'
 #ruby-gemset=railstutorial_rails_4_0
 
 gem 'unicorn'
+gem 'newrelic_rpm'
 
 gem 'rails', '4.0.2'
 gem 'devise'
