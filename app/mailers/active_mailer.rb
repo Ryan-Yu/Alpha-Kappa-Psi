@@ -2,6 +2,11 @@
 # Views are located in app/views/active_mailer/xxx_email
 # Views are coded in HTML or TXT (plain text)
 class ActiveMailer < ActionMailer::Base
+
+  #Constants for email headers
+  AKPSI_HEADER = '[Alpha Kappa Psi]'
+  CONTACT_HEADER = '[Contact Request]'
+
   default from: "calakpsi.news@gmail.com"
   default to: "calakpsi.news@gmail.com"
 
@@ -9,29 +14,44 @@ class ActiveMailer < ActionMailer::Base
   # uses to: to send it to specified email and subject: for subject line.
   def welcome_email(user)
     @user = user
-    @url = root_url
-    mail(to: @user.email, subject: "[Alpha Kappa Psi] #{user.name}, Welcome to Alpha Kappa Psi - Alpha Beta Chapter")
+    mail(to: @user.email, subject: "#{AKPSI_HEADER} #{user.name}, Welcome to Alpha Kappa Psi - Alpha Beta Chapter")
   end
 
   #Activation email instance variables
   def activation_email(user)
     @user = user
-    @url = root_url
-    mail(to: @user.email, subject: "[Alpha Kappa Psi] You've been approved as an active at Alpha Kappa Psi - Alpha Beta Chapter")
+    mail(to: @user.email, subject: "#{AKPSI_HEADER} You've been approved as an active at Alpha Kappa Psi's Alpha Beta Chapter")
   end
 
   #Contact Request Email
   def contact_email(contact_request)
     @contact_request = contact_request
-    mail(subject: "[Contact Request] - #{@contact_request.name} - #{@contact_request.subject}", from: @contact_request.email)
+    mail(subject: "#{CONTACT_HEADER} - #{@contact_request.name} - #{@contact_request.subject}", from: @contact_request.email)
   end
 
   #Rushee signup email
   def rushee_signup_email(rushee)
     @rushee = rushee
-    @url = root_url
     @rush_events = RushEvent.all
-    mail(to: @rushee.email, subject: "[Alpha Kappa Psi] Thank you for your interest in Alpha Kappa Psi")
+    mail(to: @rushee.email, subject: "#{AKPSI_HEADER} You have been successfully enrolled into Alpha Kappa Psi's Rush Process")
+  end
+
+  #Rushee Application Submission Confirmation Email
+  def app_confirmation_email(updated, rushee, rush_app)
+    @rushee = rushee
+    @rush_application = rush_app
+    @subject = "#{AKPSI_HEADER} Rush Application Submission Confirmation"
+
+    if updated
+      @subject = "#{AKPSI_HEADER} Rush Application Update Confirmation"
+    end
+
+    #If Emails from rushee signup and rush application are different, send to both.
+    if @rushee.email != @rush_application.email
+      mail(to: @rush_application.email, subject: "#{@subject}")
+    end
+
+    mail(to: @rushee.email, subject: "#{@subject}")
   end
 
 end
