@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115035120) do
+ActiveRecord::Schema.define(version: 20140116101628) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 20140115035120) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "actives", force: true do |t|
-    t.string   "email",                   default: "",    null: false
-    t.string   "encrypted_password",      default: "",    null: false
+    t.string   "email",                               default: "",    null: false
+    t.string   "encrypted_password",                  default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",           default: 0,     null: false
+    t.integer  "sign_in_count",                       default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140115035120) do
     t.string   "name"
     t.string   "major"
     t.string   "pledge_class"
-    t.string   "biography"
+    t.text     "biography",               limit: 255
     t.string   "linkedin"
     t.string   "photograph_file_name"
     t.string   "photograph_content_type"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20140115035120) do
     t.boolean  "display_on_index"
     t.string   "positions_held"
     t.string   "hometown"
-    t.boolean  "approved",                default: false, null: false
-    t.string   "eboard",                  default: ""
+    t.boolean  "approved",                            default: false, null: false
+    t.string   "eboard",                              default: ""
   end
 
   add_index "actives", ["approved"], name: "index_actives_on_approved"
@@ -100,6 +100,27 @@ ActiveRecord::Schema.define(version: 20140115035120) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "prep_files", force: true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.integer  "recruitingcategory_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "resourcefile_file_name"
+    t.string   "resourcefile_content_type"
+    t.integer  "resourcefile_file_size"
+    t.datetime "resourcefile_updated_at"
+    t.string   "submitted_by"
+  end
+
+  create_table "recruiting_categories", force: true do |t|
+    t.string   "industry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recruiting_categories", ["industry"], name: "index_recruiting_categories_on_industry", unique: true
 
   create_table "rush_applications", force: true do |t|
     t.string   "name"
