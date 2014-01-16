@@ -21,6 +21,15 @@
 					<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
 		  		</a>
 		    </li>
+
+		<% elsif !rushee.rush_application.nil? && !rushee.rush_application.photograph.nil? && rushee.rush_application.photograph.exists? %>
+			<li>
+		  		<a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+		  			<%= image_tag rushee.rush_application.photograph.url(:middlesmall) %>
+					<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+		  		</a>
+		    </li>
+
 		<% end %>
 
 	  <% end %>

@@ -37,7 +37,11 @@
 
       <div style="text-align:center;">
 
-        <%= image_tag @rushee.photograph.url(:middle) %>
+        <% if @rushee.photograph.exists? %>
+          <%= image_tag @rushee.photograph.url(:middle) %>
+        <% elsif !@rushee.rush_application.nil? && !@rushee.rush_application.photograph.nil? && @rushee.rush_application.photograph.exists? %>
+          <%= image_tag @rushee.rush_application.photograph.url(:middle) %>
+        <% end %>
 
         <h3>
         	<%= @rushee.name %>
