@@ -90,7 +90,7 @@
             <% if @active.linkedin.nil? || @active.linkedin.empty? %>
               <i>LinkedIn URL</i>: [unknown] <br />
             <% else %>
-              <i>LinkedIn URL</i>: &nbsp; <a href=<%= @active.linkedin %> target="_blank"> <i class="fa fa-linkedin-square" style="font-size: 30px;"></i> </a> 
+              <i>LinkedIn URL</i>: &nbsp; <a href= <%= @active.linkedin %> target="_blank">  <i class="fa fa-linkedin-square" style="font-size: 30px;"></i> </a>
             <% end %>
 
           </p>

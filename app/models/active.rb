@@ -5,6 +5,8 @@ class Active < ActiveRecord::Base
   # before_save :default_values
   before_save { self.name = name.titleize }
 
+  before_save :clean_linkedin
+
   #After Creation Methods
   #   :send_admin_mail - Sends email confirmation to signed up active
   after_create :send_welcome_mail
@@ -51,6 +53,15 @@ class Active < ActiveRecord::Base
       super # Use whatever other message
     end
   end
+
+  def clean_linkedin
+    unless self.linkedin.nil?
+      unless self.linkedin.start_with?('http://', 'https://')
+        self.linkedin = "http://" + self.linkedin
+      end
+    end
+  end
+
 
   #Sends email confirmation to signed up active
   def send_welcome_mail
