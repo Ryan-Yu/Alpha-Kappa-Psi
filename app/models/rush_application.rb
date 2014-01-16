@@ -44,18 +44,18 @@ class RushApplication < ActiveRecord::Base
             :first_major, :first_major_gpa, :cumulative_gpa,
             :academic_schedule, presence: true
 
-  # validates_attachment :cover_letter, :resume, :transcript,
-  #                     content_type: {content_type: "application/pdf"},
-  #                     presence: true,
-  #                     size: {in: 0..1.megabytes}
+  validates_attachment :cover_letter, :resume, :transcript,
+                      content_type: {content_type: "application/pdf"},
+                      presence: true,
+                      size: {in: 0..1.megabytes}
 
-  # validates_attachment :additional_transcript,
-  #                     content_type: {content_type: "application/pdf"},
-  #                     size: {in: 0..1.megabytes}
+  validates_attachment :additional_transcript,
+                      content_type: {content_type: "application/pdf"},
+                      size: {in: 0..1.megabytes}
 
-  # validates_attachment :photograph,
-  #                     content_type: {content_type: ["image/jpg", "image/gif", "image/png", "image/jpeg"]},
-  #                     presence: true,
-  #                     size: {in: 0..3.megabytes}
+  validates_attachment :photograph,
+                      content_type: {content_type: ["image/jpg", "image/gif", "image/png", "image/jpeg"]},
+                      presence: true,
+                      size: {in: 0..3.megabytes}
 
 end
