@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116101628) do
+ActiveRecord::Schema.define(version: 20140116102358) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 20140116101628) do
 
   create_table "rush_events", force: true do |t|
     t.string   "event_name"
-    t.string   "event_description"
+    t.text     "event_description", limit: 255
     t.string   "location"
     t.datetime "event_time"
     t.string   "semester"
