@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140116102358) do
+ActiveRecord::Schema.define(version: 20140116103549) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -133,16 +133,16 @@ ActiveRecord::Schema.define(version: 20140116102358) do
     t.integer  "zip_code"
     t.string   "grade"
     t.string   "first_major"
-    t.decimal  "first_major_gpa",                    precision: 3, scale: 2
+    t.decimal  "first_major_gpa",                                precision: 3, scale: 2
     t.string   "second_major"
-    t.decimal  "second_major_gpa",                   precision: 3, scale: 2
+    t.decimal  "second_major_gpa",                               precision: 3, scale: 2
     t.string   "third_major"
-    t.decimal  "third_major_gpa",                    precision: 3, scale: 2
+    t.decimal  "third_major_gpa",                                precision: 3, scale: 2
     t.string   "minor"
-    t.decimal  "cumulative_gpa",                     precision: 3, scale: 2
+    t.decimal  "cumulative_gpa",                                 precision: 3, scale: 2
     t.boolean  "intended_haas"
-    t.string   "academic_schedule"
-    t.string   "extracurricular_info"
+    t.text     "academic_schedule",                  limit: 255
+    t.text     "extracurricular_info",               limit: 255
     t.string   "cover_letter_file_name"
     t.string   "cover_letter_content_type"
     t.integer  "cover_letter_file_size"
