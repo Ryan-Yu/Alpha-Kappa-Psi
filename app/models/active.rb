@@ -2,12 +2,12 @@ class Active < ActiveRecord::Base
   #Before Save Methods -
   #  :default_values - Assigns Default Values to Active Attributes (ie. display_on_index)
   #  titleize - Standardizes Name Input
-  before_save :default_values
+  # before_save :default_values
   before_save { self.name = name.titleize }
 
   #After Creation Methods
   #   :send_admin_mail - Sends email confirmation to signed up active
-  after_create :send_welcome_mail
+  #after_create :send_welcome_mail
 
   #After Update Methods
   #   :send_activation_mail - Sends the Status of the User when activated
