@@ -6,7 +6,7 @@ class Active < ActiveRecord::Base
   # before_save :default_values
   before_save { self.name = name.titleize }
   before_save :clean_linkedin
-  after_commit :update_cache
+  #after_commit :update_cache
 
   #After Creation Methods
   #   :send_admin_mail - Sends email confirmation to signed up active
