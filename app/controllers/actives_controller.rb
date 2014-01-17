@@ -10,13 +10,13 @@ class ActivesController < ApplicationController
 	end
 
 	def index
-    in_cache_actives = get_cached_actives
-    if in_cache_actives
-      @actives = in_cache_actives
-    else
-      @actives = Active.all.sort_by{ |a| a.name.downcase }
-      set_cache_actives(@actives)
-    end
+    #in_cache_actives = get_cached_actives
+    #if in_cache_actives
+    #  @actives = in_cache_actives
+    #else
+    @actives = Active.all.sort_by{ |a| a.name.downcase }
+    #  set_cache_actives(@actives)
+    #end
   end
 
 end
