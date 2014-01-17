@@ -11,6 +11,10 @@ module ApplicationHelper
     end
   end
 
+  def cache_key_for_header
+    "header-#{active_signed_in?}-#{current_active}-#{current_active.updated_at.try(:utc).try(:to_s, :number)}"
+  end
+
   def get_cached_actives
     Rails.cache.read(ACTIVES_CACHE_KEY)
   end

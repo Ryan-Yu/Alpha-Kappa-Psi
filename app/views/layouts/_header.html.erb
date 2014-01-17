@@ -109,7 +109,7 @@
 
 
 <!-- Content -->
-<% cache ["header-cache", active_signed_in?] do %>
+<% cache cache_key_for_header do %>
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
