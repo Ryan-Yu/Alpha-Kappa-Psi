@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140116103549) do
     t.string   "photograph_content_type"
     t.integer  "photograph_file_size"
     t.datetime "photograph_updated_at"
-    t.boolean  "display_on_index",                    default: false
+    t.boolean  "display_on_index"
     t.string   "positions_held"
     t.string   "hometown"
     t.boolean  "approved",                            default: false, null: false
@@ -100,6 +100,27 @@ ActiveRecord::Schema.define(version: 20140116103549) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "prep_files", force: true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.integer  "recruitingcategory_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "resourcefile_file_name"
+    t.string   "resourcefile_content_type"
+    t.integer  "resourcefile_file_size"
+    t.datetime "resourcefile_updated_at"
+    t.string   "submitted_by"
+  end
+
+  create_table "recruiting_categories", force: true do |t|
+    t.string   "industry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "recruiting_categories", ["industry"], name: "index_recruiting_categories_on_industry", unique: true
 
   create_table "rush_applications", force: true do |t|
     t.string   "name"
