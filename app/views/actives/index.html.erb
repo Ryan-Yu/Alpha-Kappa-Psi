@@ -35,7 +35,7 @@
     <% @actives.each do |active| %>
         <!-- Caching active partial -->
         <% if (active.display_on_index? && active.photograph.exists? && !active.eboard.empty?)  %>
-            <% cache(active) do %>
+            <% cache [active, "exec"] do %>
                 <%= render active %>
             <% end %>
         <% end %>
@@ -56,7 +56,7 @@
     <% @actives.each do |active| %>
         <!-- Caching active partial -->
         <% if (active.display_on_index? && active.photograph.exists? && active.eboard.empty?) %>
-            <% cache(active) do %>
+            <% cache [active, "active"] do %>
                 <%= render active %>
             <% end %>
         <% end %>
