@@ -1,6 +1,6 @@
 
 <% provide(:title, 'Rushees') %>
-
+<% cache [cache_key_for_rushees, "page"] do %>
 <div class="account-wall-static">
 
   <div id="intro">
@@ -85,3 +85,4 @@
     </div>
 
 </div>
+<% end %>
