@@ -12,7 +12,11 @@ module ApplicationHelper
   end
 
   def cache_key_for_header
-    "header-#{active_signed_in?}-#{current_active}-#{current_active.updated_at.try(:utc).try(:to_s, :number)}"
+    if current_active
+      return "header-#{current_active.id}-#{current_active.updated_at.try(:utc).try(:to_s, :number)}"
+    else
+      return "header-#{current_active}"
+    end
   end
 
   def get_cached_actives
