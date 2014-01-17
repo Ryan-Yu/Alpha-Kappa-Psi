@@ -12,10 +12,10 @@
 
     <ul class="thumbnails">
       <!-- Cache for all Rushees -->
-      <% cache(cache_key_for_rushees) do %>
+      <% cache [cache_key_for_rushees, "thumbnails"] do %>
           <% @rushees.each do |rushee| %>
               <!-- Cache for each individual Rushee -->
-              <% cache (rushee) do %>
+              <% cache [rushee, "thumbnails"] do %>
                   <!-- Only display rushees that have photographs -->
                   <% if rushee.photograph.exists? %>
                       <li>
@@ -37,11 +37,6 @@
               <% end %>
           <% end %>
       <% end %>
-    </ul>
-
-		<% end %>
-
-	  <% end %>
 	</ul> <!-- End of rendering rushee thumbnails -->
 
   </div>
@@ -73,16 +68,18 @@
         </thead>
 
         <tbody>
-          
-        	<% @rushees.each do |rushee| %>
-        		<tr style="font-size:11px;">
-				  <td> <%= link_to rushee.name, rushee %> </td>
-				  <td> <%= rushee.email %> </td>
-				  <td> <%= rushee.major %> </td>
-				  <td> <%= rushee.grade %> </td>
-				</tr>
-        	<% end %>
-
+        <% cache [cache_key_for_rushees, "quick-find"] do %>
+            <% @rushees.each do |rushee| %>
+                <% cache [rushee, "quick-find"] do %>
+                    <tr style="font-size:11px;">
+                      <td> <%= link_to rushee.name, rushee %> </td>
+                      <td> <%= rushee.email %> </td>
+                      <td> <%= rushee.major %> </td>
+                      <td> <%= rushee.grade %> </td>
+                    </tr>
+                <% end %>
+            <% end %>
+        <% end %>
         </tbody>
       </table>
     </div>
