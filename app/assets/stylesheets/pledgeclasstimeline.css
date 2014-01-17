@@ -24,6 +24,7 @@
     padding-right: 100px;
     margin-left: -100px;
     position: absolute;
+    font-family: 'Lato', sans-serif;
 
 }
 
@@ -31,20 +32,24 @@
     display: block;
     text-align: right;
     line-height: 32px;
+    font-family: 'Lato', sans-serif;
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:first-child {
     font-size: 1.2em;
     color: #bdd0db;
+    font-family: 'Lato', sans-serif;
 }
 
 .cbp_tmtimeline > li .cbp_tmtime span:last-child {
     font-size: 1.7em;
     color: #90bab6;
+    font-family: 'Lato', sans-serif;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmtime span:last-child {
     color: #a1a1a1;
+    font-family: 'Lato', sans-serif;
 }
 
 /* Right content */
@@ -53,11 +58,12 @@
     background: #7a7a7a;
     color: #fff;
     padding: 2em;
-    font-size: 1.2em;
+    font-size: 1.3em;
     font-weight: 300;
     line-height: 1.7;
     position: relative;
     border-radius: 5px;
+    font-family: 'Lato', sans-serif;
 }
 
 .cbp_tmtimeline > li:nth-child(odd) .cbp_tmlabel {
