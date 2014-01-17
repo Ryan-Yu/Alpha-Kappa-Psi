@@ -11,7 +11,7 @@ class RusheesController < ApplicationController
 		@newrushee = Rushee.new(rushee_params)
 		if @newrushee.save
       		ActiveMailer.rushee_signup_email(@newrushee).deliver
-			flash[:success] = @newrushee.name.titleize + " was successfully saved as a new rushee."
+			flash[:success] = @newrushee.name.titleize + " was successfully saved as a new rushee. Please visit " + rush_application_index_url + " to begin your rush application."
 			redirect_to new_rushee_path
 		else
 			render 'new'

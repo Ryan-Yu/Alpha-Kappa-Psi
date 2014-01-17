@@ -55,7 +55,7 @@ class Active < ActiveRecord::Base
   end
 
   def clean_linkedin
-    unless self.linkedin.nil?
+    if !self.linkedin.nil? && !self.linkedin.empty?
       unless self.linkedin.start_with?('http://', 'https://')
         self.linkedin = "http://" + self.linkedin
       end
