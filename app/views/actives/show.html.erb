@@ -35,7 +35,6 @@
 
 <% if active_signed_in? && current_active?(@active) %>
     <!-- show active page cache -->
-    <% cache [@active.name, active_signed_in?, current_active?(@active), @active.updated_at.to_datetime.to_i] do %>
         <div class="account-wall-static">
           <div class="row">
             <div class="span6">
@@ -135,13 +134,10 @@
           </div> <!-- end of row div -->
 
         </div> <!-- end of account-wall-static div -->
-    <% end %>  <!-- end of active cache -->
-
 
 
     <!-- User is not signed in as an active, so profile should be formatted in the center  -->
 <% else %>
-    <% cache [@active.name, @active.updated_at.to_datetime.to_i] do %>
     <div class="account-wall-static">
       <div style="text-align:center;">
 
@@ -201,7 +197,6 @@
       </div> <!-- end of text-align:center; div -->
 
     </div> <!-- end of account-wall-static div -->
-    <% end %>
 <% end %> <!-- end of active signed in or not conditional -->
 
 
