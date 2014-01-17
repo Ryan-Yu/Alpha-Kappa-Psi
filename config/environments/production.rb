@@ -1,5 +1,12 @@
 AlphaKappaPsi::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.cache_store = :dalli_store, 'mc4.dev.ec2.memcachier.com'.split(","),
+      {:username => '9d7fc6',
+       :password => '75fc3e5abc',
+       :failover => true,
+       :socket_timeout => 1.5,
+       :socket_failure_delay => 0.2
+      }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
