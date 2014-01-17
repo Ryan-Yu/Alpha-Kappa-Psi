@@ -1,0 +1,113 @@
+
+<% provide(:title, 'Rushees') %>
+
+<div class="account-wall-static">
+
+  <div id="intro">
+
+    <h1>Rushees</h1>
+    <h3><%= @rushsemester %></h3>
+    <br />
+
+
+<<<<<<< HEAD
+	<ul class="thumbnails">
+	  <% @rushees.each do |rushee| %>
+
+	  	<!-- Only display rushees that have photographs -->
+	  	<% if rushee.photograph.exists? %>
+		  	<li>
+		  		<a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+		  			<%= image_tag rushee.photograph.url(:middlesmall) %>
+					<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+		  		</a>
+		    </li>
+
+		<% elsif !rushee.rush_application.nil? && !rushee.rush_application.photograph.nil? && rushee.rush_application.photograph.exists? %>
+			<li>
+		  		<a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+		  			<%= image_tag rushee.rush_application.photograph.url(:middlesmall) %>
+					<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+		  		</a>
+		    </li>
+
+		<% end %>
+
+	  <% end %>
+	</ul> <!-- End of rendering rushee thumbnails -->
+=======
+    <ul class="thumbnails">
+      <!-- Cache for all Rushees -->
+      <% cache(cache_key_for_rushees) do %>
+          <% @rushees.each do |rushee| %>
+              <!-- Cache for each individual Rushee -->
+              <% cache (rushee) do %>
+                  <!-- Only display rushees that have photographs -->
+                  <% if rushee.photograph.exists? %>
+                      <li>
+                        <a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+                        <%= image_tag rushee.photograph.url(:middlesmall) %>
+                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+                        </a>
+                      </li>
+
+                  <% elsif !rushee.rush_application.nil? && !rushee.rush_application.photograph.nil? && rushee.rush_application.photograph.exists? %>
+                      <li>
+                        <a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+                        <%= image_tag rushee.rush_application.photograph.url(:middlesmall) %>
+                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+                        </a>
+                      </li>
+
+                  <% end %>
+              <% end %>
+          <% end %>
+      <% end %>
+    </ul>
+
+>>>>>>> improved memcache effectiveness
+
+  </div>
+</div>
+
+<br />
+
+
+<div class="account-wall-static">
+
+	<div id="intro">
+		<br />
+	    <h3>Rushee Quick-Find</h3>
+	    <br />
+
+	</div>
+
+
+	<div class="table-responsive">
+      <table class="table table-striped table-condensed" style="font-size:12px;">
+
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Major </th>
+            <th> Year </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          
+        	<% @rushees.each do |rushee| %>
+        		<tr style="font-size:11px;">
+				  <td> <%= link_to rushee.name, rushee %> </td>
+				  <td> <%= rushee.email %> </td>
+				  <td> <%= rushee.major %> </td>
+				  <td> <%= rushee.grade %> </td>
+				</tr>
+        	<% end %>
+
+        </tbody>
+      </table>
+    </div>
+
+</div>
