@@ -20,6 +20,7 @@
 
 <% provide(:title, 'Active Brothers') %>
 
+<% cache cache_key_for_actives do %>
 <div class="account-wall-static">
 
   <!-- Find actives that are on e-board -->
@@ -82,4 +83,4 @@
 
 <script src="assets/modals/classie.js"></script>
 <script src="assets/modals/modalEffects.js"></script>
-
+<% end %>
