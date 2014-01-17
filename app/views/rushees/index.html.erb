@@ -33,8 +33,49 @@
 		<% end %>
 
 	  <% end %>
-	</ul>
-
+	</ul> <!-- End of rendering rushee thumbnails -->
 
   </div>
+</div>
+
+<br />
+
+
+<div class="account-wall-static">
+
+	<div id="intro">
+		<br />
+	    <h3>Rushee Quick-Find</h3>
+	    <br />
+
+	</div>
+
+
+	<div class="table-responsive">
+      <table class="table table-striped table-condensed" style="font-size:12px;">
+
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Major </th>
+            <th> Year </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          
+        	<% @rushees.each do |rushee| %>
+        		<tr style="font-size:11px;">
+				  <td> <%= link_to rushee.name, rushee %> </td>
+				  <td> <%= rushee.email %> </td>
+				  <td> <%= rushee.major %> </td>
+				  <td> <%= rushee.grade %> </td>
+				</tr>
+        	<% end %>
+
+        </tbody>
+      </table>
+    </div>
+
 </div>
