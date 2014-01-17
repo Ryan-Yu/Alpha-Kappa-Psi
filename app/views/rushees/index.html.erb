@@ -1,7 +1,7 @@
 
 <% provide(:title, 'Rushees') %>
 
-<div class="account-wall-static">  
+<div class="account-wall-static">
 
   <div id="intro">
 
@@ -10,30 +10,34 @@
     <br />
 
 
-	<ul class="thumbnails">
-	  <% @rushees.each do |rushee| %>
+    <ul class="thumbnails">
+      <!-- Cache for all Rushees -->
+      <% cache(cache_key_for_rushees) do %>
+          <% @rushees.each do |rushee| %>
+              <!-- Cache for each individual Rushee -->
+              <% cache (rushee) do %>
+                  <!-- Only display rushees that have photographs -->
+                  <% if rushee.photograph.exists? %>
+                      <li>
+                        <a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+                        <%= image_tag rushee.photograph.url(:middlesmall) %>
+                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+                        </a>
+                      </li>
 
-	  	<!-- Only display rushees that have photographs -->
-	  	<% if rushee.photograph.exists? %>
-		  	<li>
-		  		<a href=<%= rushee_path(rushee.id) %> class="thumbnail">
-		  			<%= image_tag rushee.photograph.url(:middlesmall) %>
-					<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
-		  		</a>
-		    </li>
+                  <% elsif !rushee.rush_application.nil? && !rushee.rush_application.photograph.nil? && rushee.rush_application.photograph.exists? %>
+                      <li>
+                        <a href=<%= rushee_path(rushee.id) %> class="thumbnail">
+                        <%= image_tag rushee.rush_application.photograph.url(:middlesmall) %>
+                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+                        </a>
+                      </li>
 
-		<% elsif !rushee.rush_application.nil? && !rushee.rush_application.photograph.nil? && rushee.rush_application.photograph.exists? %>
-			<li>
-		  		<a href=<%= rushee_path(rushee.id) %> class="thumbnail">
-		  			<%= image_tag rushee.rush_application.photograph.url(:middlesmall) %>
-					<p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
-		  		</a>
-		    </li>
-
-		<% end %>
-
-	  <% end %>
-	</ul>
+                  <% end %>
+              <% end %>
+          <% end %>
+      <% end %>
+    </ul>
 
 
   </div>
