@@ -14,7 +14,7 @@ class ActivesController < ApplicationController
     if in_cache_actives
       @actives = in_cache_actives
     else
-      @actives = Active.all
+      @actives = Active.all.sort_by{ |a| a.name.downcase }
       set_cache_actives(@actives)
     end
   end

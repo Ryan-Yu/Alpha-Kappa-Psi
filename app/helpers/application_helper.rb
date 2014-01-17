@@ -45,12 +45,13 @@ module ApplicationHelper
       #If no active was found to match
       unless found
         actives.append(active)
+        actives = actives.sort_by!{|a| a.name.downcase}
       end
 
       #Re-insert updated actives into the cache
       Rails.cache.write(ACTIVES_CACHE_KEY, actives)
     else
-      Rails.cache.write(ACTIVES_CACHE_KEY, Active.all)
+      Rails.cache.write(ACTIVES_CACHE_KEY, Active.all.sort_by{ |a| a.name.downcase })
     end
   end
 
