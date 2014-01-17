@@ -45,7 +45,7 @@ module ApplicationHelper
       #If no active was found to match
       unless found
         actives.append(active)
-        actives = actives.sort_by!{|a| a.name.downcase}
+        actives.sort_by!{|a| a.name.downcase}
       end
 
       #Re-insert updated actives into the cache
