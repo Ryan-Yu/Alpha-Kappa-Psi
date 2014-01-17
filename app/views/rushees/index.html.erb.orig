@@ -39,10 +39,13 @@
       <% end %>
     </ul>
 
+<<<<<<< HEAD
 		<% end %>
 
 	  <% end %>
 	</ul> <!-- End of rendering rushee thumbnails -->
+=======
+>>>>>>> 69e4b8537267a813129261ab6a546efa738661ec
 
   </div>
 </div>
