@@ -1,11 +1,12 @@
+include ApplicationHelper
 class Active < ActiveRecord::Base
   #Before Save Methods -
   #  :default_values - Assigns Default Values to Active Attributes (ie. display_on_index)
   #  titleize - Standardizes Name Input
   # before_save :default_values
   before_save { self.name = name.titleize }
-
   before_save :clean_linkedin
+  after_commit :update_cache
 
   #After Creation Methods
   #   :send_admin_mail - Sends email confirmation to signed up active
@@ -62,6 +63,10 @@ class Active < ActiveRecord::Base
     end
   end
 
+  #Updates in memory cache in real time
+  def update_cache
+    update_cached_actives(self)
+  end
 
   #Sends email confirmation to signed up active
   def send_welcome_mail
