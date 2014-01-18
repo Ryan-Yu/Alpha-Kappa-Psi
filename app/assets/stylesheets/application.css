@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require 'forem/base'
- *= require forem-bootstrap
  *= require forem_overrides
  *= require bootstrap_and_overrides
  *= require custom_nonoverrides
