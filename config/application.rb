@@ -27,5 +27,7 @@ module AlphaKappaPsi
 
     I18n.enforce_available_locales = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    config.active_record.whitelist_attributes = false # Added this before installation of forem
   end
 end

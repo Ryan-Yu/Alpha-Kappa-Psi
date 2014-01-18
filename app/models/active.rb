@@ -63,6 +63,10 @@ class Active < ActiveRecord::Base
     end
   end
 
+  def to_s
+    name
+  end
+
   #Updates in memory cache in real time
   def update_cache
     update_cached_actives(self)

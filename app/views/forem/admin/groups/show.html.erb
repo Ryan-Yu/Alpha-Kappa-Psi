@@ -1,0 +1,57 @@
+<div class="account-wall-static" style="font-family: 'Lato', sans-serif; ">
+
+  <h3><%= t('forem.admin.group.members', :group => forem_emojify(@group.name)) %></h3>
+
+  <span class="linkclickblk">
+     <a href=<%= admin_groups_path %> > <%= t('back_to_groups', :scope => "forem.admin") %> </a> 
+  </span> <br /><br />
+
+
+  <div class="row" style="padding-left:30px;">
+    <h4><%= t('.add_a_new_member') %></h4>
+    <%= form_tag add_admin_group_members_url(@group) do %>
+      <p>
+        <%= text_field_tag "user_id" %>
+      </p>
+      <p class="span1">
+        <%= submit_tag t(".add_member"), :class => "btn btn-sm" %>
+      </p>
+    <% end %>
+  </div>
+
+  <% if @group.members.any? %>
+    <h4><%= t('.current_members') %></h4>
+    <div class="row">
+      <ul id='members'>
+        <% @group.members.each do |member| %>
+          <li><%= member.to_s %> |
+            <%= link_to t('forem.admin.groups.show.remove_member'), admin_group_member_url(@group, member),
+                        method: :delete, data: { confirm: t('are_you_sure') } %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+</div>
+
+
+<script>
+  $("#user_id").select2({
+    containerCssClass: "span5",
+    ajax: {
+      url: "<%= forem.admin_user_autocomplete_url %>",
+      data: function(term, page) {
+        return { "term": term }
+      },
+      results: function(data, page) {
+        return { results: data };
+      }
+    },
+    formatResult: function(result) {
+      return result.identifier;
+    },
+    formatSelection: function(result) {
+      return result.identifier;
+    }
+  });
+</script>

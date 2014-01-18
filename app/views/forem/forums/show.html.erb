@@ -1,0 +1,43 @@
+<style>
+
+  .forum thead th {
+    background: #95bcb8;
+    color: white;
+    padding: 10px;
+    border-bottom: 3px solid #232323;
+    font-size: 100%;
+    font-family: 'Lato', sans-serif;
+    
+  }
+
+</style>
+
+<div class="account-wall-static">
+
+  <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
+
+  <div class='forum'>
+    <%= render :partial => 'forem/forums/head', :locals => { :forum => @forum } %>
+
+    <%= forem_pages_widget(@topics) %>
+    <table class='topics table-striped table' cellspacing='0'>
+      <thead>
+        <tr>
+          <th class="icon"></th>
+          <th class="byline"><%= t('forem.topic.headings.topic') -%></th>
+          <th class="latest-post"><%= t('forem.topic.headings.latest') -%></th>
+          <th class="posts-count"><%= t('forem.topic.headings.posts') -%></th>
+          <th class="views-count"><%= t('forem.topic.headings.views') -%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @topics.empty? %>
+          <tr><td colspan='5' align='center'><%= t('forem.topic.none') %></td></tr>
+        <% end %>
+        <%= render @topics %>
+      </tbody>
+    </table>
+    <%= forem_pages_widget(@topics) %>
+  </div>
+
+</div>

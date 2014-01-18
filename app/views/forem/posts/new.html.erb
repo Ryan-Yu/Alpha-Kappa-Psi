@@ -1,0 +1,21 @@
+
+<div class="account-wall-static">
+
+	<%= render :partial => 'forem/forums/head', :locals => { :forum => @topic.forum } %>
+
+	<h4 style="font-family: 'Lato', sans-serif;"
+	  <%= t("forem.post.new") %>
+	  <br />
+	  <% if @reply_to_post %>
+	    <%= render 'reply_to_post', :post => @reply_to_post %>
+	  <% else %>
+	    <em><%= @topic.subject %></em>
+	  <% end %>
+	</h4>
+
+	<%= simple_form_for [forem, @topic, @post] do |f| %>
+	  <%= render :partial => "form", :locals => { :f => f } %>
+	  <%= f.submit t("forem.post.buttons.reply"), :class => "btn btn-sm" %>
+	<% end %>
+
+</div>

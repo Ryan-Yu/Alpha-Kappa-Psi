@@ -1,0 +1,67 @@
+<div style="font-family: 'Lato', sans-serif;">
+
+  <a name='post-<%= post.id %>'></a>
+  <div class="row">
+    <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> span10'>
+        <% if post.pending_review? %>
+        <div class='moderation alert'>
+          <%= t(".pending_review") %>
+          <% if forem_admin_or_moderator?(post.topic.forum) %>
+            <% if local_assigns[:mass_moderation] %>
+              <%= render "/forem/posts/moderation_tools", :post => post %>
+            <% else %>
+              <%= form_tag forem.forum_moderate_posts_path(post.topic.forum), :method => :put do %>
+                <%= render "/forem/posts/moderation_tools", :post => post %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class='user span2'>
+        <div class='username' style="font-size:14px;">
+          <div style="padding-top:5px;"><%= link_to_if Forem.user_profile_links, post.user, [main_app, post.user]%></div>
+        </div>
+        <% if !post.user.photograph.nil? && post.user.photograph.exists? %>
+          <%= image_tag post.user.photograph.url(:thumb), :style => "padding-bottom:10px; padding-top:5px;" %>
+        <% end %>
+      </div>
+
+      <div class='contents span7' style="padding-top:7px;">
+        <a href='#post-<%= post.id %>' style="font-size:14px;">
+          <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
+        </a>
+        <p style="margin-top:10px; font-size:14px;"><%= forem_format(post.text) %></p>
+
+        <% if post.reply_to %>
+          <div class='in-reply-to' style="font-size:11px;">
+            <%= link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user}", "#post-#{post.reply_to.id}" %>
+          </div>
+        <% end %>
+
+        <br />
+
+        <% if forem_user %>
+          <div class='btn-group'>
+            <% if can?(:reply, post.topic) %>
+              <% if post.topic.can_be_replied_to? %>
+                <%= link_to t('reply', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id), :class => "btn btn-sm" %>
+                <%= link_to t('quote', :scope => 'forem.topic'), forem.new_topic_post_path(post.topic, :reply_to_id => post.id, :quote => true), :class => "btn btn-sm" %>
+              <% end %>
+            <% end %>
+            <% if post.owner_or_admin?(forem_user) %>
+              <% if can?(:edit_post, post.topic.forum) %>
+                <%= link_to t('edit post', :scope => 'forem.post'), forem.edit_topic_post_path(post.topic, post), :class => "btn btn-sm" %>
+              <% end %>
+              <% if can?(:destroy_post, post.topic.forum) %>
+                <%= link_to t('delete', :scope => 'forem.topic'), forem.topic_post_path(post.topic, post), :method => :delete, data: { :confirm => t("are_you_sure") }, :class => "btn btn-sm" %>
+              <% end %>  
+            <% end %>
+          </div>
+        <% end %>
+      
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -123,28 +123,28 @@
       <div class="nav-collapse">
         <ul class="nav pull-right">
           <li><%= link_to "Home",            root_path %></li>
-          <li><%= link_to "Rush",            rush_path %></li>
-          <li><%= link_to "About Us",        about_path %></li>
+          <li><%= link_to "Rush",            main_app.rush_path %></li>
+          <li><%= link_to "About Us",        main_app.about_path %></li>
           <li id="fat-menu" class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Active Brothers
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Active Profiles", actives_path %></li>
-              <li><%= link_to "Pledge Classes", classes_path %></li>
+              <li><%= link_to "Active Profiles", main_app.actives_path %></li>
+              <li><%= link_to "Pledge Classes", main_app.classes_path %></li>
             </ul>
           </li>
 
-          <li><%= link_to "Careers",         careers_path %></li>
-          <li><%= link_to "Consulting",      consulting_path %></li>
-          <li><%= link_to "Corporate",       corporate_path %></li>
+          <li><%= link_to "Careers",         main_app.careers_path %></li>
+          <li><%= link_to "Consulting",      main_app.consulting_path %></li>
+          <li><%= link_to "Corporate",       main_app.corporate_path %></li>
 
           <!-- Placeholder: uses Devise helper functions -->
 
           <% if active_signed_in? %>
 
             <!-- Link to current rushees only available when active signed in -->
-            <li><%= link_to "Rushees", rushees_path %></li>
+            <li><%= link_to "Rushees", main_app.rushees_path %></li>
 
               <!-- Replace Active-Sign in with Active Related Dropdown Menus -->
             <li id="fat-menu" class="dropdown">
@@ -152,18 +152,18 @@
                 Account
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Active Portal", current_active %>
-                <!-- <li><%= link_to "Edit Profile", edit_active_registration_path %></li>
-                <li><%= link_to "Edit My Careers", active_career_entries_path(current_active) %></li> -->
+                <li><%= link_to "Active Portal", main_app.active_path(current_active) %>
+                <!-- Used to be just 'current_active' before Forem was installed -->
+
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", destroy_active_session_path, :method => :delete %>
+                  <%= link_to "Sign out", main_app.destroy_active_session_path, :method => :delete %>
                 </li>
               </ul>
             </li>
           <% else %>
           
-            <li><%= link_to "Active Sign In", new_active_session_path %></li>
+            <li><%= link_to "Active Sign In", main_app.new_active_session_path %></li>
           <% end %>
 
 

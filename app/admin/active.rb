@@ -14,6 +14,7 @@ ActiveAdmin.register Active do
     column :positions_held
     column :display_on_index
     column :approved
+    column :forem_admin
 
     # Adds view/edit/delete actions
     default_actions
@@ -38,6 +39,10 @@ ActiveAdmin.register Active do
       f.input :approved
       f.input :display_on_index
       f.input :photograph
+    end
+
+    f.inputs "Administration permissions" do
+      f.input :forem_admin
     end
   
     f.actions

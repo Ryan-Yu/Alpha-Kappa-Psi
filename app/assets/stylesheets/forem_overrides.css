@@ -1,0 +1,11 @@
+/* Changes title of forums on index page */
+
+#forums_title {
+	font-family: 'Lato', sans-serif;
+}
+
+
+
+.category h3 {
+	font-family: 'Lato', sans-serif;
+}

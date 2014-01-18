@@ -1,0 +1,9 @@
+<div class="account-wall-static">
+
+	<%= render :partial => 'forem/forums/head', :locals => { :forum => @topic.forum } %>
+
+	<h4 style="font-family: 'Lato', sans-serif;"><%= t("forem.topic.new") %></h4>
+
+	<%= render "form" %>
+
+</div>

@@ -1,0 +1,30 @@
+<style>
+	a {
+		color:#000;
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+</style>
+
+
+<% if forem_admin? %>
+	<div class="small-infobox">
+    	<%= link_to t("area", :scope => "forem.admin"), forem.admin_root_path %>
+    </div>
+<% end %>
+
+
+<br />
+
+<div class="account-wall-static">
+  	 <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
+  	 
+	<div id='forums_container'>
+	  <h1 id='forums_title'><%= t('.title') %></h1>
+	  <hr />
+
+	  <%= render @categories %>
+	</div>
+</div>

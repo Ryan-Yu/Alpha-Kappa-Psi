@@ -1,0 +1,32 @@
+<div class="account-wall-static" style="font-family: 'Lato', sans-serif; text-align:center;">
+
+	<h1><%= t('forem.admin.area') %></h1>
+
+	<p style="font-size:14px;">
+	  <%= t('forem.admin.welcome') %> This portal will allow the forum administrator to create new forum categories.
+	</p>
+
+	<p class="linkclickblk"><br />
+	   <a href=<%= forem.admin_forums_path %> > <%= t('forem.admin.forum.index') %> </a> 
+	</p>
+	(Create/edit/delete various types of forums within a certain forum category)
+	<br /><br />
+
+	<p class="linkclickblk"><br />
+	   <a href=<%= forem.admin_categories_path %> > <%= t('forem.admin.category.index') %> </a> 
+	</p>
+	(Create/edit/delete forum categories that forums exist within)
+	<br /><br />
+
+	<p class="linkclickblk"><br />
+	   <a href=<%= forem.admin_groups_path %> > <%= t('forem.admin.group.index') %> </a> 
+	</p>
+	(Create/edit/delete groups of actives)
+
+	<hr />
+
+	<p class="linkclickblk"><br />
+	   <a href=<%= forem.root_path %> > <%= t(:back_to_forums, :scope => 'forem.admin') %> </a> 
+	</p>
+
+</div>

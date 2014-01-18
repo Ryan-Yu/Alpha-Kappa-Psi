@@ -1,0 +1,19 @@
+<%= simple_form_for [forem, :admin, @topic] do |f| %>
+  <%= f.input :subject %>
+  <%= f.association :forum , :label => "Forum" %>
+
+  <hr />
+  <%= f.label :locked %>
+  <%= f.check_box :locked %>
+  <br /><hr />
+
+  <%= f.label :pinned %>
+  <%= f.check_box :pinned %>
+  <br /><hr />
+
+  <%= f.label :hidden %>
+  <%= f.check_box :hidden %>
+  <br /><hr />
+
+  <%= f.submit :class => "btn btn-sm" %>
+<% end %>

@@ -390,3 +390,30 @@
     letter-spacing: 0.05em;
     text-align: justify;
 }
+
+
+/* Small info box used on top of rush page and forums and other places */
+
+.small-infobox {
+    width:25%; 
+    height:auto; 
+    margin-left:auto; 
+    margin-right:auto; 
+    text-align:center; 
+    background-color:#fff;
+    font-family: 'Lato', sans-serif; 
+    letter-spacing: 0.1em; 
+    padding-top:10px; 
+    padding-bottom:10px; 
+    font-size:13px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rush-cal {
+    color:#000;
+}
+
+.small-infobox:hover {
+    color:#000;
+    box-shadow: none;
+}
