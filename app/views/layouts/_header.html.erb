@@ -155,6 +155,7 @@
                 <li><%= link_to "Active Portal", main_app.active_path(current_active) %>
                 <!-- Used to be just 'current_active' before Forem was installed -->
 
+                <li><%= link_to "Active Forums", forem.root_path %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", main_app.destroy_active_session_path, :method => :delete %>

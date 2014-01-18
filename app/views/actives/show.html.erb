@@ -51,7 +51,7 @@
                   <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Profile </a>
                 </p>
 
-                <p style="font-size:14px; line-height: 28px;">
+                <p style="font-size:13px; line-height: 28px;">
 
                   <% unless @active.eboard.nil? || @active.eboard.empty? %>
                       <i><b>Current Member of Executive Board:<br /></b></i> <%= @active.eboard %><br /><br />
@@ -123,6 +123,12 @@
                 <h5>Recruiting Material</h5>
                 <a class="btn btn-sm">Access Resources </a><br /><br />
                 <a class="btn btn-sm">Submit Resource </a>
+
+                <br /><br />
+
+                <h5>Active Forums</h5>
+                <a class="btn btn-sm" href= <%= forem.root_path %> >Enter Forums </a>
+      
 
 
               </div>
