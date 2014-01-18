@@ -67,6 +67,7 @@
 <% provide(:title, 'Rush AKΨ') %>
 
 <% if !@rushflyer.nil? && @rushflyer.front.exists? %>
+    <% cache cache_key_for_rush_flyer(@rushflyer) do %>
 	<a href="#calendar">
 		<div class="small-infobox">
 			View Rush Calendar &nbsp;
@@ -79,11 +80,13 @@
 	<%= image_tag @rushflyer.front.url, :class => "rush-flyer" %>
 	<br />
 	<br />
+    <% end %>
 <% end %>
 
 <div class="account-wall-static">
 	<a name="calendar"><img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200"></a>
-	<div id="intro">
+  <% cache cache_key_for_rush_events do %>
+  <div id="intro">
 	  	<h1>Alpha Kappa Psi</h1>
 	  	<h3><%= @rushevents.first.semester unless @rushevents.empty? %> Rush Calendar</h3>
 	  	<br />
@@ -102,7 +105,8 @@
 	<% @rushevents.each do |rush_event| %>
 		<!-- Partial located at views/rush_events/_rush_event.html.erb -->
 		<%= render rush_event %>
-	<% end %>
+      <% end %>
+  <% end %>
 
 	<br />
 
