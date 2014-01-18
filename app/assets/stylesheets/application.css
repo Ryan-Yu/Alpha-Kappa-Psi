@@ -9,6 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require 'forem/base'
+ *= require forem_overrides
  *= require bootstrap_and_overrides
  *= require custom_nonoverrides
  *= require carousel_style
