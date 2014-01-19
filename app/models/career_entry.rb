@@ -2,6 +2,7 @@ class CareerEntry < ActiveRecord::Base
     CAREER_TYPES = ["Internship", "Full-time"]
 
 	before_save { self.fullintern = fullintern.capitalize }
+	before_save { self.job_category = job_category.strip }
 
 	validates :name, presence: true
 	validates :company, presence: true
