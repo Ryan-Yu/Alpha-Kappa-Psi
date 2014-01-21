@@ -1,0 +1,20 @@
+<h1>Create Interview Slots</h1>
+
+<%= form_for @interview_slot_gen, :url => new_interview_slot_url, method: "post" do |f|%>
+
+    <%= render 'shared/error_messages', object: f.object%>
+
+    <p>Interview Date</p>
+    <%= f.date_select(:date, prompt: {day: 'Choose day', month: 'Choose month'}, start_year: Time.now.year) %>
+    <br />
+    <p>Start Time</p>
+    <%= f.time_select(:start_time, ampm: true, minute_step: 15) %>
+    <p>End Time</p>
+    <%= f.time_select(:end_time, ampm: true, minute_step: 15) %>
+    <p>Interval (minutes)</p>
+    <%= f.text_field(:interval, value: 30, placeholder: 'Interval (minutes)') %>
+    <br />
+    <%= f.submit("Create Interview Slots", class: "btn btn-sm") %>
+<% end %>
+
+<%= link_to 'Back', interview_slots_path %>

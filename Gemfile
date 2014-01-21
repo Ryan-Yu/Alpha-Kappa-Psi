@@ -28,6 +28,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'activesupport', "~> 4.0.2"
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

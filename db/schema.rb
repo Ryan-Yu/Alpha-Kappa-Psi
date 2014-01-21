@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119020838) do
+ActiveRecord::Schema.define(version: 20140121031130) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140119020838) do
     t.string   "photograph_content_type"
     t.integer  "photograph_file_size"
     t.datetime "photograph_updated_at"
-    t.boolean  "display_on_index"
+    t.boolean  "display_on_index",                    default: false
     t.string   "positions_held"
     t.string   "hometown"
     t.boolean  "approved",                            default: false,      null: false
@@ -190,6 +190,17 @@ ActiveRecord::Schema.define(version: 20140119020838) do
   add_index "forem_views", ["user_id"], name: "index_forem_views_on_user_id"
   add_index "forem_views", ["viewable_id"], name: "index_forem_views_on_viewable_id"
 
+  create_table "interview_slots", force: true do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer  "rushee_id"
+    t.string   "interview_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interview_slots", ["rushee_id", "interview_type"], name: "index_interview_slots_on_rushee_id_and_interview_type", unique: true
+
   create_table "pledge_class_entries", force: true do |t|
     t.string   "classname"
     t.string   "semester"
@@ -198,27 +209,6 @@ ActiveRecord::Schema.define(version: 20140119020838) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "prep_files", force: true do |t|
-    t.string   "title"
-    t.string   "author"
-    t.integer  "recruitingcategory_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "resourcefile_file_name"
-    t.string   "resourcefile_content_type"
-    t.integer  "resourcefile_file_size"
-    t.datetime "resourcefile_updated_at"
-    t.string   "submitted_by"
-  end
-
-  create_table "recruiting_categories", force: true do |t|
-    t.string   "industry"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "recruiting_categories", ["industry"], name: "index_recruiting_categories_on_industry", unique: true
 
   create_table "rush_applications", force: true do |t|
     t.string   "name"
