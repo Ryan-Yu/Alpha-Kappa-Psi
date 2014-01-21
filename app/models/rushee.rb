@@ -3,7 +3,8 @@ class Rushee < ActiveRecord::Base
 	GRADE_TYPES = ["Freshman", "Sophomore", "Junior", "Junior Transfer", "Senior"]
 
 	has_many :rusheeposts, dependent: :destroy
-  	has_one :rush_application, foreign_key: 'rushee_id', dependent: :destroy
+  has_one :rush_application, foreign_key: 'rushee_id', dependent: :destroy
+  has_many :interview_slots, foreign_key: 'rushee_id', dependent: :destroy
 
 	before_save { self.email = email.downcase }
 	before_save { self.grade = grade.capitalize }
