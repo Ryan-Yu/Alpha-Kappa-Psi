@@ -1,0 +1,17 @@
+<h1>Editing interview_slot</h1>
+
+<%= form_for(@interview_slot) do |f| %>
+    <p>Start Time</p>
+    <%= f.datetime_select('start_time', :order => [:day, :month, :year]) %>
+
+    <br />
+    <p>End Time</p>
+    <%= f.datetime_select('end_time', :order => [:day, :month, :year]) %>
+    <p>Interval (minutes)</p>
+    <%= f.text_field(:interval, nil, placeholder: 'Interval (minutes)') %>
+    <br />
+    <%= f.submit("Create Interview Slots", class: "btn btn-sm") %>
+<% end %>
+
+<%= link_to 'Show', @interview_slot %> |
+<%= link_to 'Back', interview_slots_path %>

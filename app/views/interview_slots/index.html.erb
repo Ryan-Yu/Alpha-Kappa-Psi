@@ -1,0 +1,33 @@
+<h1>Current Interview Slots</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% for index in 0 ... @interview_slots.size %>
+      <% if index == 0  %>
+          <td><%= @interview_slots[index].start_time.strftime("%A | %B %-d, %Y") %><br/></td>
+      <% elsif @interview_slots[index].start_time.day != @interview_slots[index-1].start_time.day %>
+          <td><%= @interview_slots[index].start_time.strftime("%A | %B %-d, %Y") %><br/></td>
+      <% end %>
+      <tr>
+        <td><%= @interview_slots[index].start_time.strftime("%l:%M") %> <%= @interview_slots[index].end_time.strftime("- %l:%M") %>
+          <% if @interview_slots[index].rushee_id %>
+              <%= "-#{Rushee.find(@interview_slots[index].rushee_id).name}" %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Destroy', @interview_slots[index], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Interview slot', new_interview_slot_path %>
