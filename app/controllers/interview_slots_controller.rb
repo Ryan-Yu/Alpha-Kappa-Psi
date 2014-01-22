@@ -1,4 +1,6 @@
 class InterviewSlotsController < ApplicationController
+  before_action :authenticate_active!
+  before_action :eboard_active, only: [:new, :create, :destroy]
   before_action :set_interview_slot, only: [:show, :edit, :update, :destroy]
 
   # GET /interview_slots
@@ -75,6 +77,18 @@ class InterviewSlotsController < ApplicationController
     def interview_slot_gen_params
       params[:interview_slot_generator]
     end
+
+    # Checks whether current active is a member of e-board
+    def eboard_active
+      if current_active.eboard.nil? || current_active.eboard.empty?
+        flash[:error] = "Only actives that are on the executive board may create and delete interview slots."
+        redirect_to(root_url)
+      end
+    end
+
+
+
+
 
   def parse_time(interview_time, start_time)
     if start_time

@@ -110,9 +110,20 @@
 
             <div class="span5">
               <div style="text-align:center;">
+
                 <p class="linkclickblk">
-                  <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Active Resources </a>
+                  <a style="color:#95bcb8; border:3px solid #95bcb8; font-size:16px;"> Active Resources </a><br /><br />
                 </p>
+
+
+
+                <!-- If the current active is on e-board -->
+                <% if !current_active.eboard.nil? && !current_active.eboard.empty? %>
+                  <h5>(E-Board) Rush Options:</h5>
+                  <a class="btn btn-sm" href=<%=interview_slots_new_path%>> Create new interview slot </a>
+                <% end %>
+
+                 <br /><br />
 
                 <h5>Test Bank:</h5>
                 <a class="btn btn-sm">Access Tests </a><br /><br />

@@ -1,5 +1,25 @@
+<style>
+  .nocolor-hover {
+    color:#000;
+  }
+
+  .nocolor-hover:hover {
+    text-decoration: none;
+  }
+</style>
+
 
 <% provide(:title, 'Rushees') %>
+
+<a class="nocolor-hover" href=<%= interview_slots_path %>>
+  <div class="small-infobox">
+    View Individual Interview Schedule &nbsp;
+    <i class="fa fa-arrow-circle-o-right" style="font-size:18px; color:#eee;"></i>
+  </div>
+</a>
+
+<br />
+
 <% cache [cache_key_for_rushees, "page"] do %>
 <div class="account-wall-static">
 
