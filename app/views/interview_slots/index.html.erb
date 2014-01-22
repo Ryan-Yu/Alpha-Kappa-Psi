@@ -1,33 +1,48 @@
-<h1>Current Interview Slots</h1>
+<div class="account-wall-static" style="font-family: 'Lato', sans-serif; font-size:13px;">
 
-<table>
-  <thead>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
+  <h2>Current Interview Slots</h2>
 
-  <tbody>
-  <% for index in 0 ... @interview_slots.size %>
-      <% if index == 0  %>
-          <td><%= @interview_slots[index].start_time.strftime("%A | %B %-d, %Y") %><br/></td>
-      <% elsif @interview_slots[index].start_time.day != @interview_slots[index-1].start_time.day %>
-          <td><%= @interview_slots[index].start_time.strftime("%A | %B %-d, %Y") %><br/></td>
-      <% end %>
-      <tr>
-        <td><%= @interview_slots[index].start_time.strftime("%l:%M") %> <%= @interview_slots[index].end_time.strftime("- %l:%M") %>
-          <% if @interview_slots[index].rushee_id %>
-              <%= "-#{Rushee.find(@interview_slots[index].rushee_id).name}" %>
-          <% end %>
-        </td>
-        <td><%= link_to 'Destroy', @interview_slots[index], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+  <table class="table table-striped" style="font-family: 'Lato', sans-serif; font-size:14px;">
 
-<br>
+    <tbody>
+    <% for index in 0 ... @interview_slots.size %>
 
-<%= link_to 'New Interview slot', new_interview_slot_path %>
+        <!-- Handling displaying of the day of the interviews -->
+
+        <!-- First index, so we display its day -->
+        <% if index == 0  %>
+            <tr>
+              <td><%= @interview_slots[index].start_time.strftime("%A | %B %-d, %Y") %></td>
+            </tr>
+            <br/>
+
+        <!-- Day of current index is different than the last one, so display the day as well -->
+        <% elsif @interview_slots[index].start_time.day != @interview_slots[index - 1].start_time.day %>
+            <tr>
+              <td><%= @interview_slots[index].start_time.strftime("%A | %B %-d, %Y") %></td>
+              <td> </td>
+            </tr>
+
+        <% end %>
+
+        <!-- Displaying the interview slots themselves -->
+
+        <tr>
+          <td><%= @interview_slots[index].start_time.strftime("%l:%M %p") %> <%= @interview_slots[index].end_time.strftime("- %l:%M %p") %>
+            <% if @interview_slots[index].rushee_id %>
+                <%= "-#{Rushee.find(@interview_slots[index].rushee_id).name}" %>
+            <% end %>
+          </td>
+
+          <td><%= link_to 'Delete Slot', @interview_slots[index], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+
+    <% end %> <!-- end for loop -->
+    </tbody>
+  </table>
+
+  <p class="linkclickblk" style="font-size:12px;">
+     <a href=<%= new_interview_slot_path %> > Generate interview slots </a> 
+  </p>
+
+</div>

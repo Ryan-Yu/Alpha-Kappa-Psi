@@ -1,20 +1,26 @@
-<h1>Create Interview Slots</h1>
+<div class="account-wall-static" style="font-family: 'Lato', sans-serif; font-size:13px;">
 
-<%= form_for @interview_slot_gen, :url => new_interview_slot_url, method: "post" do |f|%>
-
-    <%= render 'shared/error_messages', object: f.object%>
-
-    <p>Interview Date</p>
-    <%= f.date_select(:date, prompt: {day: 'Choose day', month: 'Choose month'}, start_year: Time.now.year) %>
+    <h2>Create Rush Interview Slots</h2>
+    <h5>Use this page to generate a series of interview slots on a particular day.</h5>
     <br />
-    <p>Start Time</p>
-    <%= f.time_select(:start_time, ampm: true, minute_step: 15) %>
-    <p>End Time</p>
-    <%= f.time_select(:end_time, ampm: true, minute_step: 15) %>
-    <p>Interval (minutes)</p>
-    <%= f.text_field(:interval, value: 30, placeholder: 'Interval (minutes)') %>
-    <br />
-    <%= f.submit("Create Interview Slots", class: "btn btn-sm") %>
-<% end %>
+    <%= form_for @interview_slot_gen, :url => new_interview_slot_url, method: "post" do |f|%>
 
-<%= link_to 'Back', interview_slots_path %>
+        <%= render 'shared/error_messages', object: f.object%>
+
+        <p>Interview Date</p>
+        <%= f.date_select(:date, prompt: {day: 'Choose day', month: 'Choose month'}, start_year: Time.now.year) %>
+        <br />
+        <p>Start Time</p>
+        <%= f.time_select(:start_time, ampm: true, minute_step: 15) %>
+        <p>End Time</p>
+        <%= f.time_select(:end_time, ampm: true, minute_step: 15) %>
+        <p>Length of each interview (minutes)</p>
+        <%= f.text_field(:interval, value: 30, placeholder: 'Interval (minutes)') %>
+        <br />
+        <br />
+        <%= f.submit("Create Interview Slots", class: "btn btn-sm") %>
+    <% end %>
+
+    <%= link_to 'Back to list of all interview slots', interview_slots_path %>
+
+</div>

@@ -3,7 +3,7 @@ class InterviewSlotsController < ApplicationController
 
   # GET /interview_slots
   def index
-    @interview_slots = InterviewSlot.all
+    @interview_slots = InterviewSlot.order(:start_time => :asc)
   end
 
   # GET /interview_slots/1
