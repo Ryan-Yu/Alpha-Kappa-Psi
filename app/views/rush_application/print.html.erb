@@ -21,6 +21,7 @@
 </style>
 
 <% provide(:title, 'Rush Application') %>
+<% cache cache_key_for_rush_application(@rush_application) do %>
 
 <div class="account-wall-static">
   <h4 style="text-align:center;"><%= @rush_application.name %>'s Rush Application:</h4>
@@ -83,3 +84,4 @@
 
 </div> <!-- end account-wall-static div -->
 
+<% end %>

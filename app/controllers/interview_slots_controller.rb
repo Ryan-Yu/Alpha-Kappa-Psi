@@ -75,8 +75,8 @@ class InterviewSlotsController < ApplicationController
     # Checks whether current active is a member of e-board
     def eboard_active
       if current_active.eboard.nil? || current_active.eboard.empty?
-        flash[:error] = "Only actives that are on the executive board may create and delete interview slots."
-        redirect_to(root_url)
+        flash.now[:notice] = "Only actives that are on the executive board may create and delete interview slots."
+        render 'index'
       end
     end
 
