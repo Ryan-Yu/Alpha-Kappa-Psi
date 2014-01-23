@@ -33,38 +33,6 @@ class InterviewSlotsController < ApplicationController
     end
   end
 
-  # Associate an interview slot with a rushee
-  def associate
-    matchingSlots = InterviewSlot.where(start_time: DateTime.parse(params[:selected_slot]))
-
-    # Iterate through all of the interview slots that have the same start_time as the one the rushee specified
-    for index in 0 ... matchingSlots.size
-
-      # We've found an InterviewSlot that we can place our rushee in
-      if matchingSlots[index].rushee_id.nil?
-        # Set our interview slot's rushee_id attribute to the rushee that was passed through
-        matchingSlots[index].rushee_id = params[:rusheeid]
-
-        # We've found a slot, and are saving it
-        if matchingSlots[index].save
-          flash[:success] = "Successfully scheduled professional interview. Please log in again to create/edit your rush application."
-          redirect_to rush_application_index_path
-          return
-        end
-      end
-
-      if index == matchingSlots.size - 1
-        # There should be an empty interview slot but there isn't (error)
-        flash[:error] = "There was a problem processing your interview request. Please contact VP Membership at rush@calakpsi.com."
-        redirect_to rush_application_index_path
-        return
-      end
-
-    end
-
-  end
-
-
 
   # GET /interview_slots/1/edit
   def edit
