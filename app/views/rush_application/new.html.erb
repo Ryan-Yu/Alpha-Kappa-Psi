@@ -25,7 +25,7 @@
     </p>
 
     <!-- The interview slot has an id attached to it (rushee has an interview slot)  -->
-    <% if !@interview_slot.nil? && !@interview_slot.id.nil? %>
+    <% if !@rushee.interview_slots.first.nil? %>
 
         You have signed up for a professional interview slot. It is scheduled for <%= @rushee.interview_slots.first.start_time.strftime("%A, %B %-d, %Y") %>, at <%= @rushee.interview_slots.first.start_time.strftime("%l:%M%p") %>.
 
@@ -37,7 +37,7 @@
 
         You have not yet signed up for a professional interview slot. Please choose one from the list below:<br /><br />
 
-        <%= form_tag "interview_slots/associate", method: :post do %>
+        <%= form_tag associate_interview_slot_path do %>
          
           <!-- Generate a hash that represents the interview slots, so we can pass them through with a select_tag  -->
           <% slots_for_select = {}
@@ -45,13 +45,12 @@
               slots_for_select[slot.start_time.strftime("%a. %D | %l:%M%p")] = slot.start_time
             end %>
 
-
           <!-- This will display all of the InterviewSlot objects in a dropdown box, but
           will display the start_times of the objects to the rushee instead of the object memory location (this is done with the hash generated above) -->
           <%= select_tag(:selected_slot, options_for_select(slots_for_select)) %>
 
-          <!-- Need to pass the rusheeid to the 'associate' action in the interview_slots_controller, so we pass it in a hidden_field_tag -->
-          <%= hidden_field_tag("rusheeid", @rushee.id.to_s) %>
+          <!-- Need to pass the rushee_id to the 'associate' action in the interview_slots_controller, so we pass it in a hidden_field_tag -->
+          <%= hidden_field_tag("rushee_id", @rushee.id.to_i) %>
 
           <br />
           <%= submit_tag 'Schedule Interview', class: "btn btn-sm" %>
@@ -70,7 +69,7 @@
 
       <br /><br />
 
-      <% unless @new_application || @rush_application.id.nil? %>
+      <% unless @rush_application.id.nil? %>
 
           <p>
             You have already completed your application. If you wish to print your application, you should click below: <br/>
