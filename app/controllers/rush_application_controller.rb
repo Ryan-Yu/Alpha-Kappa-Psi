@@ -75,12 +75,23 @@ class RushApplicationController < ApplicationController
           @rush_application.first_major = @rushee.major
           @rush_application.grade = @rushee.grade
         end
+
+        @interview_slot = find_interview_slot(@rushee)
+        if @interview_slot.nil?
+          @available_slots = InterviewSlot.where(rushee_id: nil)
+          @interview_slot = @rushee.interview_slots.build(interview_slot_params)
+        end
+
+
+
+
         return
       else
         flash.now[:notice] = "The password you have entered is incorrect. Please try again."
         render 'index'
       end
     end
+
   end
 
   # Helper Methods
@@ -94,9 +105,20 @@ class RushApplicationController < ApplicationController
                   :cover_letter, :resume, :transcript, :additional_transcript, :photograph)
   end
 
+  def interview_slot_params
+    params.permit(:start_time, :end_time, :interview_type)
+  end
+
   #Gets the rush application associated with the rushee or nil if none is.
   def find_rush_application(rushee)
     return RushApplication.find_by(rushee_id: rushee.id)
+  rescue
+    nil
+  end
+
+  #Gets the rush application associated with the rushee or nil if none is.
+  def find_interview_slot(rushee)
+    return InterviewSlot.find_by(rushee_id: rushee.id)
   rescue
     nil
   end

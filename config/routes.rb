@@ -54,6 +54,8 @@ AlphaKappaPsi::Application.routes.draw do
 
   match    '/interview_slots/new',           to: 'interview_slots#generate',    via: :post
 
+  match    '/rush_application/interview_slots/associate' => 'interview_slots#associate', via: :post
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
