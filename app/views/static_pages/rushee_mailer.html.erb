@@ -1,3 +1,11 @@
+<style>
+  .bio-field {
+      resize: none;
+      width: 100%;
+      height: 80px;
+  }
+</style>
+
 <% provide(:title, 'Email Rushees') %>
 
 <div class="account-wall-static">
@@ -21,9 +29,9 @@
 
             <%= render 'shared/error_messages', object: form.object%>
 
-            <%= form.text_field :subject, class: 'form-control', placeholder: "Subject".html_safe %>
+            <%= form.text_field :subject, class: 'form-control bio-field', placeholder: "Subject".html_safe %>
 
-            <%= form.text_area :body, class: 'form-control', placeholder: "Body".html_safe %>
+            <%= form.text_area :body, class: 'form-control bio-field', placeholder: "Body".html_safe %>
 
             <br />
 
