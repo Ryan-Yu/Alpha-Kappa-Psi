@@ -1,0 +1,43 @@
+<% provide(:title, 'Email Rushees') %>
+
+<div class="account-wall-static">
+
+  <div id="intro">
+    <br />
+    <h1 style="font-weight:500;">Rushee E-mailer</h1>
+    <h3 style="color:#b5b5b5;">Email all rushees</h3>
+
+    <div class="row" style="margin-left:0; margin-right:0;">
+
+      <div class="span1">
+      </div>
+
+      <div class="intro">
+        <br />
+
+        <br />
+
+        <%= form_for @email_to_rushee, :html => {:class => "form-sign-in-up"}, :url => rushee_mailer_url, method: "post" do |form| %>
+
+            <%= render 'shared/error_messages', object: form.object%>
+
+            <%= form.text_field :subject, class: 'form-control', placeholder: "Subject".html_safe %>
+
+            <%= form.text_area :body, class: 'form-control', placeholder: "Body".html_safe %>
+
+            <br />
+
+            <%= form.submit "Blast Email", data: { confirm: "Are you sure you want to send this email to all #{Rushee.count} rushees?" }, class: "home-button" %>
+
+        <% end %> <!-- end form_for -->
+
+        <br />
+
+      </div> <!-- end span6 div -->
+
+    </div> <!-- end row div -->
+
+  </div> <!-- end intro div -->
+
+</div> <!-- end account-wall-static div -->
+

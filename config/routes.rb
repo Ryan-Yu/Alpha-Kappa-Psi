@@ -22,14 +22,16 @@ AlphaKappaPsi::Application.routes.draw do
   resources :interview_slots, only: [:index, :new, :show, :destroy]
 
   root     'static_pages#home'
-  match    '/about',        to: 'static_pages#about',      via: 'get'
-  match    '/careers',      to: 'static_pages#careers',    via: 'get'
-  match    '/contact',      to: 'static_pages#contact',    via: 'get'
-  match    '/consulting',   to: 'static_pages#consulting', via: 'get'
-  match    '/corporate',    to: 'static_pages#corporate',  via: 'get'
-  match    '/rush',         to: 'static_pages#rush',       via: 'get'
-  match    '/classes',      to: 'static_pages#classes',    via: 'get'
-  match    '/contact',      to: 'static_pages#contact_request',     via: 'post'
+  match    '/about',            to: 'static_pages#about',             via: 'get'
+  match    '/careers',          to: 'static_pages#careers',           via: 'get'
+  match    '/contact',          to: 'static_pages#contact',           via: 'get'
+  match    '/contact',          to: 'static_pages#contact_request',   via: 'post'
+  match    '/consulting',       to: 'static_pages#consulting',        via: 'get'
+  match    '/corporate',        to: 'static_pages#corporate',         via: 'get'
+  match    '/rush',             to: 'static_pages#rush',              via: 'get'
+  match    '/classes',          to: 'static_pages#classes',           via: 'get'
+  match    '/rushee_mailer',    to: 'static_pages#rushee_mailer',     via: 'get'
+  match    '/rushee_mailer',    to: 'static_pages#email_rushee',      via: 'post'
 
   # Handles GET /rush_application -- controller: rush_application | method: INDEX
   # Handles GET /rush_application/:id -- controller: rush_application | method: SHOW
