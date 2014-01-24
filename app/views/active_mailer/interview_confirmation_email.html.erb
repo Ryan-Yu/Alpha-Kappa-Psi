@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<h2>Rush: Professional Interview Confirmation</h2>
+
+<p>
+  Your individual professional interview has been successfully scheduled through the Rush Application Portal. Your scheduled time and date is:
+
+  <%= @scheduled_slot.start_time.strftime("%A, %B %-d, %Y") %>, at <%= @scheduled_slot.start_time.strftime("%l:%M%p") %>.<br /><br />
+
+  <b>Important:</b> If you need to change your interview time slot, please contact VP Membership as soon as possible at rush@calakpsi.com. <br /><br />
+
+  If you have not yet submitted your rush application, please do so by logging into the <%= link_to 'Rush Application Portal', rush_application_index_url %> with your username, <%= "#{@rushee.email}" %>. <br/>
+  <br/>
+
+  Please print your application and bring it with you on the day of your professional individual interview.
+  As a reminder, appropriate interview attire is business professional.
+  <br/>
+  <br/>
+  We look forward to speaking with you soon.
+</p>
+
+<p>
+  For additional information, visit our website at <%= root_url %>.
+</p>
+</body>
+</html>

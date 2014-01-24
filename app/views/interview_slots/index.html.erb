@@ -30,7 +30,11 @@
         <tr>
           <td><%= @interview_slots[index].start_time.strftime("%l:%M %p") %> <%= @interview_slots[index].end_time.strftime("- %l:%M %p") %>
             <% if @interview_slots[index].rushee_id %>
-                <%= "- #{Rushee.find(@interview_slots[index].rushee_id).name}" %>
+                <td><b><%= "#{Rushee.find(@interview_slots[index].rushee_id).name}" %></b></td>
+                <td><%= "#{Rushee.find(@interview_slots[index].rushee_id).email}" %></td>
+            <% else %>
+                <td></td>
+                <td></td>
             <% end %>
           </td>
 

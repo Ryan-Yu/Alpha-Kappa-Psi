@@ -54,4 +54,12 @@ class ActiveMailer < ActionMailer::Base
     mail(to: @rushee.email, subject: "#{@subject}")
   end
 
+  def interview_confirmation_email(rushee, interview_slot)
+    @rushee = rushee
+    @scheduled_slot = interview_slot
+    @subject = "#{ASKPSI_HEADER} Professional Interview Confirmation"
+
+    mail(to: @rushee.email, subject: "#{@subject}")
+  end
+
 end

@@ -52,7 +52,7 @@
           <!-- Need to pass the rushee_id to the 'associate' action in the interview_slots_controller, so we pass it in a hidden_field_tag -->
           <%= hidden_field_tag("rushee_id", @rushee.id.to_i) %>
 
-          <br />
+          <br /><br />
           <%= submit_tag 'Schedule Interview', class: "btn btn-sm" %>
 
           <br />

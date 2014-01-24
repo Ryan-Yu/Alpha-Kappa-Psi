@@ -69,6 +69,7 @@ class RushApplicationController < ApplicationController
         # We've found a slot, and are saving it
         if matchingSlots[index].save
           flash.now[:success] = "You have successfully scheduled your professional interview, and should receive an email shortly with confirmation."
+          ActiveMailer.interview_confirmation_email(Rushee.find(params[:rushee_id]), matchingSlots[index]).deliver
           render 'new'
           return
         end
@@ -87,6 +88,7 @@ class RushApplicationController < ApplicationController
   def submitted
 
   end
+  
 
   def print
     @rush_application = RushApplication.find(params[:id])
