@@ -19,13 +19,13 @@
   <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
   <span class="profile-email">Rushee Application</span><br /><br />
 
-  <div style="text-align:center;">
+ <!--  <div style="text-align:center;">
     <p class="linkclickblk">
       <a style="color:#95bcb8; border:3px solid #95bcb8;">Professional Interview</a>
-    </p>
+    </p> -->
 
     <!-- The interview slot has an id attached to it (rushee has an interview slot)  -->
-    <% if !@rushee.interview_slots.first.nil? %>
+   <!--  <% if !@rushee.interview_slots.first.nil? %>
 
         You have signed up for a professional interview slot. It is scheduled for <%= @rushee.interview_slots.first.start_time.strftime("%A, %B %-d, %Y") %>, at <%= @rushee.interview_slots.first.start_time.strftime("%l:%M%p") %>.
 
@@ -37,20 +37,20 @@
 
         You have not yet signed up for a professional interview slot. Please choose one from the list below:<br /><br />
 
-        <%= form_tag associate_interview_slot_path do %>
+        <%= form_tag associate_interview_slot_path do %> -->
          
           <!-- Generate a hash that represents the interview slots, so we can pass them through with a select_tag  -->
-          <% slots_for_select = {}
+          <!-- <% slots_for_select = {}
             @available_slots.each do |slot|
               slots_for_select[slot.start_time.strftime("%a. %D | %l:%M%p")] = slot.start_time
-            end %>
+            end %> -->
 
           <!-- This will display all of the InterviewSlot objects in a dropdown box, but
           will display the start_times of the objects to the rushee instead of the object memory location (this is done with the hash generated above) -->
-          <%= select_tag(:selected_slot, options_for_select(slots_for_select)) %>
+          <!-- <%= select_tag(:selected_slot, options_for_select(slots_for_select)) %> -->
 
           <!-- Need to pass the rushee_id to the 'associate' action in the interview_slots_controller, so we pass it in a hidden_field_tag -->
-          <%= hidden_field_tag("rushee_id", @rushee.id.to_i) %>
+          <!-- <%= hidden_field_tag("rushee_id", @rushee.id.to_i) %>
 
           <br /><br />
           <%= submit_tag 'Schedule Interview', class: "btn btn-sm" %>
@@ -62,12 +62,12 @@
 
   </div>
 
-  <hr />
+  <hr /> -->
 
   <%= form_for(@rush_application, url: submit_rush_application_url, :html => {multipart: true, :class => "form-edit-active"}) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>          
 
-      <br /><br />
+      <!-- <br /><br /> -->
 
       <% unless @rush_application.id.nil? %>
 
