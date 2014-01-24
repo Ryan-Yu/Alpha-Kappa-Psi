@@ -62,4 +62,9 @@ class ActiveMailer < ActionMailer::Base
     mail(to: @rushee.email, subject: "#{@subject}")
   end
 
+  def rushee_email(email_to_rushee, rushee_email)
+    @body = email_to_rushee.body
+    mail(to: rushee_email, subject: "#{email_to_rushee.subject}")
+  end
+
 end
