@@ -19,7 +19,7 @@ AlphaKappaPsi::Application.routes.draw do
     resources :rusheeposts, only: [:create, :destroy]
   end
 
-  resources :interview_slots
+  resources :interview_slots, only: [:index, :new, :show, :destroy]
 
   root     'static_pages#home'
   match    '/about',        to: 'static_pages#about',      via: 'get'
@@ -52,9 +52,11 @@ AlphaKappaPsi::Application.routes.draw do
   # Paths created: submit_rush_application_path | submit_rush_application_url
   match    '/rush_application/submit',       to: 'rush_application#create',     via: [:patch, :post], as: :submit_rush_application
 
-  match    '/interview_slots/new',           to: 'interview_slots#generate',    via: :post
+  # Handles POST/rush_application/associate -- controller: rush_application | method: ASSOCIATE
+  # Paths created: associate_interview_slot_path | associate_interview_slot_url
+  match    '/rush_application/associate', to: 'rush_application#associate', via: :post, as: :associate_interview_slot
 
-  match    '/rush_application/interview_slots/associate' => 'rush_application#associate', via: :post
+  match    '/interview_slots/new',           to: 'interview_slots#generate',    via: :post
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

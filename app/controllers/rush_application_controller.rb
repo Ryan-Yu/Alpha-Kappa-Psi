@@ -1,4 +1,5 @@
 class RushApplicationController < ApplicationController
+  before_action :set_instance_variables, only: [:new, :create, :associate]
 
   def index
     @rush_events = RushEvent.all
@@ -10,11 +11,27 @@ class RushApplicationController < ApplicationController
     redirect_to rush_application_index_path
   end
 
+  #Controller logic for when a rushee submits credentials to signin to rush application
+  def new
+    if !(params[:email].present? && params[:password].present?)
+      flash.now[:notice] = 'Please enter both credentials to access the rush application.'
+      render 'index'
+      return
+    end
+
+    if @rushee.nil?
+      flash.now[:notice] = "This email has not yet been registered by a rushee. Please register at #{new_rushee_url}."
+      render 'index'
+    else
+      unless @rushee.authenticate(params[:password])
+        flash.now[:notice] = "The password you have entered is incorrect. Please try again."
+        render 'index'
+      end
+    end
+  end
+
   #Saves rush application to database or re-renders new
   def create
-    @rushee = Rushee.find(params[:rush_application][:rushee_id])
-    @rush_application = find_rush_application(@rushee)
-
     #No Previous Rush Application
     if @rush_application.nil?
       @rush_application = @rushee.build_rush_application(application_params(params[:rush_application]))
@@ -37,7 +54,6 @@ class RushApplicationController < ApplicationController
     end
   end
 
-
   # Associate an interview slot with a rushee
   def associate
     matchingSlots = InterviewSlot.where(start_time: DateTime.parse(params[:selected_slot]))
@@ -48,28 +64,24 @@ class RushApplicationController < ApplicationController
       # We've found an InterviewSlot that we can place our rushee in
       if matchingSlots[index].rushee_id.nil?
         # Set our interview slot's rushee_id attribute to the rushee that was passed through
-        matchingSlots[index].rushee_id = params[:rusheeid]
+        matchingSlots[index].rushee_id = params[:rushee_id]
 
         # We've found a slot, and are saving it
         if matchingSlots[index].save
-          flash[:success] = "You have successfully scheduled your professional interview, and should receive an email shortly with confirmation."
-
-          redirect_to rush_application_index_path
+          flash.now[:success] = "You have successfully scheduled your professional interview, and should receive an email shortly with confirmation."
+          render 'new'
           return
         end
       end
 
       if index == matchingSlots.size - 1
         # There should be an empty interview slot but there isn't (error)
-        flash[:error] = "There was a problem processing your interview request. Please contact VP Membership at rush@calakpsi.com."
-        redirect_to rush_application_index_path
+        flash.now[:error] = "There was a problem processing your interview request. Please contact VP Membership at rush@calakpsi.com."
+        render 'new'
         return
       end
-
     end
-
   end
-
 
   # Blank Method for Rendering Page
   def submitted
@@ -83,49 +95,6 @@ class RushApplicationController < ApplicationController
       flash[:error] = 'Please sign-in from the rush application portal to access your application.'
       redirect_to rush_application_index_path
     end
-  end
-
-  #Controller logic for when a rushee submits credentials to signin to rush application
-  def new
-    if !(params[:email].present? && params[:password].present?)
-      flash.now[:notice] = 'Please enter both credentials to access the rush application.'
-      render 'index'
-      return
-    end
-
-    @rushee = Rushee.find_by(email: params[:email])
-    if @rushee.nil?
-      flash.now[:notice] = "This email has not yet been registered by a rushee. Please register at #{new_rushee_url}."
-      render 'index'
-    else
-      if @rushee.authenticate(params[:password])
-        @new_application = false
-        @rush_application = find_rush_application(@rushee)
-        if @rush_application.nil?
-          @new_application = true
-          @rush_application = @rushee.build_rush_application
-          @rush_application.email = @rushee.email
-          @rush_application.name = @rushee.name
-          @rush_application.first_major = @rushee.major
-          @rush_application.grade = @rushee.grade
-        end
-
-        @interview_slot = find_interview_slot(@rushee)
-        if @interview_slot.nil?
-          @available_slots = InterviewSlot.where(rushee_id: nil)
-          @interview_slot = @rushee.interview_slots.build(interview_slot_params)
-        end
-
-
-
-
-        return
-      else
-        flash.now[:notice] = "The password you have entered is incorrect. Please try again."
-        render 'index'
-      end
-    end
-
   end
 
   # Helper Methods
@@ -165,6 +134,30 @@ class RushApplicationController < ApplicationController
     end
     ActiveMailer.app_confirmation_email(updated, rushee, rush_app).deliver
     render 'submitted'
+  end
+
+  def set_instance_variables
+    @available_slots = InterviewSlot.where(rushee_id: nil)
+
+    if !params[:rush_application].nil?
+      @rushee = Rushee.find(params[:rush_application][:rushee_id])
+    elsif !params[:rushee_id].nil?
+      @rushee = Rushee.find(params[:rushee_id])
+    else
+      @rushee = Rushee.find_by(email: params[:email])
+    end
+
+    unless @rushee.nil?
+      @rush_application = find_rush_application(@rushee)
+
+      if @rush_application.nil?
+        @rush_application = @rushee.build_rush_application
+        @rush_application.email = @rushee.email
+        @rush_application.name = @rushee.name
+        @rush_application.first_major = @rushee.major
+        @rush_application.grade = @rushee.grade
+      end
+    end
   end
 
 end

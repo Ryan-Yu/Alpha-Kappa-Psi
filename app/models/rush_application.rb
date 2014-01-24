@@ -1,6 +1,6 @@
 class RushApplication < ActiveRecord::Base
 
-  belongs_to :rushee
+  belongs_to :rushee, touch: true
 
   has_attached_file :cover_letter,
                     :storage => :s3,

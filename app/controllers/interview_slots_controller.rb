@@ -33,20 +33,8 @@ class InterviewSlotsController < ApplicationController
     end
   end
 
-
   # GET /interview_slots/1/edit
   def edit
-  end
-
-  # POST /interview_slots
-  def create
-    @interview_slot = InterviewSlot.new(interview_slot_params)
-
-    if @interview_slot.save
-      redirect_to @interview_slot, notice: 'Interview slot was successfully created.'
-    else
-      render action: 'new'
-    end
   end
 
   # PATCH/PUT /interview_slots/1
@@ -64,12 +52,9 @@ class InterviewSlotsController < ApplicationController
     redirect_to interview_slots_url, notice: 'Interview slot was successfully destroyed.'
   end
 
-
   def rushee_id=(selected_id)
     @rushee_id = selected_id
   end
-
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -90,14 +75,10 @@ class InterviewSlotsController < ApplicationController
     # Checks whether current active is a member of e-board
     def eboard_active
       if current_active.eboard.nil? || current_active.eboard.empty?
-        flash[:error] = "Only actives that are on the executive board may create and delete interview slots."
-        redirect_to(root_url)
+        flash.now[:notice] = "Only actives that are on the executive board may create and delete interview slots."
+        render 'index'
       end
     end
-
-
-
-
 
   def parse_time(interview_time, start_time)
     if start_time

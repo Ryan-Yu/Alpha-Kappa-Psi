@@ -1,7 +1,6 @@
 class InterviewSlot < ActiveRecord::Base
 
   validates :start_time, :end_time, presence: true
-
-  belongs_to :rushee
+  belongs_to :rushee, touch: true
 
 end
