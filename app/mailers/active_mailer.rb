@@ -7,8 +7,8 @@ class ActiveMailer < ActionMailer::Base
   AKPSI_HEADER = '[Alpha Kappa Psi]'
   CONTACT_HEADER = '[Contact Request]'
 
-  default from: "calakpsi.news@gmail.com"
-  default to: "calakpsi.news@gmail.com"
+  default from: "rush@calakpsi.com"
+  default to: "rush@calakpsi.com"
 
   #Welcome email instance variables, uses a user, root_url
   # uses to: to send it to specified email and subject: for subject line.
