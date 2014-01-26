@@ -122,7 +122,7 @@
                   <h5>(E-Board) Rush Options:</h5>
                   <a class="btn btn-sm" href=<%=interview_slots_new_path%>> Create new interview slot </a>
 
-                  <% if current_active.eboard = "VP Membership" %>
+                  <% if current_active.eboard == "VP Membership" %>
                     <br /><br />
                     <a class="btn btn-sm" href=<%= rushee_mailer_path %>> Email all rushees </a>
 

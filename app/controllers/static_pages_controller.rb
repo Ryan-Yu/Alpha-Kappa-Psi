@@ -52,7 +52,7 @@ class StaticPagesController < ApplicationController
 
       #Loop through all rushees to send the email
       rushees.each do |rushee|
-        ActiveMailer.rushee_email(@email_to_rushee, rushee.email ).deliver
+        ActiveMailer.rushee_email(@email_to_rushee, rushee.email, rushee.name).deliver
       end
 
       flash[:success] = "Emails were successfully sent out to #{rushees.count} rushees."
@@ -81,7 +81,7 @@ class StaticPagesController < ApplicationController
     end
 
     def authenticate_vp_mem
-      authenticate_active! # && current_active.eboard = "VP Membership"
+      authenticate_active! && current_active.eboard = "VP Membership"
     end
 
 end
