@@ -1,9 +1,4 @@
 <style>
-  .bio-field {
-      resize: none;
-      width: 100%;
-      height: 300px;
-  }
 
   .form-blast
   {
@@ -25,6 +20,13 @@
       box-sizing: border-box;
 
   }
+
+    .bio-field {
+      resize: none;
+      width: 100%;
+      height: 300px;
+  }
+
 </style>
 
 <% provide(:title, 'Email Rushees') %>
@@ -42,6 +44,8 @@
       <code>$LAST_NAME$</code>
       <br /><br />
       Simply type any of the above variables in your email body, and the mailer will automatically replace them with the correct information of the rushee.
+      <br /><br />
+      Clicking "Test Email" will send a copy of your email to both your personal email and rush@calakpsi.com so you can review it before you blast to all rushees.
     </p>
 
     <div class="row" style="margin-left:0; margin-right:0;">
@@ -58,9 +62,9 @@
 
             <%= render 'shared/error_messages', object: form.object%>
 
-            <%= form.text_field :subject, class: 'form-control bio-field', placeholder: "Subject".html_safe %>
+            <%= form.text_field :subject, class: 'form-control bio-field', style: 'padding:15px;', placeholder: "Subject".html_safe %>
 
-            <%= form.text_area :body, class: 'form-control bio-field', placeholder: "Body".html_safe %>
+            <%= form.text_area :body, class: 'form-control bio-field', style: 'padding-left:15px;', placeholder: "Body".html_safe %>
 
             <br />
 
