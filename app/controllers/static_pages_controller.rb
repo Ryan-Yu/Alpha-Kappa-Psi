@@ -48,15 +48,24 @@ class StaticPagesController < ApplicationController
 
   def email_rushee
     if @email_to_rushee.valid?
-      rushees = Rushee.all
+      # IF Blast Email is Selected
+      if params[:commit] == 'Blast Email'
+        rushees = Rushee.all
 
-      #Loop through all rushees to send the email
-      rushees.each do |rushee|
-        ActiveMailer.rushee_email(@email_to_rushee, rushee.email, rushee.name).deliver
+        #Loop through all rushees to send the email
+        rushees.each do |rushee|
+          ActiveMailer.rushee_email(@email_to_rushee, rushee.email, rushee.name).deliver
+        end
+        flash[:success] = "Emails were successfully sent out to #{rushees.count} rushees."
+        redirect_to rushee_mailer_url
+      # IF Test Email is selected
+      else
+        vp_membership = Active.find_by(eboard: 'VP Membership')
+        ActiveMailer.rushee_email(@email_to_rushee, vp_membership.email, vp_membership.name.titleize).deliver
+        ActiveMailer.rushee_email(@email_to_rushee, 'rush@calakpsi.com', vp_membership.name.titleize).deliver
+        flash[:notice] = "This email has been sent to rush@calakpsi.com and #{vp_membership.email}, please review it for errors."
+        render 'rushee_mailer'
       end
-
-      flash[:success] = "Emails were successfully sent out to #{rushees.count} rushees."
-      redirect_to rushee_mailer_url
     else
       render 'rushee_mailer'
     end

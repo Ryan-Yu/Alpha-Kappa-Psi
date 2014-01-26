@@ -63,7 +63,7 @@ class ActiveMailer < ActionMailer::Base
   end
 
   def rushee_email(email_to_rushee, rushee_email, rushee_name)
-    @body = email_to_rushee.body.gsub! '$FULL_NAME$', rushee_name
+    @body = email_to_rushee.body.gsub '$FULL_NAME$', rushee_name
     @body.gsub! '$FIRST_NAME$', rushee_name.split[0]
     @body.gsub! '$LAST_NAME$', rushee_name.split[1..-1].join(' ')
     mail(to: rushee_email, subject: "#{email_to_rushee.subject}")
