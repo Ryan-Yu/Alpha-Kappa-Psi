@@ -61,8 +61,8 @@ class StaticPagesController < ApplicationController
       # IF Test Email is selected
       else
         vp_membership = Active.find_by(eboard: 'VP Membership')
-        ActiveMailer.rushee_email(@email_to_rushee, vp_membership.email, vp_membership.name).deliver
-        ActiveMailer.rushee_email(@email_to_rushee, 'rush@calakpsi.com', vp_membership.name).deliver
+        ActiveMailer.rushee_email(@email_to_rushee, vp_membership.email, vp_membership.name.titleize).deliver
+        ActiveMailer.rushee_email(@email_to_rushee, 'rush@calakpsi.com', vp_membership.name.titleize).deliver
         flash[:notice] = "This email has been sent to rush@calakpsi.com and #{vp_membership.email}, please review it for errors."
         render 'rushee_mailer'
       end
