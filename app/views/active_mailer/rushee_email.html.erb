@@ -5,7 +5,7 @@
 </head>
 <body>
 <p>
-  <%= "#{@body}" %>
+  <%= raw(simple_format(@body)) %>
 </p>
 </body>
 </html>
