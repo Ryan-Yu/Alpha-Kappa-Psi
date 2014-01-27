@@ -84,6 +84,8 @@
             <th> Email </th>
             <th> Major </th>
             <th> Year </th>
+            <th> Number of Comments </th>
+            <th> Submitted Application? </th>
           </tr>
         </thead>
 
@@ -96,6 +98,14 @@
                       <td> <%= rushee.email %> </td>
                       <td> <%= rushee.major %> </td>
                       <td> <%= rushee.grade %> </td>
+                      <td> <%= rushee.rusheeposts.count %> </td>
+                      <td> 
+                        <% if !rushee.rush_application.nil? %> 
+                          <b>YES</b>
+                        <% else %>
+                          no
+                        <% end %>
+                      </td>
                     </tr>
                 <% end %>
             <% end %>
