@@ -105,4 +105,21 @@
     </div>
 
 </div>
+
+<br />
+
+<div class="account-wall-static">
+  <div id="intro">
+    <br />
+      <h3>Rushee Email Quick-List</h3>
+      <br />
+
+  </div>
+
+  <% @rushees.each do |rushee| %>
+    <span><%= rushee.email %></span>, 
+  <% end %>
+
+
+</div>
 <% end %>
