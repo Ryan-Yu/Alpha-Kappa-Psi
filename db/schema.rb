@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140121031130) do
+ActiveRecord::Schema.define(version: 20140128034130) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -301,7 +301,7 @@ ActiveRecord::Schema.define(version: 20140121031130) do
   end
 
   create_table "rusheeposts", force: true do |t|
-    t.string   "content"
+    t.text     "content",    limit: 255
     t.integer  "active_id"
     t.integer  "rushee_id"
     t.datetime "created_at"
