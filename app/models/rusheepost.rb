@@ -10,6 +10,6 @@ class Rusheepost < ActiveRecord::Base
 	validates :active_id, presence: true
 	validates :rushee_id, presence: true
 
-	validates :content, presence: true, length: { maximum: 300 }
+	validates :content, presence: true
 
 end
