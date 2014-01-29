@@ -11,13 +11,13 @@
 
 <% provide(:title, 'Rushees') %>
 
-<a class="nocolor-hover" href=<%= interview_slots_path %>>
+<!-- <a class="nocolor-hover" href=<%= interview_slots_path %>>
   <div class="small-infobox">
     View Individual Interview Schedule &nbsp;
     <i class="fa fa-arrow-circle-o-right" style="font-size:18px; color:#eee;"></i>
   </div>
 </a>
-
+ -->s
 <br />
 
 <% cache [cache_key_for_rushees, "page"] do %>
@@ -41,7 +41,7 @@
                       <li>
                         <a href=<%= rushee_path(rushee.id) %> class="thumbnail">
                         <%= image_tag rushee.photograph.url(:middlesmall) %>
-                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %> <br /> (<%= rushee.rusheeposts.count %> comments) </p>
                         </a>
                       </li>
 
@@ -49,7 +49,7 @@
                       <li>
                         <a href=<%= rushee_path(rushee.id) %> class="thumbnail">
                         <%= image_tag rushee.rush_application.photograph.url(:middlesmall) %>
-                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %></p>
+                        <p class="active-names"><%= rushee.name.split[0] %> <br /> <%= rushee.name.split[1..-1].join(' ') %> <br /> (<%= rushee.rusheeposts.count %> comments)</p>
                         </a>
                       </li>
 
@@ -91,7 +91,7 @@
 
         <tbody>
         <% cache [cache_key_for_rushees, "quick-find"] do %>
-            <% @rushees.each do |rushee| %>
+            <% @rusheesbyname.each do |rushee| %>
                 <% cache [rushee, "quick-find"] do %>
                     <tr style="font-size:11px;">
                       <td> <%= link_to rushee.name, rushee %> </td>

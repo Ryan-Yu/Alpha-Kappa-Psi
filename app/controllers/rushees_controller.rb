@@ -27,7 +27,8 @@ class RusheesController < ApplicationController
 
 
 	def index
-		@rushees = Rushee.all.sort_by{ |r| r.name.downcase }
+		@rusheesbyname = Rushee.all.sort_by{ |r| r.name.downcase }
+		@rushees = Rushee.all.sort_by{ |r| (r.rusheeposts.count * -1) }
 		@rushsemester = RushEvent.first.semester unless RushEvent.first.nil?
 	end
 
