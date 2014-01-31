@@ -40,7 +40,7 @@ class RushApplication < ActiveRecord::Base
                     :s3_credentials => S3_CREDENTIALS
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :email, :phone_number, :address, :city, :state, :country, :zip_code, :grade,
+  validates :email, :phone_number, :address, :city, :state, :zip_code, :grade,
             :first_major, :first_major_gpa, :cumulative_gpa,
             :academic_schedule, presence: true
 
