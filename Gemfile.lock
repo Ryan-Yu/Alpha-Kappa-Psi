@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/FriendlyId/friendly_id.git
-  revision: b7d2b0c0d2095e6091e1fae0ea2bd032a7406ea1
+  revision: 55a6841bfae0e70e5e51fadab97713508055f536
   specs:
     friendly_id (5.0.2)
       activerecord (>= 4.0.0)
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 74c1b220639862b99173f6d10a0852d23aa289ef
+  revision: bae6cec4c38ac43deff4476b128796ecfad5741b
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -59,7 +59,7 @@ GIT
 
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: f7938d9582c40e710351982dffe1b3280a65d46a
+  revision: c9c5227cb7f8061482834efb14889186345cf780
   specs:
     paperclip (3.5.3)
       activemodel (>= 3.0.0)
@@ -76,6 +76,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     actionmailer (4.0.2)
       actionpack (= 4.0.2)
       mail (~> 2.5.4)
@@ -134,7 +135,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
+    coffee-script-source (1.7.0)
     commonjs (0.2.7)
     dalli (2.7.0)
     decorators (1.0.3)
@@ -156,6 +157,9 @@ GEM
     faker (1.1.2)
       i18n (~> 0.5)
     ffi (1.9.3)
+    forem-textile_formatter (0.1.0)
+      RedCloth
+      forem
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
     gemoji (1.1.2)
@@ -300,7 +304,7 @@ GEM
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.8.0)
+    unicorn (4.8.1)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -328,6 +332,7 @@ DEPENDENCIES
   faker (= 1.1.2)
   forem!
   forem-bootstrap!
+  forem-textile_formatter
   forem-theme-base!
   forem-theme-twist!
   friendly_id!

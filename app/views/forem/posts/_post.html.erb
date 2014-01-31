@@ -1,8 +1,9 @@
+<br />
 <div style="font-family: 'Lato', sans-serif;">
 
   <a name='post-<%= post.id %>'></a>
   <div class="row">
-    <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> span10'>
+    <div id='post_<%= post_counter + 1 %>' class='post <%= cycle('odd', 'even') -%> span10' style='font-size:14px;'>
         <% if post.pending_review? %>
         <div class='moderation alert'>
           <%= t(".pending_review") %>
@@ -31,7 +32,7 @@
         <a href='#post-<%= post.id %>' style="font-size:14px;">
           <time datetime="<%= post.created_at.to_s(:db) -%>"><%= "#{time_ago_in_words(post.created_at)} #{t("ago")}" %></time>
         </a>
-        <p style="margin-top:10px; font-size:14px;"><%= forem_format(post.text) %></p>
+        <p style="margin-top:10px; font-size:14px;"><%= forem_format(post.text).html_safe %></p>
 
         <% if post.reply_to %>
           <div class='in-reply-to' style="font-size:11px;">
