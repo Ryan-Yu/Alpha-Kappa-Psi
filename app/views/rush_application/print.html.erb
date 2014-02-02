@@ -50,10 +50,10 @@
         <li><b>Major GPA:</b> <%= @rush_application.first_major_gpa %> </li>
         <% unless @rush_application.second_major.empty? %>
             <li><b>Second Major:</b> <%= @rush_application.second_major %> </li>
-            <li><b>Second Major GPA:</b> <%= @rush_application.first_major %> </li>
+            <li><b>Second Major GPA:</b> <%= @rush_application.second_major_gpa %> </li>
             <% unless @rush_application.third_major.empty? %>
                 <li><b>Third Major:</b> <%= @rush_application.third_major %> </li>
-                <li><b>Third Major GPA:</b> <%= @rush_application.third_major %> </li>
+                <li><b>Third Major GPA:</b> <%= @rush_application.third_major_gpa %> </li>
             <% end %>
         <% end %>
         <li><b>Cumulative GPA:</b> <%= @rush_application.cumulative_gpa %> </li>
