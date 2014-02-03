@@ -7,6 +7,7 @@ ActiveAdmin.register Rushee do
     column :email
     column :major
     column :grade
+    column :eliminated
 
     # Adds view/edit/delete actions
     default_actions
@@ -19,6 +20,7 @@ ActiveAdmin.register Rushee do
       f.input :major
       f.input :grade, as: :select, collection: ["Freshman", "Sophomore", "Junior", "Junior Transfer", "Senior"], :label => "Grade"
       f.input :photograph
+      f.input :eliminated
     end
   
     f.actions
@@ -29,6 +31,24 @@ ActiveAdmin.register Rushee do
     def permitted_params
       params.permit!
     end
+  end
+
+  #batch_action to eliminate rushee
+  batch_action :eliminate, priority: 1 do |selection|
+    Rushee.find(selection).each do |rushee|
+      rushee.eliminated = true
+      rushee.save
+    end
+    redirect_to :back
+  end
+
+  #batch_action to uneliminate rushee
+  batch_action :uneliminate, priority: 2 do |selection|
+    Rushee.find(selection).each do |rushee|
+      rushee.eliminated = false
+      rushee.save
+    end
+    redirect_to :back
   end
   
 end

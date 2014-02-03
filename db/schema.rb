@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140128034130) do
+ActiveRecord::Schema.define(version: 20140203080806) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -322,6 +322,7 @@ ActiveRecord::Schema.define(version: 20140128034130) do
     t.integer  "photograph_file_size"
     t.datetime "photograph_updated_at"
     t.string   "password_digest"
+    t.boolean  "eliminated",              default: false
   end
 
   add_index "rushees", ["email"], name: "index_rushees_on_email", unique: true

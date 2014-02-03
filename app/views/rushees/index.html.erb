@@ -118,10 +118,12 @@
 
 <br />
 
+<!-- Email List of all rushees -->
+
 <div class="account-wall-static">
   <div id="intro">
     <br />
-      <h3>Rushee Email Quick-List</h3>
+      <h3>Rushee Email Quick-List (all rushees)</h3>
       <br />
 
   </div>
@@ -130,6 +132,76 @@
     <span><%= rushee.email %></span>, 
   <% end %>
 
+</div>
+
+<br />
+
+<!-- Eliminated Rushees  -->
+
+<div class="account-wall-static">
+  <div id="intro">
+    <br />
+      <h3>Eliminated Rushees</h3>
+      <br />
+
+  </div>
+
+  <% @rushees.each do |rushee| %>
+    <% if rushee.eliminated %>
+      <span><%= rushee.email %></span>, 
+    <% end %>
+  <% end %>
 
 </div>
+
+<br />
+
+<!-- Non eliminated rushees -->
+
+<div class="account-wall-static">
+  <div id="intro">
+    <br />
+      <h3>Non-eliminated Rushees</h3>
+      <br /><br />
+
+  </div>
+    
+    <div class="table-responsive">
+      <table class="table table-striped table-condensed" style="font-size:12px;">
+
+        <thead>
+          <tr>
+            <th> Name </th>
+            <th> Email </th>
+            <th> Major </th>
+            <th> Year </th>
+            <th> Number of Comments </th>
+            <th> Submitted Application? </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @rusheesbyname.each do |rushee| %>
+            <% unless rushee.eliminated %>
+              <tr style="font-size:11px;">
+                <td> <%= link_to rushee.name, rushee %> </td>
+                <td> <%= rushee.email %> </td>
+                <td> <%= rushee.major %> </td>
+                <td> <%= rushee.grade %> </td>
+                <td> <%= rushee.rusheeposts.count %> </td>
+                <td> 
+                  <% if !rushee.rush_application.nil? %> 
+                    <b>YES</b>
+                  <% else %>
+                    no
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 <% end %>

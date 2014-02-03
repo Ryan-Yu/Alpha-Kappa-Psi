@@ -93,5 +93,4 @@ ActiveAdmin.register Active do
   end
 
 
-
 end
