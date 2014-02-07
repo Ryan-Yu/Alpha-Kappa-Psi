@@ -53,9 +53,9 @@ class StaticPagesController < ApplicationController
     if @watchdog_entry.valid?
       ActiveMailer.watchdog_email(@watchdog_entry).deliver
       flash[:success] = "You have successfully submitted your watchdog."
-      redirect_to @current_active
+      redirect_to root_path
     else
-      render 'contact' # Change this
+      render 'watchdog'
     end
   end
 
