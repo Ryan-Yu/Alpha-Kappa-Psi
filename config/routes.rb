@@ -26,6 +26,8 @@ AlphaKappaPsi::Application.routes.draw do
   match    '/careers',          to: 'static_pages#careers',           via: 'get'
   match    '/contact',          to: 'static_pages#contact',           via: 'get'
   match    '/contact',          to: 'static_pages#contact_request',   via: 'post'
+  match    '/watchdog',         to: 'static_pages#watchdog',          via: 'get'
+  match    '/watchdog',         to: 'static_pages#watchdog_entry',    via: 'post'
   match    '/consulting',       to: 'static_pages#consulting',        via: 'get'
   match    '/corporate',        to: 'static_pages#corporate',         via: 'get'
   match    '/rush',             to: 'static_pages#rush',              via: 'get'

@@ -6,6 +6,7 @@ class ActiveMailer < ActionMailer::Base
   #Constants for email headers
   AKPSI_HEADER = '[Alpha Kappa Psi]'
   CONTACT_HEADER = '[Contact Request]'
+  WATCHDOG_HEADER = '[AKPsi Watchdog]'
 
   default from: "rush@calakpsi.com"
   default to: "rush@calakpsi.com"
@@ -27,6 +28,12 @@ class ActiveMailer < ActionMailer::Base
   def contact_email(contact_request)
     @contact_request = contact_request
     mail(subject: "#{CONTACT_HEADER} - #{@contact_request.name} - #{@contact_request.subject}", from: @contact_request.email)
+  end
+
+  # Watchdog Email
+  def watchdog_email(watchdog_entry)
+    @watchdog_entry = watchdog_entry
+    mail(subject: "#{WATCHDOG_HEADER} - #{@watchdog_entry.subject}", to: "ryan.cao.you@gmail.com") # Change this
   end
 
   #Rushee signup email

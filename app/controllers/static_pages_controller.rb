@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   before_action :set_email_to_rushee, only: [:rushee_mailer, :email_rushee]
   before_action :authenticate_vp_mem, only: [:rushee_mailer, :email_rushee]
+  before_action :authenticate_active!, only: [:watchdog, :watchdog_entry]
 
   def home
   end
@@ -14,6 +15,10 @@ class StaticPagesController < ApplicationController
 
   def contact
     @contact_request = ContactRequest.new
+  end
+
+  def watchdog
+    @watchdog_entry = WatchdogEntry.new
   end
 
   def consulting
@@ -42,9 +47,23 @@ class StaticPagesController < ApplicationController
     end
   end
 
+
+  def watchdog_entry
+    @watchdog_entry = WatchdogEntry.new(watchdog_params)
+    if @watchdog_entry.valid?
+      ActiveMailer.watchdog_email(@watchdog_entry).deliver
+      flash[:success] = "You have successfully submitted your watchdog."
+      redirect_to @current_active
+    else
+      render 'contact' # Change this
+    end
+  end
+
+
   def rushee_mailer
 
   end
+
 
   def email_rushee
     if @email_to_rushee.valid?
@@ -75,6 +94,10 @@ class StaticPagesController < ApplicationController
 
     def contact_params
       params.require(:contact_request).permit(:name, :email, :subject, :body)
+    end
+
+    def watchdog_params
+      params.require(:watchdog_entry).permit(:subject, :body)
     end
 
     def rushee_email_params
