@@ -33,7 +33,7 @@ class ActiveMailer < ActionMailer::Base
   # Watchdog Email
   def watchdog_email(watchdog_entry)
     @watchdog_entry = watchdog_entry
-    mail(subject: "#{WATCHDOG_HEADER} - #{@watchdog_entry.subject}", to: "calakpsiwatchdog@lists.berkeley.edu")
+    mail(subject: "#{WATCHDOG_HEADER} - #{@watchdog_entry.subject}", to: "alphabetawatchdog@gmail.com")
   end
 
   #Rushee signup email
