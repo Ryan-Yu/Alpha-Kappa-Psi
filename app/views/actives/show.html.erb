@@ -34,7 +34,9 @@
 <!-- If active is signed in, then we want to render the active resources column -->
 
 <% if active_signed_in? && current_active?(@active) %>
+  
         <div class="account-wall-static">
+
           <div class="row">
             <div class="span6">
 
@@ -159,6 +161,13 @@
           </div> <!-- end of row div -->
 
         </div> <!-- end of account-wall-static div -->
+
+        <br />
+
+        <div class="account-wall-static" style="text-align:center;">
+          <iframe src="https://www.google.com/calendar/embed?src=hr89t5fqed71k3so07psj4r0ek%40group.calendar.google.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+
 
 
     <!-- User is not signed in as an active, so profile should be formatted in the center  -->
