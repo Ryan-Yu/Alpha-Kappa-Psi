@@ -27,6 +27,12 @@ class StaticPagesController < ApplicationController
   def corporate
   end
 
+  def awards
+    @awards = Award.order(:year => :desc)
+    @awards_by_year = @awards.group_by { |entry| entry.year }
+
+  end
+
   def rush
     @rushevents = RushEvent.order(:event_time => :asc)
     @rushflyer = RushFlyer.last

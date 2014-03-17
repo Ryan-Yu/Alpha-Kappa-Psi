@@ -1,0 +1,61 @@
+<style>
+	.table thead tr {
+		background-color: #a9d3cf;
+	}
+
+	.table {
+		font-size: 11.5px;
+	}
+</style>
+
+<% provide(:title, 'Awards') %>
+
+<div class="account-wall-static">
+
+	<div id="intro">
+	    <h1>Awards</h1>
+	    <br />
+  	</div>
+
+  	<div class="table-responsive">
+  		<table class="table table-condensed">
+
+  			<thead>
+				<tr>
+					<th> Actives/Alumni </th>
+					<th> Competition </th>
+				</tr>
+			</thead>
+
+			<!-- Iterating through each year -->
+			<% @awards_by_year.each do |year_entry| %>
+
+				<% for index in 0 ... year_entry.size %>
+
+					<!-- Year row -->
+					<% if index == 0 %>
+						<tr style="background-color:#eee">
+							<td> <b><%= year_entry[index] %></b> </td>
+							<td>  </td>
+						</tr>
+
+					<% else %>
+
+						<!-- Individual entries -->
+						<% year_entry[index].each do |indiv_entry| %>
+							<tr>
+								<td> <%= indiv_entry.members %></td>
+								<td> <%= indiv_entry.desc %></td>
+							</tr>
+						<% end %>
+
+					<% end %>
+
+				<% end %>
+			<% end %>
+
+  		</table>
+  	</div>
+
+
+</div>

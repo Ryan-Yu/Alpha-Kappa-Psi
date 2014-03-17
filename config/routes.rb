@@ -32,6 +32,7 @@ AlphaKappaPsi::Application.routes.draw do
   match    '/corporate',        to: 'static_pages#corporate',         via: 'get'
   match    '/rush',             to: 'static_pages#rush',              via: 'get'
   match    '/classes',          to: 'static_pages#classes',           via: 'get'
+  match    '/awards',           to: 'static_pages#awards',            via: 'get'
   match    '/rushee_mailer',    to: 'static_pages#rushee_mailer',     via: 'get'
   match    '/rushee_mailer',    to: 'static_pages#email_rushee',      via: 'post'
 

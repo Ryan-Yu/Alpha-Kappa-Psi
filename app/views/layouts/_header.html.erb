@@ -135,7 +135,18 @@
             </ul>
           </li>
 
-          <li><%= link_to "Careers",         main_app.careers_path %></li>
+    
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Careers
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Active/alumni jobs", main_app.careers_path %></li>
+              <li><%= link_to "Awards", main_app.awards_path %></li>
+            </ul>
+          </li>
+
+
           <li><%= link_to "Consulting",      main_app.consulting_path %></li>
           <li><%= link_to "Corporate",       main_app.corporate_path %></li>
 
