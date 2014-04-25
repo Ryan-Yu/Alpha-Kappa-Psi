@@ -66,6 +66,7 @@
 
 <% provide(:title, 'Rush AKΨ') %>
 
+
 <% if !@rushflyer.nil? && @rushflyer.front.exists? %>
     <% cache cache_key_for_rush_flyer(@rushflyer) do %>
 	<a href="#calendar">
@@ -84,6 +85,7 @@
 <% end %>
 
 <div class="account-wall-static">
+
 	<a name="calendar"><img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200"></a>
   <% cache cache_key_for_rush_events do %>
   <div id="intro">
@@ -96,6 +98,8 @@
 		<br />
 		<br />
 	</div>
+
+
 
 	<!-- If there are, for some reason, no rush events, then display this message -->
 	<% if @rushevents.empty? %>
@@ -114,7 +118,12 @@
 		<h1 style="font-size:30px;">Prospective Rushees</h1>
 		<h3 style="font-size:15px;">Rushing Alpha Kappa Psi this semester?</h3>
 		<p class="linkclickblk"><br />
-		   <a href=<%= rush_application_index_path %> style="color:#95bcb8; border:3px solid #95bcb8;"> Click here </a> 
+		   <a href=<%= rush_application_index_path %> style="color:#95bcb8; border:3px solid #95bcb8;"> Click here to enter rushee portal</a> 
+	    </p>
+	    <br />
+	    <h1 style="font-size:24px; margin-bottom: 0px;">Questions about rush? Please email:</h1>
+	    <p class="linkclickblk" style="margin-top:0px;"><br />
+		   <a style="color:#95bcb8; border:3px solid #95bcb8;"> rush@calakpsi.com </a> 
 	    </p>
 	</div>
 

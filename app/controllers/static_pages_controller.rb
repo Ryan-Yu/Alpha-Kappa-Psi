@@ -30,7 +30,6 @@ class StaticPagesController < ApplicationController
   def awards
     @awards = Award.order(:year => :desc)
     @awards_by_year = @awards.group_by { |entry| entry.year }
-
   end
 
   def rush

@@ -31,29 +31,33 @@
     <img class="profile-img" src=<%= asset_path("akpsi_color_200.png")%> alt="akpsi_color_200">
 
     <p class="profile-name">AKΨ: Alpha Beta Chapter</p>
-    <span class="profile-email">Rushee Sign-up</span><br />
+    <span class="profile-email">Rushee Sign-up</span><br /><br />
 
-    <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: "&#xf007;  Name".html_safe %>
 
+    Please check back at the beginning <br />of the Fall 2014 semester.
+
+    <!-- Rushee signup form - uncomment this when you want rushees to be able to sign up -->
+
+
+
+    <!--<%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: "&#xf007;  Name".html_safe %>
     <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: "&#xf003;  Email".html_safe %>
-
     <%= f.text_field :major, class: 'form-control', autofocus: true, placeholder: "&#xf15c;  Major".html_safe %>
-
     <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: "&#xf084;  Password".html_safe %>
-
     <%= f.password_field :password_confirmation, class: 'form-control', autofocus: true, placeholder: "&#xf084;  Confirm Password".html_safe %><br />
-
     <p style="font-size:11px;">(you will need this password <br />to submit your rush application)</p>
-
     <br />
-
     <%= f.select :grade, ["Freshman", "Sophomore", "Junior", "Junior Transfer", "Senior"], class: 'form-control', autofocus: true %>
-
     <br />
     <br />
-
     <%= f.submit "Submit rush sign-up", class: "btn btn-sm" %><br />
-    <br /><p style="font-size:11px;">(Please only click ONCE)</p>
+    <br /><p style="font-size:11px;">(Please only click ONCE)</p>-->
+
+
+
+
+    <!-- End of rushee signup form -->
+
   </div>
 <% end %>
 
